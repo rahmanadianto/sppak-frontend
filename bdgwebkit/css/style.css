@@ -5951,7 +5951,7 @@ table.dataTable thead > tr > th{
     padding: 8px 20px;
     line-height: 1.5;
 }
-.btn-sm{
+.btn-sm {
   padding: 5px 13px;
 }
 .btn-icon.btn-sm{
@@ -6202,8 +6202,8 @@ span.circle{
 
 /******** SPPAK *******/
 
-.bg-pink {
-  background-color: #fce4ec;
+.bg-bandung {
+  background-color: #90caf9;
 }
 
 .text-info-sppak {
@@ -6262,4 +6262,10 @@ fieldset[disabled] .btn-info-sppak:active,
 fieldset[disabled] .btn-info-sppak.active {
   background-color: #f06292;
   border-color: #f06292;
+}
+
+.modal-right {
+  position: absolute;
+  top: 50%;
+  left: 80%;
 }
