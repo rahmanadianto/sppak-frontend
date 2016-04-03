@@ -380,25 +380,25 @@
           </div>
 
           <div class="bg-light lter b-b wrapper-md padder-md">
-            <h1 class="m-n font-semibold h4 text-grey padder">Histori Anak</h1>
+            <h1 class="m-n font-semibold h4 text-grey padder">Admin - Beranda</h1>
           </div>
 
-          <div class="wrapper-lg">            
-            <div class="row">
+          <div class="wrapper-lg">
+			  <div class="row">
               <div class="col-md-12">
                 <div class="panel panel-default">
                   <div class="panel-heading font-semibold">
-                    Tabel Data Histori Anak
+                    Tabel Daftar Permohonan
                   </div>
                   <div class="row wrapper-sm">
                       <div class="col-sm-5">
-                      <!--<select class="input-sm form-control w-sm inline v-middle">
+                      <select class="input-sm form-control w-sm inline v-middle">
                         <option value="0">Bulk action</option>
                         <option value="1">Delete selected</option>
                         <option value="2">Bulk edit</option>
                         <option value="3">Export</option>
                       </select>
-                      <button class="btn btn-sm btn-default">Apply</button>-->
+                      <button class="btn btn-sm btn-default">Apply</button>
                     </div>
                     <div class="col-sm-4">
                     </div>
@@ -415,51 +415,35 @@
                     <table class="table table-striped b-t b-light">
                       <thead>
                         <tr>
-                          <!--<th style="width:20px;">
+                          <th style="width:20px;">
                             <label class="checkbox-inline ">
                               <input type="checkbox"><i></i>
                             </label>
-                          </th>-->
-                          <th>Nama</th>
-                          <th>Anak ke-</th>
-                          <th>Tanggal Lahir</th>
-                          <th>Status Permohonan</th>
-                          <th>Status Pencetakan</th>
-                          <th>Ubah</th>
+                          </th>
+                          <th>Nama Pemohon</th>
+                          <th>Nama Anak</th>
+                          <th>Tanggal Lahir Anak</th>
+                          <th>Detail</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-							<!--<td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>-->
+							<td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>
                           <td>Fiqie</td>
-                          <td>20</td>
+                          <td>Panda</td>
                           <td>Jul 25, 1987</td>
                           <td>
-							  <i class="fa fa-check text-success text-active"></i><i class="fa fa-check text-success text"></i>
+							  <i class="fa text-success text">Lihat</i>
                           </td>
-                          <td>
-                            <i class="fa fa-check text-success text-active"></i><i class="fa fa-check text-success text"></i>
-                          </td>
-                          <td><a href class="active" ui-toggle-class>
-							  <i class="fa text-success text-active">Ubah</i>
-							  <i class="fa text-danger text">-</i>
-                          </a></td>
                         </tr>
                         <tr>
-                          <!--<td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>-->
+                          <td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>
                           <td>Ko Lay</td>
-                          <td>17</td>
+                          <td>Alay</td>
                           <td>Jul 22, 1990</td>
                           <td>
-                            <i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i>
+							  <i class="fa text-success text">Lihat</i>
                           </td>
-                          <td>
-                            <i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i>
-                          </td>
-                          <td><a href ui-toggle-class>
-							  <i class="fa text-success text-active">Ubah</i>
-							  <i class="fa text-danger text">-</i>
-                          </a></td>
                         </tr>
                       </tbody>
                     </table>
@@ -467,13 +451,13 @@
                   <footer class="panel-footer">
                     <div class="row">
                       <div class="col-sm-4 hidden-xs">
-                        <!--<select class="input-sm form-control w-sm inline v-middle">
+                        <select class="input-sm form-control w-sm inline v-middle">
                           <option value="0">Bulk action</option>
                           <option value="1">Delete selected</option>
                           <option value="2">Bulk edit</option>
                           <option value="3">Export</option>
                         </select>
-                        <button class="btn btn-sm btn-default">Apply</button>-->
+                        <button class="btn btn-sm btn-default">Apply</button>
                       </div>
                       <div class="col-sm-4 text-center">
                         <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
@@ -498,6 +482,65 @@
       	 </div>
          <!-- div app content body -->
       </div>
+      <!-- div.col -->
+   <div class="col w-ml bg-white-only bg-auto no-border-xs">
+    <div class="nav-tabs-alt" >
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+          <a data-target="#tab-1" role="tab" data-toggle="tab">
+            <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Detail
+          </a>
+        </li>
+        <li>
+          <a data-target="#tab-2" role="tab" data-toggle="tab">
+            <i class="glyphicon glyphicon-comment text-md text-muted wrapper-xs"></i>-
+          </a>
+        </li>
+        <li>
+          <a data-target="#tab-3" role="tab" data-toggle="tab">
+            <i class="glyphicon glyphicon-transfer text-md text-muted wrapper-xs"></i>-
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="tab-1">
+        <div class="wrapper-none">
+			<li class="list-group-item">
+			  <span class="text-grey l-h-s">Nama Pemohon</span>
+			  <span class="block text12 text-dark font-bold">Fiqie</span>
+			</li>
+			<li class="list-group-item">
+			  <span class="text-grey l-h-s">Nama Anak</span>
+			  <span class="block text12 text-dark font-bold">Panda</span>
+			</li>
+			<li class="list-group-item">
+			 <span class="text-grey l-h-s">Tanggal Lahir Anak</span>
+			  <span class="block text12 text-dark font-bold">Jul 25, 1987</span>
+			</li>
+			<li class="list-group-item">
+			  <span class="text-grey l-h-s">Berat Anak</span>
+			  <span class="block text12 text-dark font-bold">4kg</span>
+			</li>
+			<li class="list-group-item">
+			  <span class="text-grey l-h-s">Panjang Anak</span>
+			  <span class="block text12 text-dark font-bold">60cm</span>
+			</li>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane tab-2" id="tab-2">
+        <div class="wrapper-none">
+			
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane tab-3" id="tab-3">
+        <div class="wrapper-none">          
+			
+        </div>
+      </div>
+    </div>
+  </div>
+
     </div>
     <!-- end hbox hbox-auto-xs -->
 
