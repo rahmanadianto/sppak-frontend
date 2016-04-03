@@ -4873,6 +4873,10 @@ a.text-#000000:hover {
   width: 360px;
 }
 
+.w-xxxl {
+  width: 600px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -6204,6 +6208,7 @@ span.circle{
 
 .bg-bandung {
   background-color: #90caf9;
+  overflow-y: none;
 }
 
 .text-info-sppak {
