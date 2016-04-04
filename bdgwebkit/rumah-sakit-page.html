@@ -169,7 +169,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="table-responsive">
+                    <div class="table-responsive" ng-app="sppak" ng-controller="instansiKesehatanCtrl">
                       <table class="table table-striped b-t b-light">
                         <thead>
                           <tr>
@@ -194,7 +194,7 @@
                             <td>Fiqie</td>
                             <td>2 Maret 2016, 19.00 wib</td>
                             <td>
-                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -204,7 +204,7 @@
                             <td>Acel</td>
                             <td>2 Maret 2016, 19.00 wib</td>
                             <td>
-                              <a href ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -214,7 +214,7 @@
                             <td>Natan</td>
                             <td>2 Maret 2016, 19.00 wib</td>
                             <td>
-                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
                             </td>
                           </tr>
                           <tr>
@@ -224,7 +224,7 @@
                             <td>Kolay</td>
                             <td>2 Maret 2016, 19.00 wib</td>
                             <td>
-                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
                             </td>
                           </tr>
                         </tbody>
@@ -273,5 +273,12 @@
   <script src="js/ui-nav.js"></script>
   <script src="js/ui-toggle.js"></script>
   <script src="js/ui-client.js"></script>
+  <script type="text/javascript" src="libs/angular.js"></script>
+  <script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
+  <script src="libs/angular-base64-lib/angular-base64.js"></script>
+  <script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/services/instansi-kesehatan-service.js"></script>
+  <script type="text/javascript" src="js/controllers/instansi-kesehatan-controller.js"></script>
 </body>
 </html>
