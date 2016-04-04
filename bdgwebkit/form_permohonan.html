@@ -2,25 +2,21 @@
 <html lang="en" class="">
 <head>
   <meta charset="utf-8" />
-  <title>Bandung Web Kit | BDGWEBKIT</title>
-  <meta name="description" content="Bandung Web Kit" />
+  <title>SPPAK | Permohonan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <!-- Library -->
   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
   <link rel="stylesheet" href="../libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="../libs/assets/simple-line-icons/css/simple-line-icons.css" type="text/css" />
   <link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
-
   <link rel="stylesheet" href="css/font.css" type="text/css" />
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" type="text/css" />
-  
-
 </head>
-<body>
-<div class="app app-header-fixed ">
-  
 
+<body>
+  <div class="app app-header-fixed ">
     <!-- header -->
-  <header id="header" class="app-header navbar" role="menu">
+    <header id="header" class="app-header navbar" role="menu">
       <!-- navbar header -->
       <div class="navbar-header bg-info">
         <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
@@ -30,61 +26,23 @@
           <i class="glyphicon glyphicon-align-justify"></i>
         </button>
         <!-- brand -->
-        <a href="#/" class="navbar-brand text-lt">          
+        <a href="#/" class="navbar-brand text-lt">
           <img src="img/logo-small.png" alt="." class="small-logo hide">
           <img src="img/logo.png" alt="." class="large-logo">
-        </a>
-        <!-- / brand -->
-      </div>
-      <!-- / navbar header -->
+        </a> <!-- / brand -->
+      </div> <!-- / navbar header -->
 
       <!-- navbar collapse -->
       <div class="collapse pos-rlt navbar-collapse bg-info">
         <!-- buttons -->
-        <div class="nav navbar-nav hidden-xs">
-                  
-        </div>
-        <!-- / buttons -->
+        <div class="nav navbar-nav hidden-xs"></div> <!-- / buttons -->
 
         <!-- link and dropdown -->
         <ul class="nav navbar-nav hidden-sm">
           <li>
-            <a href="#">HOME</a>
+            <a href="#">Beranda</a>
           </li>
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-              <i class="fa fa-fw fa-plus visible-xs-inline-block"></i>
-              <span>PAGES</span> <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu" role="menu">
-              
-              <li>
-                <a href="#">
-                  <span class="badge bg-danger pull-right">5</span>
-                  <span>Form Elements</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="#">
-                  <span class="badge bg-info pull-right">15</span>
-                  <span>Form Validation</span>
-                </a>
-              </li>
-
-              <li>
-                <a href="#">
-                  <span>Form Wizard</span>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-           <li>
-            <a href="#">PROJECT</a>
-          </li>
-        </ul>
-        <!-- / link and dropdown -->
+        </ul><!-- / link and dropdown -->
 
         <!-- nabar right -->
         <ul class="nav navbar-nav navbar-right">
@@ -122,500 +80,290 @@
                   <a href="#notes" data-toggle="class:show animated fadeInRight">Lihat Semua Notifikasi</a>
                 </div>
               </div>
-            </div>
-            <!-- / dropdown -->
+            </div> <!-- / dropdown -->
           </li>
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-              <i class="icon-bdg_search text14"></i>              
-            </a>
-            <!-- dropdown -->
-             <div class="search_wrapper pull-right w-xl animated fadeIn">
-              <form action="">
-                <i class="pull-left glyphicon glyphicon-search"></i>
-                  <input type="text" class="pull-left" placeholder="Type Here">
-                <a href="#" class="remove-search"><i class="pull-right icon-bdg_cross"></i></a>
-              </form>
-            </div>
-            <!-- / dropdown -->
-          </li>
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="bg-blue profile-header dropdown-toggle clear" data-toggle="dropdown">
-              <span class="thumb-sm avatar pull-left m-t-n-sm m-b-n-sm m-r-sm">
-                <img src="img/01.jpg" alt="...">                
-              </span>
-              <span class="hidden-sm hidden-md m-r-xl">Ridwan Kamil</span> <i class="text14 icon-bdg_setting3 pull-right"></i>
-            </a>
-            <!-- dropdown -->
-            <ul class="dropdown-menu animated fadeIn w-ml">             
-              <li>
-                <a href>
-                  <span class="badge bg-danger pull-right">30%</span>
-                  <span>Settings</span>
-                </a>
-              </li>
-              <li>
-                <a href>Profile</a>
-              </li>
-              <li>
-                <a href>
-                  <span class="label bg-info pull-right">new</span>
-                  Help
-                </a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-            <!-- / dropdown -->
-          </li>
-        </ul>
-        <!-- / navbar right -->
-      </div>
-      <!-- / navbar collapse -->
-  </header>
-  <!-- / header -->
-
+        </ul> <!-- / navbar right -->
+      </div> <!-- / navbar collapse -->
+    </header> <!-- / header -->
 
     <!-- aside -->
-  <aside id="aside" class="app-aside hidden-xs bg-dark">
+    <aside id="aside" class="app-aside hidden-xs bg-dark">
       <div class="aside-wrap">
         <div class="navi-wrap">
-          <!-- user -->
-          <div class="clearfix hidden-xs text-center hide" id="aside-user">
-            <div class="dropdown wrapper">
-              <a href="app.page.profile">
-                <span class="thumb-lg w-auto-folded avatar m-t-sm">
-                  <img src="img/01.jpg" class="img-full" alt="...">
-                </span>
-              </a>
-              <a href="#" data-toggle="dropdown" class="dropdown-toggle hidden-folded">
-                <span class="clear">
-                  <span class="block m-t-sm">
-                    <strong class="font-bold text-lt">John.Smith</strong> 
-                    <b class="caret"></b>
-                  </span>
-                  <span class="text-muted text-xs block">Art Director</span>
-                </span>
-              </a>
-              <!-- dropdown -->
-              <ul class="dropdown-menu animated fadeInRight w hidden-folded">
-                <li class="wrapper b-b m-b-sm bg-info m-t-n-xs">
-                  <span class="arrow top hidden-folded arrow-info"></span>
-                  <div>
-                    <p>300mb of 500mb used</p>
-                  </div>
-                  <div class="progress progress-xs m-b-none dker">
-                    <div class="progress-bar bg-white" data-toggle="tooltip" data-original-title="50%" style="width: 50%"></div>
-                  </div>
-                </li>
-                <li>
-                  <a href>Settings</a>
-                </li>
-                <li>
-                  <a href="page_profile.html">Profile</a>
-                </li>
-                <li>
-                  <a href>
-                    <span class="badge bg-danger pull-right">3</span>
-                    Notifications
-                  </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <a href="page_signin.html">Logout</a>
-                </li>
-              </ul>
-              <!-- / dropdown -->
-            </div>
-            <div class="line dk hidden-folded"></div>
-          </div>
-          <!-- / user -->
-
-         <!-- nav -->
+          <!-- nav -->
           <nav ui-nav class="navi clearfix">
             <ul class="nav">
               <li class="hidden-folded m-t text-dark-grey text-xs padder-md padder-v-sm">
-                <span>Navigation</span>
+                <span>Navigasi</span>
               </li>
               <li>
-                <a href="index.html" class="text-dark-grey" >      
+                <a href="rumah-sakit-page.html" class="text-dark-grey" >
                   <i class="icon-bdg_dashboard icon-grey"></i>
-                  <span class="font-bold">Dashboard</span>
-                </a>               
+                  <span class="font-bold">Permohonan</span>
+                </a>
               </li>
-              
-              <li class="line1 dg"></li>
 
-              <li class="hidden-folded text-dark-grey text-xs padder-md padder-v-sm">
-                <span>Components</span>
-              </li>
-              
-              <li>
-                <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="text8 icon-bdg_arrow3 text"></i>
-                    <i class="text8 icon-bdg_arrow1 text-active"></i>
-                  </span>
-                  <i class="icon-bdg_uikit"></i>
-                  <span class="font-bold">UI Kits</span>
-                </a>
-                <ul class="nav nav-sub dk">
-                  <li class="nav-sub-header">
-                    <a href>
-                      <span>UI Kits</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="ui_button.html">
-                      <span>Buttons</span>
-                    </a>
-                  </li>
-                  <li >
-                    <a href="ui_icons.html">
-                      <b class="badge bg-danger pull-right">3</b>
-                      <span>Icons</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="ui_grid.html">
-                      <span>Grid</span>
-                    </a>
-                  </li>
-                  
-                 
-                </ul>
-              </li>
-              <li>
-                <a href="table_static.html" class="auto">
-                  
-                  <b class="badge bg-info pull-right">2</b>
-                  <i class="icon-bdg_table"></i>
-                  <span class="font-bold">Table</span>
-                </a>
-               
-              </li>
-              <li class="active">
-                  <a href="form_element.html" class="auto">                  
-                  <i class="icon-bdg_form"></i>
-                  <span class="font-bold">Form</span>
-                </a>                
-              </li>
-              <li>
-                <a href="ui_chart.html">
-                  <i class="icon-bdg_chart2"></i>
-                  <span class="font-bold">Chart</span>
-                </a>
-              </li>
-              <li>
-                <a href class="auto">
-                  <span class="pull-right text-muted">
-                    <i class="text8 icon-bdg_arrow3 text"></i>
-                    <i class="text8 icon-bdg_arrow1 text-active"></i>
-                  </span>
-                  <i class="icon-bdg_layout"></i>
-                  <span class="font-bold">Pages</span>
-                </a>
-                <ul class="nav nav-sub dk">
-                  <li class="nav-sub-header">
-                    <a href>
-                      <span>Pages</span>
-                    </a>
-                  </li>
-    
-                 
-                  <li>
-                    <a href="lockscreen.html">
-                      <span>Lock screen</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="signin.html">
-                      <span>Signin</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="register.html">
-                      <span>Signup</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="forgot_password.html">
-                      <span>Forgot password</span>
-                    </a>
-                  </li>
-                 
-                </ul>
-              </li>
-             
-              
+              <li class="line1 dg"></li>
             </ul>
           </nav>
           <!-- nav -->
-
-
-
         </div>
       </div>
-  </aside>
-  <!-- / aside -->
+    </aside> <!-- / aside -->
 
-<!-- content -->
-<div id="content" class="app-content" role="main">
-
-  <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
+  <!-- content -->
+  <div id="content" class="app-content" role="main">
+    <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
+      <!-- div.col -->
       <div class="col">
-
-          <div class="bg-light lter">    
-              <ul class="breadcrumb bg-grey-breadcrumb m-b-none">
-                <li><a href="#" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app">
-                   <i class="icon-bdg_expand1 text"></i>
-                  <i class="icon-bdg_expand2 text-active"></i>
-                </a>   </li>
-                <li><a href>Home</a></li>
-                <li><i class="fa fa-angle-right"></i><a href>Form</a></li>
-                <li class="active"><i class="fa fa-angle-right"></i>Form Elements</li>
-              </ul>
-          </div>
-
-               
-      <!-- App-content-body -->  
-
-
-
-
-<div class="wrapper-lg bg-light" ng-controller="FormDemoCtrl">
-  
-  
-  <div class="panel panel-default">
-    <div class="bg-light lter b-b wrapper-md padder-md">
-      <h1 class="m-n font-bold h4 padder">Formulir Permohonan</h1>
-    </div> 
-    <div class="panel-heading font-bold">
-      Data Anak
-    </div>
-    <div class="panel-body">
-      <form class="form-horizontal" method="get">        
-        
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Nama Anak</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control">
-            <span class="help-block m-b-none">Isikan nama anak anda.</span>
-          </div>
-        </div>
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Jenis Kelamin</label>
-          <div class="col-sm-6">
-            <select ui-jq="chosen" class="w-full">
-              <option value="laki-laki">Laki - laki</option>
-              <option value="perempuan">Perempuan</option>
-            </select>
-          </div>
+        <!-- div app content body-->
+        <div class="bg-light lter">
+          <ul class="breadcrumb bg-grey-breadcrumb m-b-none">
+            <li>
+              <a href="#" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app">
+                <i class="icon-bdg_expand1 text"></i>
+                <i class="icon-bdg_expand2 text-active"></i>
+              </a>
+            </li>
+            <li><a href>Beranda</a></li>
+            <li><i class="fa fa-angle-right"></i><a href>Formulir Permohonan</a></li>
+          </ul>
         </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Kota Lahir</label>
-          <div class="col-sm-6">
-            <select ui-jq="chosen" class="w-full">
-                <optgroup label="Jawa Tengah">
-                    <option value="Se">Semarang</option>
-                    <option value="So">Solo</option>
-                    <option value="Sal">Salatiga</option>
-                    <option value="Mag">Magelang</option>
-                </optgroup>
-                <optgroup label="Jawa Barat">
-                    <option value="CA">Bandung</option>
-                    <option value="NV">Garut</option>
-                    <option value="OR">Bekasi</option>
-                    <option value="WA">Tasikmalaya</option>
-                </optgroup>
-                <optgroup label="Jawa Timur">
-                    <option value="AZ">Malang</option>
-                    <option value="CO">Surabaya</option>
-                </optgroup>
-                
-            </select>
-            <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
-          </div>
-          
-        </div>
+        <!-- App-content-body -->
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Waktu Lahir</label>
-          <div class="col-sm-6">
-            <span class="help-block m-b-none">Isikan waktu kelahiran anak.</span>
-          </div>
-          
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Jenis Lahir</label>
-          <div class="col-sm-6">
-            <select ui-jq="chosen" class="w-full">
-              <option value="laki-laki">Normal</option>
-              <option value="perempuan">Kembar dua</option>
-            </select>
-          </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Anak ke</label>
-          <div class="col-sm-2">
-            <div>
-              <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
-              <span class="help-block m-b-none">Isikan nomor urutan anak.</span>
+
+  <div class="wrapper-lg bg-light" ng-controller="FormDemoCtrl">
+
+
+    <div class="panel panel-default">
+      <div class="bg-light lter b-b wrapper-md padder-md">
+        <h1 class="m-n font-bold h4 padder">Formulir Permohonan</h1>
+      </div>
+      <div class="panel-heading font-bold">
+        Data Anak
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" method="get">
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Nama Anak</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control">
+              <span class="help-block m-b-none">Isikan nama anak anda.</span>
             </div>
           </div>
-        </div>
-
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Berat</label>
-          <div class="col-sm-2">
-            <div>
-              <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down"> 
-              <span class="help-block m-b-none">Isikan berat badan anak.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Jenis Kelamin</label>
+            <div class="col-sm-6">
+              <select ui-jq="chosen" class="w-full">
+                <option value="laki-laki">Laki - laki</option>
+                <option value="perempuan">Perempuan</option>
+              </select>
             </div>
           </div>
-          <div class="col-sm-1">
-            <span class="help-block m-b-none">kg</span>
-          </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Panjang</label>
-          <div class="col-sm-2">
-            <div>
-              <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
-              <span class="help-block m-b-none">Isikan panjang badan anak.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Kota Lahir</label>
+            <div class="col-sm-6">
+              <select ui-jq="chosen" class="w-full">
+                  <optgroup label="Jawa Tengah">
+                      <option value="Se">Semarang</option>
+                      <option value="So">Solo</option>
+                      <option value="Sal">Salatiga</option>
+                      <option value="Mag">Magelang</option>
+                  </optgroup>
+                  <optgroup label="Jawa Barat">
+                      <option value="CA">Bandung</option>
+                      <option value="NV">Garut</option>
+                      <option value="OR">Bekasi</option>
+                      <option value="WA">Tasikmalaya</option>
+                  </optgroup>
+                  <optgroup label="Jawa Timur">
+                      <option value="AZ">Malang</option>
+                      <option value="CO">Surabaya</option>
+                  </optgroup>
+
+              </select>
+              <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
+            </div>
+
+          </div>
+
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Waktu Lahir</label>
+            <div class="col-sm-6">
+              <span class="help-block m-b-none">Isikan waktu kelahiran anak.</span>
+            </div>
+
+          </div>
+
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Jenis Lahir</label>
+            <div class="col-sm-6">
+              <select ui-jq="chosen" class="w-full">
+                <option value="laki-laki">Normal</option>
+                <option value="perempuan">Kembar dua</option>
+              </select>
             </div>
           </div>
-          <div class="col-sm-1">
-            <span class="help-block m-b-none">cm</span>
+
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Anak ke</label>
+            <div class="col-sm-2">
+              <div>
+                <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
+                <span class="help-block m-b-none">Isikan nomor urutan anak.</span>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">Penolong Kelahiran</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Contoh : Dokter.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Berat</label>
+            <div class="col-sm-2">
+              <div>
+                <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
+                <span class="help-block m-b-none">Isikan berat badan anak.</span>
+              </div>
+            </div>
+            <div class="col-sm-1">
+              <span class="help-block m-b-none">kg</span>
+            </div>
           </div>
-        </div>
 
-        <div class="line line-dashed b-b line-lg pull-in"></div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">Nomor Kartu Keluarga</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan nomor kartu keluarga pemohon.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Panjang</label>
+            <div class="col-sm-2">
+              <div>
+                <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
+                <span class="help-block m-b-none">Isikan panjang badan anak.</span>
+              </div>
+            </div>
+            <div class="col-sm-1">
+              <span class="help-block m-b-none">cm</span>
+            </div>
           </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">Nomor Akta Nikah</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan wnomor akta nikah pemohon.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">Penolong Kelahiran</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Contoh : Dokter.</span>
+            </div>
           </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">NIK Ibu</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ibu.</span>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">Nomor Kartu Keluarga</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan nomor kartu keluarga pemohon.</span>
+            </div>
           </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">NIK Ayah</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ayah.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">Nomor Akta Nikah</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan wnomor akta nikah pemohon.</span>
+            </div>
           </div>
-        </div>
 
-        <div class="line line-dashed b-b line-lg pull-in"></div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">NIK Saksi 1</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 1.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">NIK Ibu</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ibu.</span>
+            </div>
           </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">Email Saksi 1</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan email saksi 1 yang dapat dihubungi.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">NIK Ayah</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ayah.</span>
+            </div>
           </div>
-        </div>
 
-        <div class="line line-dashed b-b line-lg pull-in"></div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">NIK Saksi 2</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 2.</span>
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">NIK Saksi 1</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 1.</span>
+            </div>
           </div>
-        </div>
 
-        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="input-id-1">Email Saksi 2</label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="input-id-1">
-            <span class="help-block m-b-none">Isikan email saksi 2 yang dapat dihubungi.</span>
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">Email Saksi 1</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan email saksi 1 yang dapat dihubungi.</span>
+            </div>
           </div>
-        </div>
-        
-        <div class="line line-dashed b-b line-lg pull-in"></div>
-        <div class="form-group">
-          <div class="col-sm-4 col-sm-offset-2">
-            <button type="submit" class="btn btn-default m-r-sm">Batal</button>
-            <button type="submit" class="btn btn-info">Simpan</button>
+
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">NIK Saksi 2</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 2.</span>
+            </div>
           </div>
-        </div>
-    <!-- end hbox hbox-auto-xs -->
-</div>
+
+          <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-id-1">Email Saksi 2</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="input-id-1">
+              <span class="help-block m-b-none">Isikan email saksi 2 yang dapat dihubungi.</span>
+            </div>
+          </div>
+
+          <div class="line line-dashed b-b line-lg pull-in"></div>
+          <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-2">
+              <button type="submit" class="btn btn-default m-r-sm">Batal</button>
+              <button type="submit" class="btn btn-info">Simpan</button>
+            </div>
+          </div>
+      <!-- end hbox hbox-auto-xs -->
+  </div>
 
 
- <!-- footer -->
-  <footer id="footer" class="app-footer" role="footer">
-    <div class="wrapper-md padder-lg b-t bg-light">
-      <span class="pull-right">&copy; Copyright Bandung <a href ui-scroll="app" class="m-l-sm text-muted"><i class="icon-bdg_arrow11"></i></a></span>
-     Made with <i class="text-danger fa fa-heart"></i> in Bandung
-    </div>
-  </footer>
-  <!-- / footer -->
+   <!-- footer -->
+    <footer id="footer" class="app-footer" role="footer">
+      <div class="wrapper-md padder-lg b-t bg-light">
+        <span class="pull-right">&copy; Copyright Bandung <a href ui-scroll="app" class="m-l-sm text-muted"><i class="icon-bdg_arrow11"></i></a></span>
+       Made with <i class="text-danger fa fa-heart"></i> in Bandung
+      </div>
+    </footer>
+    <!-- / footer -->
 
+  </div>
 
-
-</div>
-
-<script src="../libs/jquery/jquery/dist/jquery.js"></script>
-<script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
-<script src="js/ui-load.js"></script>
-<script src="js/ui-jp.config.js"></script>
-<script src="js/ui-jp.js"></script>
-<script src="js/ui-nav.js"></script>
-<script src="js/ui-toggle.js"></script>
-<script src="js/ui-client.js"></script>
+  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="js/ui-load.js"></script>
+  <script src="js/ui-jp.config.js"></script>
+  <script src="js/ui-jp.js"></script>
+  <script src="js/ui-nav.js"></script>
+  <script src="js/ui-toggle.js"></script>
+  <script src="js/ui-client.js"></script>
 
 </body>
 </html>
