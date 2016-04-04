@@ -151,7 +151,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Nama Anak</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control">
+              <input ng-model="permohonan.anak.nama" type="text" class="form-control">
               <span class="help-block m-b-none">Isikan nama anak anda.</span>
             </div>
           </div>
@@ -159,7 +159,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Jenis Kelamin</label>
             <div class="col-sm-6">
-              <select ui-jq="chosen" class="w-full">
+              <select ng-model="permohonan.anak.jenisKelamin" ui-jq="chosen" class="w-full">
                 <option value="laki-laki">Laki - laki</option>
                 <option value="perempuan">Perempuan</option>
               </select>
@@ -170,7 +170,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Kota Lahir</label>
             <div class="col-sm-6">
-              <select ui-jq="chosen" class="w-full">
+              <select ng-model="permohonan.anak.kotaLahirId" ui-jq="chosen" class="w-full">
                   <optgroup label="Jawa Tengah">
                       <option value="Se">Semarang</option>
                       <option value="So">Solo</option>
@@ -198,16 +198,16 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Waktu Lahir</label>
             <div class="col-sm-6">
+              <input ng-model="permohonan.anak.waktuLahir" type="date" class="form-control">
               <span class="help-block m-b-none">Isikan waktu kelahiran anak.</span>
             </div>
-
           </div>
 
           <!--div class="line line-dashed b-b line-lg pull-in"></div-->
           <div class="form-group">
             <label class="col-sm-2 control-label">Jenis Lahir</label>
             <div class="col-sm-6">
-              <select ui-jq="chosen" class="w-full">
+              <select ng-model="permohonan.anak.jenisLahir" ui-jq="chosen" class="w-full">
                 <option value="laki-laki">Normal</option>
                 <option value="perempuan">Kembar dua</option>
               </select>
@@ -219,7 +219,7 @@
             <label class="col-sm-2 control-label">Anak ke</label>
             <div class="col-sm-2">
               <div>
-                <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
+                <input ng-model="permohonan.anak.anakKe" ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
                 <span class="help-block m-b-none">Isikan nomor urutan anak.</span>
               </div>
             </div>
@@ -230,7 +230,7 @@
             <label class="col-sm-2 control-label">Berat</label>
             <div class="col-sm-2">
               <div>
-                <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
+                <input ng-model="permohonan.anak.berat" ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
                 <span class="help-block m-b-none">Isikan berat badan anak.</span>
               </div>
             </div>
@@ -244,7 +244,7 @@
             <label class="col-sm-2 control-label">Panjang</label>
             <div class="col-sm-2">
               <div>
-                <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
+                <input ng-model="permohonan.anak.panjang" ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up"  data-verticaldownclass="fa fa-caret-down">
                 <span class="help-block m-b-none">Isikan panjang badan anak.</span>
               </div>
             </div>
@@ -257,7 +257,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">Penolong Kelahiran</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.anak.penolongKelahiran" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Contoh : Dokter.</span>
             </div>
           </div>
@@ -266,7 +266,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">Nomor Kartu Keluarga</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.kartuKeluargaId" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan nomor kartu keluarga pemohon.</span>
             </div>
           </div>
@@ -275,7 +275,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">Nomor Akta Nikah</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.aktaNikahId" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan wnomor akta nikah pemohon.</span>
             </div>
           </div>
@@ -284,7 +284,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">NIK Ibu</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.ibuId" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ibu.</span>
             </div>
           </div>
@@ -293,7 +293,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">NIK Ayah</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.ayahId" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ayah.</span>
             </div>
           </div>
@@ -302,7 +302,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">NIK Saksi 1</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.saksiSatu.pendudukId" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 1.</span>
             </div>
           </div>
@@ -311,7 +311,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">Email Saksi 1</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.saksiSatu.email" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan email saksi 1 yang dapat dihubungi.</span>
             </div>
           </div>
@@ -320,7 +320,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">NIK Saksi 2</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.saksiDua.pendudukId" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 2.</span>
             </div>
           </div>
@@ -329,7 +329,7 @@
           <div class="form-group">
             <label class="col-sm-2 control-label" for="input-id-1">Email Saksi 2</label>
             <div class="col-sm-6">
-              <input type="text" class="form-control" id="input-id-1">
+              <input ng-model="permohonan.saksiDua.email" type="text" class="form-control" id="input-id-1">
               <span class="help-block m-b-none">Isikan email saksi 2 yang dapat dihubungi.</span>
             </div>
           </div>
@@ -338,7 +338,7 @@
           <div class="form-group">
             <div class="col-sm-4 col-sm-offset-2">
               <button type="submit" class="btn btn-default m-r-sm">Batal</button>
-              <button type="submit" class="btn btn-info">Simpan</button>
+              <button type="submit" class="btn btn-info" ng-click="addKelahiran(permohonan)">Simpan</button>
             </div>
           </div>
       <!-- end hbox hbox-auto-xs -->

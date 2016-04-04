@@ -21,7 +21,7 @@ app.factory('KelahiranService', function($http, $q) {
         return deferred.promise;
     };
 
-    factory.addKelahiran = function(kelahiranId, dat) {
+    factory.addKelahiran = function(dat) {
         var deferred = $q.defer();
 
         var req = {
