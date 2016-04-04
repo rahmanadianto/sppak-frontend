@@ -3,11 +3,12 @@ var controller = app.controller('AuthController',
         'authService', // the authentication service
         '$rootScope',  // (optional) if you want to receive auth events
         '$scope',
-        function(authService, $rootScope, $scope) {
-
+        'authDefaults',
+        function(authService, $rootScope, $scope, authDefaults) {
+            authDefaults.authenticateUrl = 'http://localhost:8000/api/v1/pengguna/login';
             // define the endpoints that will be authenticated
             authService.addEndpoint(); // the current hostname
-            authService.addEndpoint('https://auth');
+            authService.addEndpoint('http://localhost:8000/api/v1/pengguna/login');
 
             // listen for login events
             $rootScope.$on('login', function() {
