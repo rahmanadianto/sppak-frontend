@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="{{html_class}}">
+<html lang="id" class="{{html_class}}" ng-app>
 <head>
   <meta charset="utf-8" />
   <title>SPPAK | Login</title>
@@ -33,13 +33,13 @@
             <h4 class="font-bold no-padder m-b-md">Masuk</h4>
           </div>
           <!-- Form -->
-          <form name="form" class="form-validation">
+          <form name="form" class="form-validation" ng-submit="onLoginButton()" role="form">
             <div class="list-group list-group-sm">
               <div class="form-group">
-                <input type="email" placeholder="Email" class="form-control" required>
+                <input type="email" placeholder="Email" class="form-control" ng-model="username" required>
               </div>
               <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control" required>
+                <input type="password" placeholder="Password" class="form-control" ng-model="password" required>
               </div>
             </div>
 
@@ -73,6 +73,9 @@
   <script src="js/ui-nav.js"></script>
   <script src="js/ui-toggle.js"></script>
   <script src="js/ui-client.js"></script>
+  <script src="libs/angular-basicauth/angular-basicauth.js"></script>
+  <script src="libs/angular-base64/angular-base64.js"></script>
+  <script src="libs/angular-local-storage/angular-local-storage.js"></script>
   <!-- Javascript -->
   <script src="js/app.min.js"></script>
 
