@@ -25,11 +25,15 @@
 	<script type="text/javascript" src="libs/angular-chart.js"></script>
 	<script type="text/javascript" src="libs/bootstrap.js"></script>
 	<script type="text/javascript" src="libs/ui-bootstrap-tpls-0.14.3.min.js"></script>
+	<script type="text/javascript" src="libs/jquery/datatables/media/js/jquery.dataTables.min.js"></script>
 	
 	<script src="js/app.js"></script>
 	<script src="js/controllers/admin-controller.js"></script>
-
-
+	
+	<script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
+	<script src="libs/angular-base64-lib/angular-base64.js"></script>
+	<script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
+  
 </head>
 
 <body ng-app="sppak" ng-controller="AdminCtrl">
@@ -132,7 +136,6 @@
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
-
       <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
         <!-- div.col -->
         <div class="col">
@@ -156,85 +159,50 @@
             </div>
 
             <div class="wrapper-lg">
-  			      <div class="row">
+  			  <div class="row">
                 <div class="col-md-12">
                   <div class="panel panel-default">
                     <div class="panel-heading font-semibold">
                       Tabel Daftar Permohonan
                     </div>
-                    <div class="row wrapper-sm">
-                      <div class="col-sm-5">
-                        <select class="input-sm form-control w-sm inline v-middle">
-                          <option value="0">Tindakan Kolektif</option>
-                          <option value="1">Verifikasi yang Terpilih</option>
-                          <option value="2">Tolak yang Terpilih</option>
-                          <option value="3">Hapus yang Terpilih</option>
-                        </select>
-                        <button class="btn btn-sm btn-default">Lakukan</button>
-                      </div>
-                      <div class="col-sm-4"> </div>
-                      <div class="col-sm-3">
-                        <div class="input-group">
-                          <input type="text" class="input-sm form-control" placeholder="Search">
-                          <span class="input-group-btn">
-                            <button class="btn btn-sm btn-default" type="button">Cari!</button>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+                    <div class="panel-body">
                     <div class="table-responsive">
-                      <table class="table table-striped b-t b-light">
-                        <thead>
-                          <tr>
-                            <th style="width:20px;">
-                              <label class="checkbox-inline ">
-                                <input type="checkbox"><i></i>
-                              </label>
-                            </th>
-                            <th>Nama Pemohon</th>
-                            <th>Nama Anak</th>
-                            <th>Tanggal Lahir Anak</th>
-                            <th>Detail</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr ng-repeat="x in response">
-							<td>
-                              <label class="checkbox-inline ">
-                                <input type="checkbox" name="post[]"><i></i>
-                              </label>
-                            </td>
-                            <td>{{x.pemohon.nama}}</td>
-                            <td>{{x.anak.nama}}</td>
-                            <td>{{x.anak.waktuLahir}}</td>
-                            <td><i class="fa text-success text">Lihat</i></td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <label class="checkbox-inline ">
-                                <input type="checkbox" name="post[]"><i></i>
-                              </label>
-                            </td>
-                            <td>Ko Lay</td>
-                            <td>Alay</td>
-                            <td>Jul 22, 1990</td>
-                            <td><i class="fa text-success text">Lihat</i></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <footer class="panel-footer">
-                      <div class="row">
-                        <div class="col-sm-4 col-sm-push-4 text-center">
-                          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-                        </div>
+						<table id="tabel-permohonan" ui-jq="dataTable" class="table table-striped b-t b-b"
+						ui-options="{
+							ajax: {
+								url: 'http://localhost:8000/api/v1/kelahiran',
+								dataType: 'json',
+								type: 'GET',
+								beforeSend: function(xhr){
+									var username = 'natanelia7@gmail.com';
+									var password = 'rahasia';
+									xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
+								}
+							},
+							aoColumns: [
+							  { mData: 'pemohon.nama' },
+							  { mData: 'anak.nama' },
+							  { mData: 'anak.waktuLahir' },
+							  { mData: 'id' }
+							]
+						}">
+						  <thead>
+							<tr>
+							  <th>Nama Pemohon</th>
+							  <th>Nama Anak</th>
+							  <th>Waktu Lahir</th>
+							  <th>ID</th>
+							</tr>
+						  </thead>
+						  <tbody>
+						  </tbody>
+						</table>
+					</div>
+                  </div>
+                  <footer class="panel-footer">
+					  <div class="row">
                         <div class="col-sm-4 col-sm-push-4 text-right text-center-xs">
                           <ul class="pagination pagination-sm m-t-none m-b-none">
-                            <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                            <li><a href>1</a></li>
-                            <li><a href>2</a></li>
-                            <li><a href>3</a></li>
-                            <li><a href><i class="fa fa-chevron-right"></i></a></li>
                           </ul>
                         </div>
                       </div>
@@ -260,26 +228,26 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="tab-1">
               <div class="wrapper-none">
-          			<li class="list-group-item">
-          			  <span class="text-grey l-h-s">Nama Pemohon</span>
-          			  <span class="block text12 text-dark font-bold">Fiqie</span>
-          			</li>
-          			<li class="list-group-item">
-          			  <span class="text-grey l-h-s">Nama Anak</span>
-          			  <span class="block text12 text-dark font-bold">Panda</span>
-          			</li>
-          			<li class="list-group-item">
-          			 <span class="text-grey l-h-s">Tanggal Lahir Anak</span>
-          			  <span class="block text12 text-dark font-bold">Jul 25, 1987</span>
-          			</li>
-          			<li class="list-group-item">
-          			  <span class="text-grey l-h-s">Berat Anak</span>
-          			  <span class="block text12 text-dark font-bold">4kg</span>
-          			</li>
-          			<li class="list-group-item">
-          			  <span class="text-grey l-h-s">Panjang Anak</span>
-          			  <span class="block text12 text-dark font-bold">60cm</span>
-          			</li>
+				<li class="list-group-item">
+				  <span class="text-grey l-h-s">Nama Pemohon</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.pemohon.nama}}</span>
+				</li>
+				<li class="list-group-item">
+				  <span class="text-grey l-h-s">Nama Anak</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.anak.nama}}</span>
+				</li>
+				<li class="list-group-item">
+				 <span class="text-grey l-h-s">Tanggal Lahir Anak</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.anak.waktuLahir}}</span>
+				</li>
+				<li class="list-group-item">
+				  <span class="text-grey l-h-s">Nama Ayah</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.ayah.nama}}</span>
+				</li>
+				<li class="list-group-item">
+				  <span class="text-grey l-h-s">Nama Ibu</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.ibu.nama}}</span>
+				</li>
               </div>
             </div>
           </div>
