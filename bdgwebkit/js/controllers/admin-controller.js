@@ -1,23 +1,7 @@
 app
-.controller('AdminCtrl', function($scope, $http) {
+.controller('AdminCtrl', function($scope, authService, authDefaults) {
 	$scope.response = [];
 	$scope.viewedDetail = {};
-	
-    $http({
-        url: "http://localhost:8000/api/v1/kelahiran",
-        dataType: "json",
-        method: "GET",
-        data: "",
-        withCredentials: true,
-        headers: {
-			"Authorization": "Basic bmF0YW5lbGlhN0BnbWFpbC5jb206cmFoYXNpYQ=="
-		}
-    }).then(function(response) {
-        $scope.response = response.data.data;
-    }, function(error) {
-        $scope.error = error.data;
-    });
-    
     
     $scope.viewDetail = function(permohonan) {
 		$scope.viewedDetail = permohonan;

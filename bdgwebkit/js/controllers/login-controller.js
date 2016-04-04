@@ -9,6 +9,7 @@ var controller = app.controller('AuthController',
             // define the endpoints that will be authenticated
             authService.addEndpoint(); // the current hostname
             authService.addEndpoint('http://localhost:8000/api/v1/pengguna/login');
+            authService.addEndpoint('http://localhost:8000/api/v1/kelahiran');
 
             // listen for login events
             $rootScope.$on('login', function() {

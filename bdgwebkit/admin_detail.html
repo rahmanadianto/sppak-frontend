@@ -174,9 +174,9 @@
 								dataType: 'json',
 								type: 'GET',
 								beforeSend: function(xhr){
-									var username = 'natanelia7@gmail.com';
-									var password = 'rahasia';
-									xhr.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
+									var auth = localStorage.getItem('ls.auth');
+									console.log(localStorage);
+									xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
 								}
 							},
 							aoColumns: [
