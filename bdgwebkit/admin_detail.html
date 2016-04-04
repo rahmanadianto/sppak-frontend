@@ -5,15 +5,34 @@
   <title>SPPAK | Admin</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <!-- Library -->
+  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
+  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+  
   <link rel="stylesheet" href="../libs/assets/animate.css/animate.css" type="text/css" />
   <link rel="stylesheet" href="../libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="../libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" type="text/css" />
+  
+	<script type="text/javascript" src="/libs/moment.js"></script>
+	<script type="text/javascript" src="/libs/moment-timezone.js"></script>
+	<script type="text/javascript" src="/libs/async.js"></script>
+	<script type="text/javascript" src="/libs/chart.js"></script>
+	<script type="text/javascript" src="/libs/lodash.js"></script>
+	<script type="text/javascript" src="/libs/angular.js"></script>
+	<script type="text/javascript" src="/libs/angular-ui-router.js"></script>
+	<script type="text/javascript" src="/libs/angular-chart.js"></script>
+	<script type="text/javascript" src="/libs/bootstrap.js"></script>
+	<script type="text/javascript" src="/libs/ui-bootstrap-tpls-0.14.3.min.js"></script>
+	
+	<script src="/js/app.js"></script>
+	<script src="/js/controllers/admin-controller.js"></script>
+
+
 </head>
 
-<body>
+<body ng-app="sppak" ng-controller="AdminCtrl">
   <div class="app app-header-fixed ">
     <!-- header -->
     <header id="header" class="app-header navbar" role="menu">
@@ -179,15 +198,15 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-  							            <td>
+                          <tr ng-repeat="x in response">
+							<td>
                               <label class="checkbox-inline ">
                                 <input type="checkbox" name="post[]"><i></i>
                               </label>
                             </td>
-                            <td>Fiqie</td>
-                            <td>Panda</td>
-                            <td>Jul 25, 1987</td>
+                            <td>{{x.pemohon.nama}}</td>
+                            <td>{{x.anak.nama}}</td>
+                            <td>{{x.anak.waktuLahir}}</td>
                             <td><i class="fa text-success text">Lihat</i></td>
                           </tr>
                           <tr>
@@ -278,8 +297,6 @@
 
   </div>
 
-  <script src="../libs/jquery/jquery/dist/jquery.js"></script>
-  <script src="../libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
   <script src="js/ui-load.js"></script>
   <script src="js/ui-jp.config.js"></script>
   <script src="js/ui-jp.js"></script>
