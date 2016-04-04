@@ -26,21 +26,21 @@ app.factory('KelahiranService', function($http, $q) {
 
         var req = {
             anak: dat.anak,
-            kartuKeluargaId: dat.kartuKeluarga,
-            aktaNikah: dat.aktaNikah,
-            ibu: dat.ibu,
-            ayah: dat.ayah,
-            saksi1: dat.saksi1,
-            saksi2: dat.saksi2,
+            kartuKeluargaId: dat.kartuKeluargaId,
+            aktaNikah: dat.aktaNikahId,
+            ibu: dat.ibuId,
+            ayah: dat.ayahId,
+            saksi1: dat.saksiSatu,
+            saksi2: dat.saksiDua,
             pemohonId: dat.pemohonId,
-            waktuCetak : dat.waktuCetak
+            waktuCetak : dat.waktuCetakTerakhir
 
         };
 
         //kode_ruangan, kapasitas, status_kondisi
         $http({
             method: 'POST',
-            url: getEndpoint(kelahiranId),
+            url: kelahiranEndpoint,
             data: req,
             headers: {'content-type': 'application/json'}
         }).success(function(data) {

@@ -1,5 +1,32 @@
 app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService) {
-
+    $scope.permohonan={
+        "anak": {
+            "nama": null,
+            "jenisKelamin": null,
+            "kotaLahirId": null,
+            "waktuLahir": null,
+            "jenisLahir": null,
+            "anakKe": null,
+            "penolongKelahiran": null,
+            "berat": null,
+            "panjang": null
+        },
+        "kartuKeluargaId": null,
+        "aktaNikahId": null,
+        "ibuId": null,
+        "ayahId": null,
+        "saksiSatu": {
+            "pendudukId": null,
+            "email": null
+        },
+        "saksiDua": {
+            "pendudukId": null,
+            "email": null
+        },
+        "pemohonId": null,
+        "waktuCetakTerakhir": null
+    }
+    
 
     $scope.addKelahiran = function(permohonan) {
         console.log(permohonan);
@@ -9,6 +36,28 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService) 
                 console.log(res);
             }
             
+        );
+    };
+
+    $scope.deleteKelahiran = function(permohonanId) {
+        if (confirm("Apakah Anda benar-benar ingin menghapus permohonan ini?")) {
+            KelahiranService.deleteKelahiran(permohonanId).then(
+                function(res) {
+                    
+                },
+                function(res) {
+
+                }
+            );
+        }
+    };
+
+    $scope.addClass = function(kelahiranId, dat) {
+        KelahiranService.editKelahiran(kelahiran, dat).then(
+            function(res) {
+            },
+            function(res) {
+            }
         );
     };
 
