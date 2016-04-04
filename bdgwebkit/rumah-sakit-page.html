@@ -122,18 +122,19 @@
     <div id="content" class="app-content" role="main">
 
       <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
+        <!-- div.col -->
         <div class="col">
-          	<div class="app-content-body ">
-
+          <!-- div app content body-->
+          <div class="app-content-body ">
             <div class="bg-light lter">
-                <ul class="breadcrumb bg-grey-breadcrumb m-b-none">
-                  <li><a href="#" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app">
-                    <i class="icon-bdg_expand1 text"></i>
-                    <i class="icon-bdg_expand2 text-active"></i>
-                  </a>   </li>
-                  <li><a href>Beranda</a></li>
-                  <li class="active"><i class="fa fa-angle-right"></i>Tabel</li>
-                </ul>
+              <ul class="breadcrumb bg-grey-breadcrumb m-b-none">
+                <li><a href="#" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app">
+                  <i class="icon-bdg_expand1 text"></i>
+                  <i class="icon-bdg_expand2 text-active"></i>
+                </a>   </li>
+                <li><a href>Beranda</a></li>
+                <li class="active"><i class="fa fa-angle-right"></i>Tabel</li>
+              </ul>
             </div>
 
             <div class="bg-light lter b-b wrapper-md padder-md">
@@ -148,7 +149,7 @@
                       Tabel Permintaan Verfikasi Data Kelahiran
                     </div>
                     <div class="row wrapper-sm">
-                        <div class="col-sm-5">
+                      <div class="col-sm-5">
                         <select class="input-sm form-control w-sm inline v-middle">
                           <option value="0">Tindakan Kolektif</option>
                           <option value="1">Verifikasi yang Terpilih</option>
@@ -172,7 +173,11 @@
                       <table class="table table-striped b-t b-light">
                         <thead>
                           <tr>
-                            <th style="width:20px;"></th>
+                            <th style="width:20px;">
+                              <label class="checkbox-inline ">
+                                <input type="checkbox"><i></i>
+                              </label>
+                            </th>
                             <th>Nama Ibu</th>
                             <th>No KTP</th>
                             <th>Nama Anak</th>

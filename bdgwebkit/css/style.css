@@ -378,7 +378,7 @@ a.list-group-item.hover {
 .nav-tabs > li:hover > a,
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover {
-  border-color: #dee5e7;
+  border-color: #f06292;
 }
 
 .nav-tabs > li.active > a {
@@ -675,7 +675,7 @@ body {
 }
 
 .app {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: auto;
   min-height: 100%;
@@ -3034,7 +3034,7 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-dark .nav > li:focus > a,
 .bg-dark .nav > li.active > a {
   color: #ffffff;
-  background-color: #2e3344;
+  background-color: #e91e63;
 }
 
 .bg-dark .nav > li > a {
@@ -3137,7 +3137,7 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-black .nav > li:focus > a,
 .bg-black .nav > li.active > a {
   color: #ffffff;
-  background-color: #131e26;
+  background-color: #e91e63;
 }
 
 .bg-black .nav > li > a {
@@ -3241,7 +3241,7 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-primary .nav > li:focus > a,
 .bg-primary .nav > li.active > a {
   color: #ffffff;
-  background-color: #6051b5;
+  background-color: #e91e63;
 }
 
 .bg-primary .nav > li > a {
@@ -3345,7 +3345,7 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-success .nav > li:focus > a,
 .bg-success .nav > li.active > a {
   color: #ffffff;
-  background-color: #20af42;
+  background-color: #e91e63;
 }
 
 .bg-success .nav > li > a {
@@ -3449,7 +3449,7 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-info .nav > li:focus > a,
 .bg-info .nav > li.active > a {
   color: #ffffff;
-  background-color: #16aad8;
+  background-color: #e91e63;
 }
 
 .bg-info .nav > li > a {
@@ -3458,7 +3458,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-info .nav > li > a:hover,
 .bg-info .nav > li > a:focus {
-  background-color: #17b2e2;
+  background-color: #f06292;
 }
 
 .bg-info .nav .open > a {
@@ -3553,7 +3553,7 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-warning .nav > li:focus > a,
 .bg-warning .nav > li.active > a {
   color: #ffffff;
-  background-color: #fcd417;
+  background-color: #e91e63;
 }
 
 .bg-warning .nav > li > a {
@@ -3562,7 +3562,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-warning .nav > li > a:hover,
 .bg-warning .nav > li > a:focus {
-  background-color: #fcd621;
+  background-color: #f06292;
 }
 
 .bg-warning .nav .open > a {
@@ -3657,7 +3657,7 @@ fieldset[disabled] .i-checks input + i:before {
 .bg-danger .nav > li:focus > a,
 .bg-danger .nav > li.active > a {
   color: #ffffff;
-  background-color: #f13636;
+  background-color: #e91e63;
 }
 
 .bg-danger .nav > li > a {
@@ -3666,7 +3666,7 @@ fieldset[disabled] .i-checks input + i:before {
 
 .bg-danger .nav > li > a:hover,
 .bg-danger .nav > li > a:focus {
-  background-color: #f13f3f;
+  background-color: #f06292;
 }
 
 .bg-danger .nav .open > a {
@@ -5345,8 +5345,8 @@ a.text-#000000:hover {
 }
 /* Datatable Pagination */
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-  background-color: #555b70;
-  border-color: #555b70;
+  background-color: #f06292;
+  border-color: #f06292;
 }
 .pagination > li > a, .pagination > li > span{
   color: #555b70;
@@ -5556,7 +5556,7 @@ ul{
   color: #ff7e00;
 }
 .accordion ul li.active a:hover {
-  color: #ff7e00;
+  color: #f06292;
 }
 .accordion.active h3 a:after {
   content: "\e260";
@@ -5752,7 +5752,7 @@ table.dataTable thead > tr > th{
   font-weight: 600;
 }
 .bg-info .nav > li > a:hover{
-  background-color: #01a0e7 !important;
+  background-color: #f06292 !important;
 }
 .app-aside-folded .navbar-brand img.small-logo{
   display: inline !important;
@@ -5789,7 +5789,7 @@ table.dataTable thead > tr > th{
   color: #fff;
 }
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus, .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus{
-  background: #fbfbfb !important;
+  background: #f06292 !important;
   color: #555b70;
 }
 
@@ -5876,7 +5876,7 @@ table.dataTable thead > tr > th{
 
 .bg-dark .nav > li:hover > a, .bg-dark .nav > li:focus > a, .bg-dark .nav > li.active > a{
   background: none;
-  color: #b8bcce !important;
+  color: #e91e63 !important;
 }
 
 /* Icon */
