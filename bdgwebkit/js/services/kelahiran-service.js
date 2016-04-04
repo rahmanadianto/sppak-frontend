@@ -1,12 +1,12 @@
 app.factory('KelahiranService', function($http, $q) {
     var factory = {};
-    var kelahiranEndpoint = 'http://www.sppak.dev/kelahiran/';
+    var kelahiranEndpoint = 'http://localhost:8000/api/v1/kelahiran/';
 
     var getEndpoint = function(kelahiranId) {
         return kelahiranEndpoint + kelahiranId;
     }
 
-    factory.getAllKelahiran = function(kelahiranId) {
+    factory.getAllKelahiran = function() {
         var deferred = $q.defer();
 
         $http({
