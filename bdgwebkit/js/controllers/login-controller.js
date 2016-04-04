@@ -31,6 +31,7 @@ var controller = app.controller('AuthController',
                 })
                 .error(function() {
                     // handle login error
+                    alert("Your username/password invalid");
                 });
             };
 
