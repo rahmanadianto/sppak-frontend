@@ -27,6 +27,22 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService) 
         "waktuCetakTerakhir": null
     }
     
+     var getPermohonan = function() {
+        KelahiranService.getAllKelahiran().then(function(res) {
+            var data = res.data;
+            $scope.permohonan = angular.copy(data);
+
+            for (var i in data) {
+                data[i].newClass = {
+                    lessonId: data[i].id,
+                    studentCount: 0,
+                    lecturer: ''
+                };
+            }
+
+            $scope.data = angular.copy(data);
+        });
+    };
 
     $scope.addKelahiran = function(permohonan) {
         console.log(permohonan);
