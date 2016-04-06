@@ -107,16 +107,16 @@
                 </a>
               </li-->
               <li>
-                <a href="histori_anak.html" class="text-dark-grey" >      
+                <a href="histori_anak.html" class="text-dark-grey" >
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Histori Anak</span>
-                </a>               
+                </a>
               </li>
               <li>
-                <a href="form_permohonan.html" class="text-dark-grey" >      
+                <a href="form_permohonan.html" class="text-dark-grey" >
                   <i class="icon-bdg_dashboard icon-grey"></i>
                   <span class="font-bold">Permohonan</span>
-                </a>               
+                </a>
               </li>
 
               <li class="line1 dg"></li>
@@ -166,7 +166,7 @@
         <form class="form-horizontal" method="post">
 
           <div class="form-group">
-            <label class="col-sm-2 control-label">Nama Anak</label> 
+            <label class="col-sm-2 control-label">Nama Anak</label>
             <div class="col-sm-6">
               <input ng-model="permohonan.anak.nama" type="text" class="form-control" required>
               <span class="help-block m-b-none">Isikan nama anak anda.</span>
@@ -188,22 +188,22 @@
             <label class="col-sm-2 control-label">Kota Lahir</label>
             <div class="col-sm-6">
               <select ng-model="permohonan.anak.kotaLahirId" ui-jq="chosen" class="w-full" required>
-                  <optgroup label="Jawa Tengah">
+                  <!-- <optgroup label="Jawa Tengah">
                       <option value="Se">Semarang</option>
                       <option value="So">Solo</option>
                       <option value="Sal">Salatiga</option>
                       <option value="Mag">Magelang</option>
-                  </optgroup>
+                  </optgroup> -->
                   <optgroup label="Jawa Barat">
-                      <option value="CA">Bandung</option>
-                      <option value="NV">Garut</option>
-                      <option value="OR">Bekasi</option>
-                      <option value="WA">Tasikmalaya</option>
+                      <option value="4">Bandung</option>
+                      <option value="5">Garut</option>
+                      <option value="16">Bekasi</option>
+                      <option value="6">Tasikmalaya</option>
                   </optgroup>
-                  <optgroup label="Jawa Timur">
+                  <!-- <optgroup label="Jawa Timur">
                       <option value="AZ">Malang</option>
                       <option value="CO">Surabaya</option>
-                  </optgroup>
+                  </optgroup> -->
 
               </select>
               <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
@@ -382,10 +382,10 @@
   <script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
   <script src="libs/angular-base64-lib/angular-base64.js"></script>
   <script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
-  
+
   <script src="js/services/kelahiran-service.js"></script>
   <script src="js/controllers/kelahiran-controller.js"></script>
-  
+
 
 
 </body>
