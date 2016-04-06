@@ -166,7 +166,7 @@
                       Tabel Daftar Permohonan
                     </div>
                     <div class="panel-body">
-                    <div class="table-responsive">
+                      <div class="table-responsive">
 						<table id="tabel-permohonan" ui-jq="dataTable" class="table table-striped b-t b-b"
 						ui-options="{
 							ajax: {
@@ -182,16 +182,22 @@
 							aoColumns: [
 							  { mData: 'pemohon.nama' },
 							  { mData: 'anak.nama' },
-							  { mData: 'anak.waktuLahir' },
-							  { mData: 'id' }
+							  { mData: 'verifikasiSaksi1' },
+							  { mData: 'verifikasiSaksi2' },
+							  { mData: 'verifikasiInstansiKesehatan' },
+							  { mData: 'verifikasiLurah' },
+							  { mData: 'verifikasiAdmin' }
 							]
 						}">
 						  <thead>
 							<tr>
 							  <th>Nama Pemohon</th>
 							  <th>Nama Anak</th>
-							  <th>Waktu Lahir</th>
-							  <th>ID</th>
+							  <th>Verikfasi Saksi 1</th>
+							  <th>Verikfasi Saksi 2</th>
+							  <th>Verikfasi Instansi Kesehatan</th>
+							  <th>Verikfasi Lurah</th>
+							  <th>Verikfasi Admin</th>
 							</tr>
 						  </thead>
 						  <tbody>
@@ -247,6 +253,18 @@
 				<li class="list-group-item">
 				  <span class="text-grey l-h-s">Nama Ibu</span>
 				  <span class="block text12 text-dark font-bold">{{viewedDetail.ibu.nama}}</span>
+				</li>
+				<li class="list-group-item">
+				  <span class="text-grey l-h-s">Status</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.status}}</span>
+				</li>
+				<li class="list-group-item">
+				  <span class="text-grey l-h-s">ID Kartu Keluarga</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.kartuKeluargaId}}</span>
+				</li>
+				<li class="list-group-item">
+				  <span class="text-grey l-h-s">ID Akta Nikah</span>
+				  <span class="block text12 text-dark font-bold">{{viewedDetail.aktaNikahId}}</span>
 				</li>
               </div>
             </div>
