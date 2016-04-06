@@ -36,23 +36,26 @@
           <form name="form" class="form-validation">
             <div class="list-group list-group-sm">
               <div class="form-group">
-                <input type="text" placeholder="Nomor KTP" class="form-control" required>
+                <input type="text" placeholder="Nomor KTP" class="form-control" ng-model="userable_id" required>
               </div>
               <div class="form-group">
-                <input type="email" placeholder="Email" class="form-control" required>
+                <input type="email" placeholder="Email" class="form-control" ng-model="username" required>
               </div>
               <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control" required>
+                <input type="password" placeholder="Password" class="form-control" ng-model="password" required>
+              </div>
+              <div class="form-grup">
+                <input type="hidden" ng-model="userable_type" value="MorphPenduduk">
               </div>
             </div>
 
             <button type="submit" class="btn btn-lg btn-info-sppak btn-block">Daftar</button>
 
-            <div class="checkbox m-b-md text-left">
+            <!-- <div class="checkbox m-b-md text-left">
               <label class="checkbox-inline m-t-sm">
                 <input type="checkbox" checked=""><i></i> Menyetujui ketentuan dan kebijakan
               </label>
-            </div>
+            </div> -->
 
             <div class="line line-dashed"></div>
 
