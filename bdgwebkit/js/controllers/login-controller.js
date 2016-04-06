@@ -11,10 +11,7 @@ var controller = app.controller('AuthController',
             authService.addEndpoint(); // the current hostname
             authService.addEndpoint('http://localhost:8000/api/v1/pengguna/login');
             authService.addEndpoint('http://localhost:8000/api/v1/kelahiran');
-            
-           
-            
-            
+
             // listen for login events
             $rootScope.$on('login', function() {
                 $scope.loggedInUsername = authService.username();
@@ -37,9 +34,23 @@ var controller = app.controller('AuthController',
 											method: 'GET',
 											url: 'http://localhost:8000/api/v1/pengguna/login'
 										}).then(function successCallback(res){
-												localStorage.setItem("id",res.data.data.id);
+												localStorage.setItem("id", res.data.data.id);
+                        var usr_type = res.data.data.userable_type;
+                        localStorage.setItem("user_type", usr_type);
+                        if (usr_type.indexOf("Pegawai") > -1) {
+                          window.location.replace("/admin_detail.html");
+                        }
+                        else if (usr_type.indexOf("InstansiKesehatan")) {
+                          window.location.replace("/rumah-sakit-page.html");
+                        }
+                        else if (usr_type.indexOf("Kelurahan")) {
+                          window.location.replace("/kelurahan-page.html");
+                        }
+                        else if (usr_type.indexOf("Penduduk")) {
+                          window.location.replace("/form_permohonan.html");
+                        }
 										});
-                    
+
                 })
                 .error(function() {
                     // handle login error

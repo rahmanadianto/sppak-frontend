@@ -1,5 +1,5 @@
 app.controller('registrasiCtrl', function($scope, $rootScope, PendudukService) {
-	
+
 	$scope.pengguna = {
 		"email": null,
 		"password": null,
@@ -19,10 +19,9 @@ app.controller('registrasiCtrl', function($scope, $rootScope, PendudukService) {
 		} else {
 			PendudukService.registrasiPenduduk(pengguna).then(
 			function(res) {
-				console.log(res);
 				window.location.replace("/login-page.html");
 			});
 		}
-		
+
 	};
 });
