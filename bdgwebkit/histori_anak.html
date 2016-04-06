@@ -233,6 +233,7 @@
                             <th>Nama Anak</th>
                             <th>Anak Ke</th>
                             <th>Waktu Lahir</th>
+                            <th>Hapus</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -240,6 +241,7 @@
                             <td>{{x.anak.nama}}</td>
                             <td>{{x.anak.anakKe}}</td>
                             <td>{{x.anak.waktuLahir}}</td>
+                            <td><button class="btn btn-primary" ng-click="deleteKelahiran(x.id)">Hapus</button></td>
                           </tr>
                         </tbody>
                       </table>

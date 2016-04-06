@@ -40,13 +40,13 @@ var controller = app.controller('AuthController',
                         if (usr_type.indexOf("Pegawai") > -1) {
                           window.location.replace("/admin_detail.html");
                         }
-                        else if (usr_type.indexOf("InstansiKesehatan")) {
+                        else if (usr_type.indexOf("InstansiKesehatan") > -1) {
                           window.location.replace("/rumah-sakit-page.html");
                         }
-                        else if (usr_type.indexOf("Kelurahan")) {
+                        else if (usr_type.indexOf("Kelurahan") > -1) {
                           window.location.replace("/kelurahan-page.html");
                         }
-                        else if (usr_type.indexOf("Penduduk")) {
+                        else if (usr_type.indexOf("Penduduk") > -1) {
                           window.location.replace("/form_permohonan.html");
                         }
 										});

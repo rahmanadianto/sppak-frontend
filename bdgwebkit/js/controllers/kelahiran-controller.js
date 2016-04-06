@@ -32,7 +32,7 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService, 
             $scope.permohonan = res.data;
             var id = localStorage.getItem('id');
 						$scope.permohonan.pemohonId = id;
-						console.log(id);						
+						console.log($scope.permohonan);						
         });
     };
     getPermohonan();
@@ -54,7 +54,7 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService, 
         if (confirm("Apakah Anda benar-benar ingin menghapus permohonan ini?")) {
             KelahiranService.deleteKelahiran(permohonanId).then(
                 function(res) {
-                    
+                    window.location.replace('/histori_anak.html');
                 },
                 function(res) {
 
@@ -63,14 +63,14 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService, 
         }
     };
 
-    $scope.addClass = function(kelahiranId, dat) {
-        KelahiranService.editKelahiran(kelahiran, dat).then(
-            function(res) {
-            },
-            function(res) {
-            }
-        );
-    };
+    //$scope.addClass = function(kelahiranId, dat) {
+        //KelahiranService.editKelahiran(kelahiran, dat).then(
+            //function(res) {
+            //},
+            //function(res) {
+            //}
+        //);
+    //};
 
     // $scope.saveLesson = function(lesson) {
     //     LessonService.editLesson(lesson).then(
