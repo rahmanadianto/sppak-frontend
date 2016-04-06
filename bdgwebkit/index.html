@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="wrapper-lg bg-white r-b-sm">
+        <div ng-app="sppak" ng-controller="registrasiCtrl" class="wrapper-lg bg-white r-b-sm">
           <div class="text-center">
             <h4 class="font-bold no-padder m-b-md">Pendaftaran Akun</h4>
           </div>
@@ -36,20 +36,20 @@
           <form name="form" class="form-validation">
             <div class="list-group list-group-sm">
               <div class="form-group">
-                <input type="text" placeholder="Nomor KTP" class="form-control" ng-model="userable_id" required>
+                <input type="text" placeholder="Nomor KTP" class="form-control" ng-model="pengguna.userable_id" required>
               </div>
               <div class="form-group">
-                <input type="email" placeholder="Email" class="form-control" ng-model="username" required>
+                <input type="email" placeholder="Email" class="form-control" ng-model="pengguna.email" required>
               </div>
               <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control" ng-model="password" required>
+                <input type="password" placeholder="Password" class="form-control" ng-model="pengguna.password" required>
               </div>
               <div class="form-grup">
-                <input type="hidden" ng-model="userable_type" value="MorphPenduduk">
+                <input type="hidden" ng-init="pengguna.userable_type='MorphPenduduk'" ng-model="pengguna.userable_type" value="MorphPenduduk">
               </div>
             </div>
 
-            <button type="submit" class="btn btn-lg btn-info-sppak btn-block">Daftar</button>
+            <button type="submit" class="btn btn-lg btn-info-sppak btn-block" ng-click="registrasiPenduduk(pengguna)">Daftar</button>
 
             <!-- <div class="checkbox m-b-md text-left">
               <label class="checkbox-inline m-t-sm">
@@ -71,6 +71,7 @@
   </div>
 
   <!-- Javascript library -->
+  <script src="libs/angular.js"></script>
   <script src="libs/jquery/jquery/dist/jquery.js"></script>
   <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
   <script src="js/ui-load.js"></script>
@@ -81,6 +82,13 @@
   <script src="js/ui-client.js"></script>
   <!-- Javascript -->
   <script src="js/app.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
+  <script src="libs/angular-base64-lib/angular-base64.js"></script>
+  <script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
+  
+  <script src="js/services/penduduk-service.js"></script>
+  <script src="js/controllers/registrasi-controller.js"></script>
 
 </body>
 </html>
