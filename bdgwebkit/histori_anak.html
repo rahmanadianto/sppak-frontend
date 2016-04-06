@@ -225,54 +225,26 @@
                     Tabel Data Histori Anak
                   </div>
                   <div class="panel-body">
-                    <div class="table-responsive">
-										  <table id="tabel-permohonan" ui-jq="dataTable" class="table table-striped b-t b-b"
-												ui-options="{
-													ajax: {
-														url: 'http://localhost:8000/api/v1/kelahiran/',
-														dataType: 'json',
-														type: 'GET',
-														beforeSend: function(xhr){
-															var auth = localStorage.getItem('ls.auth');
-															console.log(localStorage);
-															xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
-														}
-													},
-													aoColumns: [
-														{ mData: 'anak.nama' },
-														{ mData: 'anak.anakKe' },
-														{ mData: 'anak.waktuLahir' },
-														{ 
-															mData: null,
-															sDefaultContent: '<button></button>',
-															type: 'checkbox',
-															cancel: 'Cancel',
-															submit: 'OK',
-															checkbox: 
-																{ 
-																	trueValue: 'Yes', 
-																	falseValue: 'No' 
-																}
-														},
-														{ 
-															mData: null, 
-															sDefaultContent: '<button>Edit</button>' 
-														}
-													]
-												}">
-													<thead>
-													<tr>
-														<th>Nama Anak</th>
-														<th>Anak Ke</th>
-														<th>Waktu Lahir</th>
-														<th>lala</th>
-														<th>lele</th>
-													</tr>
-													</thead>
-													<tbody>
-													</tbody>
-											</table>
+                    <div class="panel-body">
+                      <div class="table-responsive">
+                      <table id="tabel-histori" class="table table-striped b-t b-light" ng-app="sppak" ng-controller="PermohonanCtrl">
+                        <thead>
+                          <tr>
+                            <th>Nama Anak</th>
+                            <th>Anak Ke</th>
+                            <th>Waktu Lahir</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="x in permohonan">
+                            <td>{{x.anak.nama}}</td>
+                            <td>{{x.anak.anakKe}}</td>
+                            <td>{{x.anak.waktuLahir}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
 										</div>
+                  </div>
                   </div>
                 </div>
               </div>
