@@ -15,6 +15,7 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService, 
         "aktaNikahId": null,
         "ibuId": null,
         "ayahId": null,
+        "instansiKesehatanId": null,
         "saksiSatu": {
             "pendudukId": null,
             "email": null
@@ -38,7 +39,6 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService, 
     getPermohonan();
 
     $scope.addKelahiran = function(permohonan) {
-        console.log("CLKJSDOFIU");
         console.log(permohonan);
         console.log(KelahiranService);
         KelahiranService.addKelahiran(permohonan).then(

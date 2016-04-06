@@ -40,10 +40,10 @@ app.factory('KelahiranService', function($http, $q) {
             saksi1: dat.saksiSatu,
             saksi2: dat.saksiDua,
             pemohonId: dat.pemohonId,
-            waktuCetak : dat.waktuCetakTerakhir
+            waktuCetak : dat.waktuCetakTerakhir,
+            instansiKesehatanId :dat.instansiKesehatanId
 
         };
-        console.log("ULALALAL");
         console.log(req);
 
         //kode_ruangan, kapasitas, status_kondisi
