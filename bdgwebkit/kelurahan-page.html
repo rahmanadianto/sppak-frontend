@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/font.css" type="text/css" />
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css" type="text/css" />
+  
 </head>
 
 <body>
@@ -148,103 +149,31 @@
                     <div class="panel-heading font-semibold">
                       Tabel Permintaan Verfikasi Data Kelahiran
                     </div>
-                    <div class="row wrapper-sm">
-                      <div class="col-sm-5">
-                        <select class="input-sm form-control w-sm inline v-middle">
-                          <option value="0">Tindakan Kolektif</option>
-                          <option value="1">Verifikasi yang Terpilih</option>
-                          <option value="2">Tolak yang Terpilih</option>
-                          <option value="3">Hapus yang Terpilih</option>
-                        </select>
-                        <button class="btn btn-sm btn-default">Lakukan</button>
-                      </div>
-                      <div class="col-sm-4">
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="input-group">
-                          <input type="text" class="input-sm form-control" placeholder="Search">
-                          <span class="input-group-btn">
-                            <button class="btn btn-sm btn-default" type="button">Cari!</button>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="table-responsive" ng-app="sppak" ng-controller="instansiKesehatanCtrl">
-                      <table class="table table-striped b-t b-light">
+                   
+                    <div class="table-responsive" >
+                      <table class="table table-striped b-t b-light" ng-app="sppak" ng-controller="PermohonanCtrl">
                         <thead>
                           <tr>
-                            <th style="width:20px;">
-                              <label class="checkbox-inline ">
-                                <input type="checkbox"><i></i>
-                              </label>
-                            </th>
                             <th>Nama Ibu</th>
                             <th>No KTP</th>
                             <th>Nama Anak</th>
                             <th>Waktu Kelahiran</th>
                             <th>Status</th>
-                            <th style="width:30px;"></th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>
-                            <td>Ibu Fiqie</td>
-                            <td>8299389398493849</td>
-                            <td>Fiqie</td>
-                            <td>2 Maret 2016, 19.00 wib</td>
-                            <td>
-                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>
-                            <td>Ibu Acel</td>
-                            <td>8299389398493849</td>
-                            <td>Acel</td>
-                            <td>2 Maret 2016, 19.00 wib</td>
-                            <td>
-                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>
-                            <td>Ibu Natan</td>
-                            <td>8299389398493849</td>
-                            <td>Natan</td>
-                            <td>2 Maret 2016, 19.00 wib</td>
-                            <td>
-                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><label class="checkbox-inline "><input type="checkbox" name="post[]"><i></i></label></td>
-                            <td>Ibu Kolay</td>
-                            <td>8299389398493849</td>
-                            <td>Kolay</td>
-                            <td>2 Maret 2016, 19.00 wib</td>
-                            <td>
-                              <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text" ng-click="verifikasiInstansiKesehatan(1)"></i></a>
-                            </td>
+                          <tr ng-repeat="x in permohonan">
+                            <td>{{x.ibu.nama}}</td>
+                            <td>{{x.ibu.id}}</td>
+                            <td>{{x.anak.nama}}</td>
+                            <td>{{x.anak.waktuLahir}}</td>
+                            <td>{{x.verifikasiLurah}}</td>
                           </tr>
                         </tbody>
                       </table>
                     </div>
                     <footer class="panel-footer">
-                      <div class="row">
-                        <div class="col-sm-4 col-sm-push-4 text-center">
-                          <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-                        </div>
-                        <div class="col-sm-4 col-sm-push-4 text-right text-center-xs">
-                          <ul class="pagination pagination-sm m-t-none m-b-none">
-                            <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                            <li><a href>1</a></li>
-                            <li><a href>2</a></li>
-                            <li><a href>3</a></li>
-                            <li><a href><i class="fa fa-chevron-right"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
+                      
                     </footer>
                   </div>
                 </div>
@@ -278,7 +207,8 @@
   <script src="libs/angular-base64-lib/angular-base64.js"></script>
   <script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/services/instansi-kesehatan-service.js"></script>
-  <script type="text/javascript" src="js/controllers/instansi-kesehatan-controller.js"></script>
+  <script src="js/services/kelahiran-service.js"></script>
+  <script src="js/controllers/kelahiran-controller.js"></script>
+
 </body>
 </html>

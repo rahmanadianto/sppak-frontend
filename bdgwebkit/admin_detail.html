@@ -167,42 +167,32 @@
                     </div>
                     <div class="panel-body">
                       <div class="table-responsive">
-						<table id="tabel-permohonan" ui-jq="dataTable" class="table table-striped b-t b-b"
-						ui-options="{
-							ajax: {
-								url: 'http://localhost:8000/api/v1/kelahiran',
-								dataType: 'json',
-								type: 'GET',
-								beforeSend: function(xhr){
-									var auth = localStorage.getItem('ls.auth');
-									console.log(localStorage);
-									xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
-								}
-							},
-							aoColumns: [
-							  { mData: 'pemohon.nama' },
-							  { mData: 'anak.nama' },
-							  { mData: 'verifikasiSaksi1' },
-							  { mData: 'verifikasiSaksi2' },
-							  { mData: 'verifikasiInstansiKesehatan' },
-							  { mData: 'verifikasiLurah' },
-							  { mData: 'verifikasiAdmin' }
-							]
-						}">
-						  <thead>
-							<tr>
-							  <th>Nama Pemohon</th>
-							  <th>Nama Anak</th>
-							  <th>Verikfasi Saksi 1</th>
-							  <th>Verikfasi Saksi 2</th>
-							  <th>Verikfasi Instansi Kesehatan</th>
-							  <th>Verikfasi Lurah</th>
-							  <th>Verikfasi Admin</th>
-							</tr>
-						  </thead>
-						  <tbody>
-						  </tbody>
-						</table>
+                      <table id="tabel-permohonan" class="table table-striped b-t b-light">
+                        <thead>
+                          <tr>
+                            <th>Nama Pemohon</th>
+                            <th>Nama Anak</th>
+                            <th>Saksi 1</th>
+                            <th>Saksi 2</th>
+                            <th>Instansi Kesehatan</th>
+                            <th>Kelurahan</th>
+                            <th>Detail</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="x in response">
+                            <td>{{x.pemohon.nama}}</td>
+                            <td>{{x.anak.nama}}</td>
+                            <td>{{x.verifikasiSaksi1}}</td>
+                            <td>{{x.verifikasiSaksi2}}</td>
+                            <td>{{x.verifikasiInstansiKesehatan}}</td>
+                            <td>{{x.verifikasiLurah}}</td>
+                            <td>
+								<a href ng-click="viewDetail(x)"><i class="fa text-success text">Lihat</i></a>
+							</td>
+                          </tr>
+                        </tbody>
+                      </table>
 					</div>
                   </div>
                   <footer class="panel-footer">
@@ -234,6 +224,7 @@
           <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="tab-1">
               <div class="wrapper-none">
+<!--
 				<li class="list-group-item">
 				  <span class="text-grey l-h-s">Nama Pemohon</span>
 				  <span class="block text12 text-dark font-bold">{{viewedDetail.pemohon.nama}}</span>
@@ -242,6 +233,7 @@
 				  <span class="text-grey l-h-s">Nama Anak</span>
 				  <span class="block text12 text-dark font-bold">{{viewedDetail.anak.nama}}</span>
 				</li>
+-->
 				<li class="list-group-item">
 				 <span class="text-grey l-h-s">Tanggal Lahir Anak</span>
 				  <span class="block text12 text-dark font-bold">{{viewedDetail.anak.waktuLahir}}</span>
