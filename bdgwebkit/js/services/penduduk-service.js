@@ -32,7 +32,7 @@ app.factory('PendudukService', function($http, $q) {
         $http({
             method: 'POST',
             data: req,
-            url: penggunaEndpointgit,
+            url: penggunaEndpoint,
             dataType: 'json'
         }).success(function(data) {
             deferred.resolve(data);
