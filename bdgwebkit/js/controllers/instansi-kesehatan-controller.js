@@ -3,7 +3,7 @@ app.controller('instansiKesehatanCtrl', function($scope, $rootScope, InstansiKes
 	$scope.verifikasiInstansiKesehatan = function(idKelahiran) {
 		InstansiKesehatanService.verifikasiInstansiKesehatan(idKelahiran).then(
 			function(res) {
-				console.log(res);
+				window.location.replace('/rumah-sakit-page.html');
 			});
 	};
 });

@@ -159,6 +159,7 @@
                             <th>Nama Anak</th>
                             <th>Waktu Kelahiran</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -168,6 +169,7 @@
                             <td>{{x.anak.nama}}</td>
                             <td>{{x.anak.waktuLahir}}</td>
                             <td>{{x.verifikasiLurah}}</td>
+                            <td><button ng-app="sppak" ng-controller="kelurahanCtrl" ng-click="verifikasiKelurahan(x.id)">verifikasi</button></td>
                           </tr>
                         </tbody>
                       </table>
@@ -209,6 +211,8 @@
   <script type="text/javascript" src="js/app.js"></script>
   <script src="js/services/kelahiran-service.js"></script>
   <script src="js/controllers/kelahiran-controller.js"></script>
+  <script src="js/services/kelurahan-service.js"></script>
+  <script src="js/controllers/kelurahan-controller.js"></script>
 
 </body>
 </html>

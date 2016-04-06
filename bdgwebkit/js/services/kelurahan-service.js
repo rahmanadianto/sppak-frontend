@@ -14,7 +14,13 @@ app.factory('KelurahanService', function($http, $q) {
         $http({
             method: 'PATCH',
             url: getEndpoint(kelahiranId),
-            data: req
+            data: req,
+            withCredentials: true,
+            beforeSend: function(xhr){
+                var auth = localStorage.getItem('ls.auth');
+                console.log(localStorage);
+                xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
+            }
         }).success(function(data) {
             deferred.resolve(data);
         }).error(function(data) {

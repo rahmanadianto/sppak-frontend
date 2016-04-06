@@ -159,6 +159,7 @@
                             <th>Nama Anak</th>
                             <th>Waktu Kelahiran</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                             <th style="width:30px;"></th>
                           </tr>
                         </thead>
@@ -168,7 +169,8 @@
                             <td>{{x.ibu.id}}</td>
                             <td>{{x.anak.nama}}</td>
                             <td>{{x.anak.waktuLahir}}</td>
-                            <td>{{x.verifikasiAdmin}}</td>
+                            <td>{{x.verifikasiInstansiKesehatan}}</td>
+                            <td><button ng-app="sppak" ng-controller="instansiKesehatanCtrl" ng-click="verifikasiInstansiKesehatan(x.id)">verifikasi</button></td>
                           </tr>
                         </tbody>
                       </table>
