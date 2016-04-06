@@ -1,4 +1,4 @@
-app.factory('InstansiKesehatanService', function($http, $q) {
+app.factory('AdminService', function($http, $q) {
     var factory = {};
     var kelahiranEndpoint = 'http://localhost:8000/api/v1/kelahiran/';
 
@@ -6,10 +6,10 @@ app.factory('InstansiKesehatanService', function($http, $q) {
         return kelahiranEndpoint + kelahiranId;
     }
 
-    factory.verifikasiInstansiKesehatan = function(kelahiranId) {
+    factory.verifikasiAdmin = function(kelahiranId) {
         var deferred = $q.defer();
 
-        var req = {verifikasiInstansiKesehatan: 1};
+        var req = {verifikasiAdmin: 1};
 
         $http({
             method: 'PATCH',

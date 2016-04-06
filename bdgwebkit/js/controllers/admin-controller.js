@@ -1,5 +1,5 @@
 app
-.controller('AdminCtrl', function($http, $scope, authService, authDefaults) {
+.controller('AdminCtrl', function($http, $scope, AdminService, authService, authDefaults) {
 	$scope.response = [];
 	$scope.viewedDetail = {};
     
@@ -22,5 +22,12 @@ app
     }, function(error) {
         $scope.error = error.data;
     });
+    
+    $scope.verifikasiAdmin = function(idKelahiran) {
+			AdminService.verifikasiAdmin(idKelahiran).then(
+				function(res) {
+					window.location.replace('/admin_detail.html');
+				});
+		};
 
 });

@@ -29,6 +29,7 @@
 
 	<script src="js/app.js"></script>
 	<script src="js/controllers/admin-controller.js"></script>
+	<script src="js/services/admin-service.js"></script>
 
 	<script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
 	<script src="libs/angular-base64-lib/angular-base64.js"></script>
@@ -172,10 +173,12 @@
                           <tr>
                             <th>Nama Pemohon</th>
                             <th>Nama Anak</th>
-                            <th>Saksi 1</th>
-                            <th>Saksi 2</th>
-                            <th>Instansi Kesehatan</th>
-                            <th>Kelurahan</th>
+                            <th>Verifikasi Saksi 1</th>
+                            <th>Verifikasi Saksi 2</th>
+                            <th>Verifikasi Instansi Kesehatan</th>
+                            <th>Verifikasi Kelurahan</th>
+                            <th>Verifikasi Admin</th>
+                            <th>Aksi</th>
                             <th>Detail</th>
                           </tr>
                         </thead>
@@ -187,6 +190,8 @@
                             <td>{{x.verifikasiSaksi2}}</td>
                             <td>{{x.verifikasiInstansiKesehatan}}</td>
                             <td>{{x.verifikasiLurah}}</td>
+                            <td>{{x.verifikasiAdmin}}</td>
+                            <td><button ng-app="sppak" ng-controller="AdminCtrl" ng-click="verifikasiAdmin(x.id)">Verifikasi</button></td>
                             <td>
 								<a href ng-click="viewDetail(x)"><i class="fa text-success text">Lihat</i></a>
 							</td>
