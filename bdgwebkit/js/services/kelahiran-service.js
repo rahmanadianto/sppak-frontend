@@ -36,13 +36,21 @@ app.factory('KelahiranService', function($http, $q) {
             waktuCetak : dat.waktuCetakTerakhir
 
         };
+        console.log("ULALALAL");
+        console.log(req);
 
         //kode_ruangan, kapasitas, status_kondisi
         $http({
             method: 'POST',
             url: kelahiranEndpoint,
             data: req,
-            headers: {'content-type': 'application/json'}
+            dataType: 'json',
+            beforeSend: function(xhr){
+                var auth = localStorage.getItem('ls.auth');
+                console.log(localStorage);
+                xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
+            }
+            
         }).success(function(data) {
             deferred.resolve(data);
         }).error(function(data) {

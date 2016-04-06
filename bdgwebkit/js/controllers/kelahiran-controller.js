@@ -1,4 +1,4 @@
-app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService) {
+app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService, authService, authDefaults) {
     $scope.permohonan={
         "anak": {
             "nama": null,
@@ -45,7 +45,9 @@ app.controller('PermohonanCtrl', function($scope, $rootScope, KelahiranService) 
     };
 
     $scope.addKelahiran = function(permohonan) {
+        console.log("CLKJSDOFIU");
         console.log(permohonan);
+        console.log(KelahiranService);
         KelahiranService.addKelahiran(permohonan).then(
             function(res) {
                 // $scope.error.onAddingLesson = '';
