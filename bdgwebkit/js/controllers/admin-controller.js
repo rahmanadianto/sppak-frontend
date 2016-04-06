@@ -1,5 +1,5 @@
 app
-.controller('AdminCtrl', function($scope, authService, authDefaults) {
+.controller('AdminCtrl', function($http, $scope, authService, authDefaults) {
 	$scope.response = [];
 	$scope.viewedDetail = {};
     
@@ -7,12 +7,20 @@ app
 		$scope.viewedDetail = permohonan;
 	}
 	
-	$(document).ready(function() {
-		$('#tabel-permohonan tbody').on('click', 'tr', function() {
-			var data = $('#tabel-permohonan').DataTable().row(this).data();
-			angular.element('body').scope().viewDetail(data);
-			angular.element('body').scope().$apply();
-		});
-	});
+	$http({
+        url: "http://localhost:8000/api/v1/kelahiran",
+        dataType: "json",
+        method: "GET",
+        data: "",
+        withCredentials: true,
+        beforeSend: function(xhr){
+			var auth = localStorage.getItem('ls.auth');
+			xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
+		}
+    }).then(function(response) {
+        $scope.response = response.data.data;
+    }, function(error) {
+        $scope.error = error.data;
+    });
 
 });
