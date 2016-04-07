@@ -34,7 +34,7 @@ var controller = app.controller('AuthController',
 											method: 'GET',
 											url: 'http://localhost:8000/api/v1/pengguna/login'
 										}).then(function successCallback(res){
-												localStorage.setItem("id", res.data.data.id);
+												localStorage.setItem("id", res.data.data.userable_id);
                         var usr_type = res.data.data.userable_type;
                         localStorage.setItem("user_type", usr_type);
                         if (usr_type.indexOf("Pegawai") > -1) {

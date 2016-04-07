@@ -178,6 +178,7 @@
                             <th>Verifikasi Instansi Kesehatan</th>
                             <th>Verifikasi Kelurahan</th>
                             <th>Verifikasi Admin</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                             <th>Detail</th>
                           </tr>
@@ -191,7 +192,8 @@
                             <td>{{x.verifikasiInstansiKesehatan}}</td>
                             <td>{{x.verifikasiLurah}}</td>
                             <td>{{x.verifikasiAdmin}}</td>
-                            <td><button ng-app="sppak" ng-controller="AdminCtrl" ng-click="verifikasiAdmin(x.id)">Verifikasi</button></td>
+                            <td>{{x.status}}</td>
+                            <td><button ng-app="sppak" ng-controller="AdminCtrl" ng-click="verifikasiAdmin(x.id)" class="btn btn-primary">Verifikasi</button></td>
                             <td>
 								<a href ng-click="viewDetail(x)"><i class="fa text-success text">Lihat</i></a>
 							</td>
