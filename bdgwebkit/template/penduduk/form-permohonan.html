@@ -41,10 +41,12 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Jenis Kelamin</label>
                                     <div class="col-sm-6">
-                                        <select ng-model="permohonan.anak.jenisKelamin" ui-jq="chosen" class="w-full" required>
-                                            <option value="laki-laki">Laki - laki</option>
-                                            <option value="perempuan">Perempuan</option>
-                                        </select>
+                                        <label class="radio-inline">
+                                            <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="laki-laki"> Laki-Laki
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="perempuan"> Perempuan
+                                        </label>
                                     </div>
                                 </div>
 
@@ -52,24 +54,13 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Kota Lahir</label>
                                     <div class="col-sm-6">
-                                        <select ng-model="permohonan.anak.kotaLahirId" ui-jq="chosen" class="w-full" required>
-                                            <!-- <optgroup label="Jawa Tengah">
-                                            <option value="Se">Semarang</option>
-                                            <option value="So">Solo</option>
-                                            <option value="Sal">Salatiga</option>
-                                            <option value="Mag">Magelang</option>
-                                        </optgroup> -->
+                                        <select ng-model="permohonan.anak.kotaLahirId" chosen class="w-full" required>
                                             <optgroup label="Jawa Barat">
                                                 <option value="4">Bandung</option>
                                                 <option value="5">Garut</option>
                                                 <option value="16">Bekasi</option>
                                                 <option value="6">Tasikmalaya</option>
                                             </optgroup>
-                                            <!-- <optgroup label="Jawa Timur">
-                    <option value="AZ">Malang</option>
-                    <option value="CO">Surabaya</option>
-                </optgroup> -->
-
                                         </select>
                                         <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
                                     </div>
@@ -89,7 +80,7 @@
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">Jenis Lahir</label>
                                     <div class="col-sm-6">
-                                        <select ng-model="permohonan.anak.jenisLahir" ui-jq="chosen" class="w-full" required>
+                                        <select ng-model="permohonan.anak.jenisLahir" chosen class="w-full" required>
                                             <option value="laki-laki">Normal</option>
                                             <option value="perempuan">Kembar dua</option>
                                         </select>
@@ -101,7 +92,7 @@
                                     <label class="col-sm-2 control-label">Anak ke</label>
                                     <div class="col-sm-2">
                                         <div>
-                                            <input ng-model="permohonan.anak.anakKe" ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" required>
+                                            <input ng-model="permohonan.anak.anakKe" type="number" class="form-control" ng-required min="1", max="200">
                                             <span class="help-block m-b-none">Isikan nomor urutan anak.</span>
                                         </div>
                                     </div>
@@ -112,7 +103,7 @@
                                     <label class="col-sm-2 control-label">Berat</label>
                                     <div class="col-sm-2">
                                         <div>
-                                            <input ng-model="permohonan.anak.berat" ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" required>
+                                            <input ng-model="permohonan.anak.berat" type="number" class="form-control" ng-required min="0" max="50">
                                             <span class="help-block m-b-none">Isikan berat badan anak.</span>
                                         </div>
                                     </div>
@@ -126,7 +117,7 @@
                                     <label class="col-sm-2 control-label">Panjang</label>
                                     <div class="col-sm-2">
                                         <div>
-                                            <input ng-model="permohonan.anak.panjang" ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='1' data-max="20" data-verticalbuttons="true" data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" required>
+                                            <input ng-model="permohonan.anak.panjang" type="number" class="form-control" ng-required min="0" max="100">
                                             <span class="help-block m-b-none">Isikan panjang badan anak.</span>
                                         </div>
                                     </div>
@@ -136,34 +127,9 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">Rumah Sakit/ Klinik</label>
+                                    <label class="col-sm-2 control-label">Rumah Sakit / Klinik</label>
                                     <div class="col-sm-6">
-                                        <select ng-model="permohonan.instansiKesehatanId" ui-jq="chosen" class="w-full" required>
-                                            <!-- <optgroup label="Jawa Tengah">
-                    <option value="Se">Semarang</option>
-                    <option value="So">Solo</option>
-                    <option value="Sal">Salatiga</option>
-                    <option value="Mag">Magelang</option>
-                </optgroup> -->
-                                            <optgroup label="Bandung">
-                                                <option value="1">RS Al Islam</option>
-                                                <option value="2">RS Bersalin Astana Anyar</option>
-                                                <option value="4">RS Bersalin Emma Poeradiredja</option>
-                                                <option value="5">RS Bersalin Limijati</option>
-                                                <option value="6">RS Ibu dan Anak Sukajadi</option>
-                                                <option value="7">RS Ibu dan Anak Hermina Pasteur</option>
-                                                <option value="8">RS Santo Borromeus</option>
-                                                <option value="9">RS Bhayangkara Sartika Asih</option>
-                                                <option value="10">RS Bina Sehat</option>
-                                                <option value="11">RS Cikalongwetan</option>
-                                                <option value="12">RS Dr Salamun</option>
-                                                <option value="13">RS Immanuel</option>
-                                            </optgroup>
-                                            <!-- <optgroup label="Jawa Timur">
-                    <option value="AZ">Malang</option>
-                    <option value="CO">Surabaya</option>
-                </optgroup> -->
-
+                                        <select ng-model="permohonan.instansiKesehatanId" chosen class="w-full" required ng-options="inkes.nama group by inkes.kota.nama for inkes in daftarInstansiKesehatan">
                                         </select>
                                         <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
                                     </div>

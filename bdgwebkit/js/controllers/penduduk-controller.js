@@ -1,21 +1,22 @@
-app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, KelahiranService) {
+app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, KelahiranService, InstansiKesehatanService) {
     $rootScope.$broadcast('pageTitle', 'Beranda');
 
     $scope.daftarKelahiran = [];
+    $scope.daftarInstansiKesehatan = [];
     $scope.viewedDetail = {};
     $scope.showDetailedPermohonan = false;
 
     $scope.permohonan = {
         "anak": {
             "nama": null,
-            "jenisKelamin": null,
-            "kotaLahirId": null,
+            "jenisKelamin": "laki-laki",
+            "kotaLahirId": 4,
             "waktuLahir": null,
             "jenisLahir": null,
-            "anakKe": null,
+            "anakKe": 1,
             "penolongKelahiran": null,
-            "berat": null,
-            "panjang": null
+            "berat": 0,
+            "panjang": 0
         },
         "kartuKeluargaId": null,
         "aktaNikahId": null,
@@ -69,8 +70,15 @@ app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, Kelah
         }
     }
 
+    var getAllInstansiKesehatan = function() {
+        InstansiKesehatanService.getAllInstansiKesehatan().then(function(response) {
+            $scope.daftarInstansiKesehatan = response.data;
+        });
+    }
+
     $scope.viewDetail = viewDetail;
     $scope.deleteKelahiran = deleteKelahiran;
 
     getAllKelahiran();
+    getAllInstansiKesehatan();
 });
