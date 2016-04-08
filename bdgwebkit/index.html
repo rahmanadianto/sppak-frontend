@@ -1,94 +1,58 @@
 <!DOCTYPE html>
-<html lang="id" class="{{html_class}}">
+<html lang="en" ng-app="sppak" ng-controller="MainCtrl">
 <head>
-  <meta charset="utf-8" />
-  <title>SPPAK | Daftar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <!-- Library -->
-  <link rel="stylesheet" href="libs/assets/animate.css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" />
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <meta charset="utf-8" />
+    <title>{{pageTitle}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Library -->
+    <link rel="stylesheet" href="libs/assets/animate.css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+    <script src="libs/jquery/jquery/dist/jquery.js"></script>
+    <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="js/ui-load.js"></script>
+    <script src="js/ui-jp.config.js"></script>
+    <script src="js/ui-jp.js"></script>
+    <script src="js/ui-nav.js"></script>
+    <script src="js/ui-toggle.js"></script>
+    <script src="js/ui-client.js"></script>
+
+    <script src="libs/angular.js"></script>
+    <script src="libs/angular-ui-router.js"></script>
+    <script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
+    <script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
+    <script src="libs/angular-base64-lib/angular-base64.js"></script>
+    <script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/services/kelahiran-service.js"></script>
+    <script src="js/services/pengguna-service.js"></script>
+    <script src="js/services/penduduk-service.js"></script>
+    <script src="js/services/instansi-kesehatan-service.js"></script>
+    <script src="js/services/kelurahan-service.js"></script>
+    <script src="js/services/pegawai-service.js"></script>
+
+    <script src="js/controllers/main-controller.js"></script>
+    <script src="js/controllers/pegawai-controller.js"></script>
+    <script src="js/controllers/instansi-kesehatan-controller.js"></script>
+    <script src="js/controllers/kelahiran-controller.js"></script>
+    <script src="js/controllers/kelurahan-controller.js"></script>
+    <script src="js/controllers/penduduk-controller.js"></script>
+    <script src="js/controllers/login-controller.js"></script>
+    <script src="js/controllers/registrasi-controller.js"></script>
+
+    <script type="text/javascript" src="js/router.js"></script>
 </head>
-
 <body>
-  <div class="app app-header-fixed bg-bandung">
-
-    <!-- Register modal -->
-    <div class="wrapper-lg modal-right animated fadeInUp text-center r-sm"
-         style="width:400px; margin:-300px 0 0 -200px;">
-
-      <div class="container w-xxl w-auto-xs" >
-        <div class="header-signin-sppak">
-          <div class="wrapper-lg text-center">
-            <img src="img/logo-bdg.png" alt="">
-            <p class="m-t-sm m-b-none">Sistem Pencatatan dan </br> Pembuatan Akta Kelahiran</p>
-          </div>
-        </div>
-
-        <div ng-app="sppak" ng-controller="registrasiCtrl" class="wrapper-lg bg-white r-b-sm">
-          <div class="text-center">
-            <h4 class="font-bold no-padder m-b-md">Pendaftaran Akun</h4>
-          </div>
-          <!-- Form -->
-          <form name="form" class="form-validation">
-            <div class="list-group list-group-sm">
-              <div class="form-group">
-                <input type="text" placeholder="Nomor KTP" class="form-control" ng-model="pengguna.userable_id" required>
-              </div>
-              <div class="form-group">
-                <input type="email" placeholder="Email" class="form-control" ng-model="pengguna.email" required>
-              </div>
-              <div class="form-group">
-                <input type="password" placeholder="Password" class="form-control" ng-model="pengguna.password" required>
-              </div>
-              <div class="form-grup">
-                <input type="hidden" ng-init="pengguna.userable_type='MorphPenduduk'" ng-model="pengguna.userable_type" value="MorphPenduduk">
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-lg btn-info-sppak btn-block" ng-click="registrasiPenduduk(pengguna)">Daftar</button>
-
-            <!-- <div class="checkbox m-b-md text-left">
-              <label class="checkbox-inline m-t-sm">
-                <input type="checkbox" checked=""><i></i> Menyetujui ketentuan dan kebijakan
-              </label>
-            </div> -->
-
-            <div class="line line-dashed"></div>
-
-            <div class="text-left m-t">
-              <a href="forgot-password-page.html" class="b-r padder-md padder-left-none ">Sudah memiliki akun?</a>
-              <a href="login-page.html" class="padder-md text-info-sppak">Masuk</a>
-            </div>
-          </form> <!-- Form close-->
+    <div id="page-content-wrapper">
+        <div ui-view>
 
         </div>
-      </div>
-    </div> <!-- Register modal close-->
-  </div>
-
-  <!-- Javascript library -->
-  <script src="libs/angular.js"></script>
-  <script src="libs/jquery/jquery/dist/jquery.js"></script>
-  <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="js/ui-load.js"></script>
-  <script src="js/ui-jp.config.js"></script>
-  <script src="js/ui-jp.js"></script>
-  <script src="js/ui-nav.js"></script>
-  <script src="js/ui-toggle.js"></script>
-  <script src="js/ui-client.js"></script>
-  <!-- Javascript -->
-  <script src="js/app.min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
-  <script src="libs/angular-base64-lib/angular-base64.js"></script>
-  <script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
-  
-  <script src="js/services/penduduk-service.js"></script>
-  <script src="js/controllers/registrasi-controller.js"></script>
-
+    </div>
 </body>
 </html>

@@ -11,14 +11,7 @@ app.factory('KelahiranService', function($http, $q) {
 
         $http({
             method: 'GET',
-            url: kelahiranEndpoint,
-            dataType: 'json',
-            withCredentials: true,
-            beforeSend: function(xhr){
-                var auth = localStorage.getItem('ls.auth');
-                console.log(localStorage);
-                xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
-            }
+            url: kelahiranEndpoint
         }).success(function(data) {
             deferred.resolve(data);
         }).error(function(data) {
@@ -58,7 +51,7 @@ app.factory('KelahiranService', function($http, $q) {
                 console.log(localStorage);
                 xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
             }
-            
+
         }).success(function(data) {
             deferred.resolve(data);
         }).error(function(data) {
@@ -109,14 +102,7 @@ app.factory('KelahiranService', function($http, $q) {
 
         $http({
             method: 'DELETE',
-            url: getEndpoint(kelahiranId),
-            dataType: 'json',
-            withCredentials: true,
-            beforeSend: function(xhr){
-                var auth = localStorage.getItem('ls.auth');
-                console.log(localStorage);
-                xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
-            }
+            url: getEndpoint(kelahiranId)
         }).success(function(data) {
             deferred.resolve(data);
         }).error(function(data) {

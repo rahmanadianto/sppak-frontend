@@ -6,7 +6,7 @@ app.factory('PegawaiService', function($http, $q) {
         return kelahiranEndpoint + kelahiranId;
     }
 
-    factory.verifikasiAdmin = function(kelahiranId) {
+    factory.verifikasi = function(kelahiranId) {
         var deferred = $q.defer();
 
         var req = {verifikasiAdmin: 1};
