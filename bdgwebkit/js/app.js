@@ -1,1 +1,1 @@
-var app = angular.module('sppak', ['angularBasicAuth']);
+var app = angular.module('sppak', ['angularBasicAuth', 'ui.router']);

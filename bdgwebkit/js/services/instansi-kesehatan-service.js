@@ -6,7 +6,7 @@ app.factory('InstansiKesehatanService', function($http, $q) {
         return kelahiranEndpoint + kelahiranId;
     }
 
-    factory.verifikasiInstansiKesehatan = function(kelahiranId) {
+    factory.verifikasi = function(kelahiranId) {
         var deferred = $q.defer();
 
         var req = {verifikasiInstansiKesehatan: 1};
@@ -14,12 +14,7 @@ app.factory('InstansiKesehatanService', function($http, $q) {
         $http({
             method: 'PATCH',
             url: getEndpoint(kelahiranId),
-            data: req,
-						withCredentials: true,
-						beforeSend: function(xhr){
-							var auth = localStorage.getItem('ls.auth');
-							xhr.setRequestHeader('Authorization', auth.substring(1,auth.length - 1));
-						}
+            data: req
         }).success(function(data) {
             deferred.resolve(data);
         }).error(function(data) {
@@ -31,4 +26,3 @@ app.factory('InstansiKesehatanService', function($http, $q) {
 
     return factory;
 });
-
