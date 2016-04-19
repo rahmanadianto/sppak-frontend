@@ -24,5 +24,23 @@ app.factory('PegawaiService', function($http, $q) {
         return deferred.promise;
     };
 
+    factory.tolak = function(kelahiranId) {
+        var deferred = $q.defer();
+
+        var req = {status: 3, verifikasiAdmin: 0};
+
+        $http({
+            method: 'PATCH',
+            url: getEndpoint(kelahiranId),
+            data: req
+        }).success(function(data) {
+            deferred.resolve(data);
+        }).error(function(data) {
+            deferred.reject(data);
+        });
+
+        return deferred.promise;
+    };
+
     return factory;
 });

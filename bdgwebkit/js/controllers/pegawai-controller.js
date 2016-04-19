@@ -20,7 +20,14 @@ app.controller('PegawaiCtrl', function($http, $rootScope, $scope, $state, Kelahi
 		.then(function(res) {
 			getAllKelahiran();
 		});
-	};
+	}
+
+	var tolak = function(idKelahiran) {
+		PegawaiService.tolak(idKelahiran)
+		.then(function(res) {
+			getAllKelahiran();
+		});
+	}
 
 	var getAllKelahiran = function(start, limit) {
 		KelahiranService.getAllKelahiran(start, limit).then(function(response) {
@@ -30,6 +37,7 @@ app.controller('PegawaiCtrl', function($http, $rootScope, $scope, $state, Kelahi
 
 	$scope.viewDetail = viewDetail;
 	$scope.verifikasi = verifikasi;
+	$scope.tolak = tolak;
 
 	getAllKelahiran();
 });
