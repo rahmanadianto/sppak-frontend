@@ -1,5 +1,12 @@
-app.controller('PegawaiCtrl', function($http, $rootScope, $scope, $state, KelahiranService, PegawaiService) {
+app.controller('PegawaiCtrl', function($http, $interval, $rootScope, $scope, $state, KelahiranService, PegawaiService) {
 	$rootScope.$broadcast('pageTitle', 'Daftar Permohonan');
+
+	$scope.filter = {
+		namaPemohon: '',
+		namaAnak: '',
+		namaInKes: '',
+		namaKelurahan: ''
+	};
 
 	$scope.daftarKelahiran = [];
 	$scope.viewedDetail = {};

@@ -57,3 +57,7 @@ body {
 .bg-info .nav > li > a.btn-dark:hover {
     background-color: #000 !important;
 }
+
+ul.pagination {
+    margin: 0;
+}

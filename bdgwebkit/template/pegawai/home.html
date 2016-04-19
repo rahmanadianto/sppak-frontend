@@ -102,6 +102,32 @@
                                             <h1 class="m-n font-bold h3 padder">Tabel Daftar Permohonan</h1>
                                         </div>
                                         <div class="panel-body no-padder">
+                                            <div class="row wrapper-sm form-inline" style="margin: 0">
+                                                <div class="col-sm-3">
+                                                    <label>
+                                                        Pemohon:
+                                                        <input type="text" class="input-sm form-control" ng-model="filter.namaPemohon" placeholder="nama pemohon...">
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                  <label>
+                                                      Anak:
+                                                      <input type="text" class="input-sm form-control" ng-model="filter.namaAnak" placeholder="nama anak...">
+                                                  </label>
+                                                </div>
+                                              <div class="col-sm-3">
+                                                <label>
+                                                    InKes:
+                                                    <input type="text" class="input-sm form-control" ng-model="filter.namaInKes" placeholder="nama rs/klinik...">
+                                                </label>
+                                              </div>
+                                              <div class="col-sm-3">
+                                                <label>
+                                                    Kelurahan:
+                                                    <input type="text" class="input-sm form-control" ng-model="filter.namaKelurahan" placeholder="nama kelurahan...">
+                                                </label>
+                                              </div>
+                                            </div>
                                             <div class="table-responsive">
                                                 <table id="tabel-permohonan" class="table b-t b-light">
                                                     <thead>
@@ -116,7 +142,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" ng-repeat="kelahiran in daftarKelahiran | filter:({status:'!0'})">
+                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" dir-paginate="kelahiran in daftarKelahiran | filter:({status:'!0', anak:{nama:filter.namaAnak}, pemohon:{nama:filter.namaPemohon}, instansi_kesehatan:{nama:filter.namaInKes}, kelurahan:{nama:filter.namaKelurahan}}) | itemsPerPage: 10">
                                                             <td>{{kelahiran.pemohon.nama}}</td>
                                                             <td>{{kelahiran.anak.nama}}</td>
                                                             <td class="{{kelahiran.verifikasiSaksi1 ? 'text-success' : 'text-danger'}}">
@@ -171,9 +197,10 @@
                                         </div>
                                         <footer class="panel-footer">
                                             <div class="row">
-                                                <div class="col-sm-4 col-sm-push-4 text-right text-center-xs">
-                                                    <ul class="pagination pagination-sm m-t-none m-b-none">
-                                                    </ul>
+                                                <div class="col-sm-offset-8 col-sm-4 text-right text-center-xs">
+                                                    <dir-pagination-controls></dir-pagination-controls>
+                                                    <!-- <ul class="pagination pagination-sm m-t-none m-b-none">
+                                                    </ul> -->
                                                 </div>
                                             </div>
                                         </footer>
