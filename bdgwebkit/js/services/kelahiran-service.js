@@ -26,6 +26,11 @@ app.factory('KelahiranService', function($http, $q) {
                 d.kartuKeluargaId = Number(d.kartuKeluargaId);
                 d.saksiSatuId = Number(d.saksiSatuId);
                 d.saksiDuaId = Number(d.saksiDuaId);
+                d.verifikasiAdmin = !!d.verifikasiAdmin;
+                d.verifikasiSaksi1 = !!d.verifikasiSaksi1;
+                d.verifikasiSaksi2 = !!d.verifikasiSaksi2;;
+                d.verifikasiLurah = !!d.verifikasiLurah;
+                d.verifikasiInstansiKesehatan = !!d.verifikasiInstansiKesehatan;
                 d.status = Number(d.status);
             });
             deferred.resolve(data);
@@ -56,6 +61,11 @@ app.factory('KelahiranService', function($http, $q) {
             response.data.kartuKeluargaId = Number(response.data.kartuKeluargaId);
             response.data.saksiSatuId = Number(response.data.saksiSatuId);
             response.data.saksiDuaId = Number(response.data.saksiDuaId);
+            response.data.verifikasiAdmin = !!response.data.verifikasiAdmin;
+            response.data.verifikasiSaksi1 = !!response.data.verifikasiSaksi1;
+            response.data.verifikasiSaksi2 = !!response.data.verifikasiSaksi2;;
+            response.data.verifikasiLurah = !!response.data.verifikasiLurah;
+            response.data.verifikasiInstansiKesehatan = !!response.data.verifikasiInstansiKesehatan;
             response.data.status = Number(response.data.status);
 
             deferred.resolve(response);
