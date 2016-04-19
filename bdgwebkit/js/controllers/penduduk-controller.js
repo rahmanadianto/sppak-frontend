@@ -1,5 +1,5 @@
-app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, KotaService, KelahiranService, InstansiKesehatanService) {
-    $rootScope.$broadcast('pageTitle', 'Beranda');
+app.controller('PendudukCtrl', function($anchorScroll, $location, $http, $rootScope, $scope, $state, KotaService, KelahiranService, InstansiKesehatanService) {
+    $rootScope.$broadcast('pageTitle', 'Daftar Permohonan');
 
     $scope.daftarKelahiran = [];
     $scope.viewedDetail = {};
@@ -33,16 +33,15 @@ app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, KotaS
         }
     }
 
-    var logout = function() {
-        localStorage.clear();
-        $http.defaults.headers.common.Authorization = undefined;
-        $state.go('login');
+    var scrollToTop = function() {
+        $location.hash('content');
+        $anchorScroll();
     }
 
     $scope.viewDetail = viewDetail;
     $scope.deleteKelahiran = deleteKelahiran;
     $scope.goToEditKelahiran = goToEditKelahiran;
-    $scope.logout = logout;
+    $scope.scrollToTop = scrollToTop;
 
     getAllKelahiran();
 });

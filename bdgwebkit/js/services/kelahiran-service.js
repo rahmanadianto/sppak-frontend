@@ -19,6 +19,14 @@ app.factory('KelahiranService', function($http, $q) {
                 d.anak.berat = Number(d.anak.berat);
                 d.anak.panjang = Number(d.anak.panjang);
                 d.anak.kotaLahirId = Number(d.anak.kotaLahirId);
+                d.id = Number(d.id);
+                d.anakId = Number(d.anakId);
+                d.kelurahanId = Number(d.kelurahanId);
+                d.instansiKesehatanId = Number(d.instansiKesehatanId);
+                d.kartuKeluargaId = Number(d.kartuKeluargaId);
+                d.saksiSatuId = Number(d.saksiSatuId);
+                d.saksiDuaId = Number(d.saksiDuaId);
+                d.status = Number(d.status);
             });
             deferred.resolve(data);
         }).error(function(data) {
@@ -41,7 +49,15 @@ app.factory('KelahiranService', function($http, $q) {
             response.data.anak.berat = Number(response.data.anak.berat);
             response.data.anak.panjang = Number(response.data.anak.panjang);
             response.data.anak.kotaLahirId = Number(response.data.anak.kotaLahirId);
-            
+            response.data.id = Number(response.data.id);
+            response.data.anakId = Number(response.data.anakId);
+            response.data.kelurahanId = Number(response.data.kelurahanId);
+            response.data.instansiKesehatanId = Number(response.data.instansiKesehatanId);
+            response.data.kartuKeluargaId = Number(response.data.kartuKeluargaId);
+            response.data.saksiSatuId = Number(response.data.saksiSatuId);
+            response.data.saksiDuaId = Number(response.data.saksiDuaId);
+            response.data.status = Number(response.data.status);
+
             deferred.resolve(response);
         }).error(function(data) {
             deferred.reject(data);
@@ -56,15 +72,22 @@ app.factory('KelahiranService', function($http, $q) {
         var req = {
             anak: dat.anak,
             kartuKeluargaId: dat.kartuKeluargaId,
-            aktaNikah: dat.aktaNikahId,
+            aktaNikahId: dat.aktaNikahId,
             ibuId: dat.ibuId,
             ayahId: dat.ayahId,
-            saksiSatu: dat.saksiSatu,
-            saksiDua: dat.saksiDua,
             pemohonId: dat.pemohonId,
+            status: dat.status,
             waktuCetakTerakhir : dat.waktuCetakTerakhir,
             instansiKesehatanId :dat.instansiKesehatanId
         };
+
+        if (dat.saksiSatu.pendudukId !== null) {
+            req.saksiSatu = dat.saksiSatu;
+        }
+
+        if (dat.saksiDua.pendudukId !== null) {
+            req.saksiDua = dat.saksiDua;
+        }
 
         //kode_ruangan, kapasitas, status_kondisi
         $http({
@@ -87,15 +110,22 @@ app.factory('KelahiranService', function($http, $q) {
         var req = {
             anak: dat.anak,
             kartuKeluargaId: dat.kartuKeluargaId,
-            aktaNikah: dat.aktaNikahId,
+            aktaNikahId: dat.aktaNikahId,
             ibuId: dat.ibuId,
             ayahId: dat.ayahId,
-            saksiSatu: dat.saksiSatu,
-            saksiDua: dat.saksiDua,
             pemohonId: dat.pemohonId,
+            status: dat.status,
             waktuCetakTerakhir : dat.waktuCetakTerakhir,
             instansiKesehatanId :dat.instansiKesehatanId
         };
+
+        if (dat.saksiSatu.pendudukId !== null) {
+            req.saksiSatu = dat.saksiSatu;
+        }
+
+        if (dat.saksiDua.pendudukId !== null) {
+            req.saksiDua = dat.saksiDua;
+        }
 
         $http({
             method: 'PATCH',

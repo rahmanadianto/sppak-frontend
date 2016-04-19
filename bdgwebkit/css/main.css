@@ -2,6 +2,22 @@ body {
     background-color: #f4f5f5;
 }
 
+.text-gray {
+    color: #999;
+}
+
+.btn, a {
+    transition: 0.2s all ease;
+}
+
+.btn:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.btn .fa {
+    margin-right: 5px;
+}
+
 .navbar-nav > li {
     background-color: #e91e63;
 }
@@ -22,6 +38,22 @@ body {
     margin-left: 0;
 }
 
+.app-aside-hidden aside {
+    display: none;
+}
+
 .w100 {
-    width: 100px;
+    min-width: 100px;
+}
+
+.btn-dark {
+    background-color: #444;
+}
+
+.btn-dark:hover {
+    background-color: #000 !important;
+}
+
+.bg-info .nav > li > a.btn-dark:hover {
+    background-color: #000 !important;
 }

@@ -5,16 +5,27 @@ app.controller('MainCtrl', function($http, $rootScope, $scope, $state, Kelahiran
 		$state.go('login');
 	}
 
+
+	var logout = function() {
+	    localStorage.clear();
+	    $http.defaults.headers.common.Authorization = undefined;
+	    $state.go('login');
+	}
+
+	$scope.pageTitleEmbedded = 'SPPAK';
 	$scope.pageTitle = 'SPPAK';
 	$scope.init = function () {
 	  $rootScope.$on('pageTitle', function (event, val) {
 		if (val) {
-			$scope.pageTitle = val + ' | SPPAK';
+			$scope.pageTitle = val;
+			$scope.pageTitleEmbedded = val + ' | SPPAK';
 		} else {
 			$scope.pageTitle = 'SPPAK';
+			$scope.pageTitleEmbedded = 'SPPAK';
 		}
 	  });
 	};
 
 	$scope.init();
+	$scope.logout = logout;
 });

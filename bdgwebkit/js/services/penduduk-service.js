@@ -19,6 +19,21 @@ app.factory('PendudukService', function($http, $q) {
         return deferred.promise;
     };
 
+    factory.getPenduduk = function(id) {
+        var deferred = $q.defer();
+
+        $http({
+            method: 'GET',
+            url: pendudukEndpoint + id
+        }).success(function(data) {
+            deferred.resolve(data);
+        }).error(function(data) {
+            deferred.reject(data);
+        });
+
+        return deferred.promise;
+    };
+
     factory.registrasiPenduduk = function(dat) {
         var deferred = $q.defer();
 

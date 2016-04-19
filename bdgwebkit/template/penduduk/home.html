@@ -7,7 +7,7 @@
                 <i class="glyphicon glyphicon-cog"></i>
             </button>
             <!-- brand -->
-            <a href="#/" class="navbar-brand text-lt">
+            <a ui-sref="penduduk" class="navbar-brand text-lt">
                 <img src="img/logo-small.png" alt="." class="small-logo hide">
                 <img src="img/logo.png" alt="." class="large-logo">
             </a>
@@ -25,14 +25,14 @@
 
             <!-- link and dropdown -->
             <ul class="nav navbar-nav hidden-sm">
-                <li><a ui-sref="penduduk">Daftar Permohonan</a></li>
-                <li><a ui-sref="penduduk.permohonan">Pengajuan Permohonan</a></li>
+                <li><a class="{{pageTitle === 'Daftar Permohonan' ? 'bg-blue' : ''}}" ui-sref="penduduk" ui-sref-opts="{reload: true}">Daftar Permohonan</a></li>
+                <li><a class="{{pageTitle === 'Pengajuan Permohonan' || pageTitle === 'Ubah Permohonan' ? 'bg-blue' : ''}}" ui-sref="penduduk.permohonan" ui-sref-opts="{reload: true}">Pengajuan Permohonan</a></li>
             </ul>
             <!-- / link and dropdown -->
 
             <!-- nabar right -->
             <ul class="nav navbar-nav navbar-right">
-                <li style="background-color:#444"><a href ng-click="logout()">Log Out</a></li>
+                <li><a class="btn-dark" href ng-click="logout()">Log Out</a></li>
             </ul>
             <!-- / navbar right -->
         </div>
@@ -143,23 +143,23 @@
                                 <div class="col-md-12">
                                     <div class="panel panel-default">
                                         <div class="lter b-b wrapper-md padder-md">
-                                            <h1 class="m-n font-bold h3 padder">Daftar Permohonan</h1>
+                                            <h1 class="m-n font-bold h3 padder">Daftar Permohonan yang <span class="text-warning">Belum Diajukan</span></h1>
                                         </div>
                                         <div class="table-responsive">
                                             <table id="tabel-histori" class="table table-striped b-t b-light">
                                                 <thead>
                                                     <tr>
-                                                        <th>Nama Anak</th>
-                                                        <th>Anak Ke</th>
-                                                        <th>Waktu Lahir</th>
-                                                        <th>Aksi</th>
+                                                        <th style="width:100px">Anak Ke</th>
+                                                        <th style="width:225px">Nama Anak</th>
+                                                        <th style="width:200px">Waktu Lahir</th>
+                                                        <th></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr ng-repeat="kelahiran in daftarKelahiran | orderBy:'anak.anakKe'">
-                                                        <td>{{kelahiran.anak.nama}}</td>
+                                                    <tr ng-repeat="kelahiran in daftarKelahiran | orderBy:'anak.anakKe' | filter:{status:0}">
                                                         <td>{{kelahiran.anak.anakKe}}</td>
-                                                        <td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. h:mm'}}</td>
+                                                        <td>{{kelahiran.anak.nama}}</td>
+                                                        <td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</td>
                                                         <td>
                                                             <button class="btn btn-info w100" ng-click="goToEditKelahiran(kelahiran)"><i class="fa fa-pencil"></i> Ubah</button>
                                                             <button class="btn btn-danger" ng-click="deleteKelahiran(kelahiran.id, kelahiran.anak.nama)"><i class="fa fa-trash"></i> Hapus</button>
@@ -167,6 +167,60 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="4"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="lter b-b wrapper-md padder-md">
+                                            <h1 class="m-n font-bold h3 padder">Daftar Permohonan yang <span class="text-info">Sudah Diajukan</span></h1>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table id="tabel-histori" class="table table-striped b-t b-light">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="w100">Anak Ke</th>
+                                                        <th style="width:225px">Nama Anak</th>
+                                                        <th style="width:200px">Waktu Lahir</th>
+                                                        <th class="w100">Saksi 1</th>
+                                                        <th class="w100">Saksi 2</th>
+                                                        <th class="w100">InKes</th>
+                                                        <th class="w100">Kelurahan</th>
+                                                        <th class="w100">Admin</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="kelahiran in daftarKelahiran | orderBy:'anak.anakKe' | filter:{status:1}">
+                                                        <td>{{kelahiran.anak.anakKe}}</td>
+                                                        <td>{{kelahiran.anak.nama}}</td>
+                                                        <td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</td>
+                                                        <td class="{{kelahiran.verifikasiSaksi1 ? 'text-success' : 'text-danger'}}">
+                                                            {{(kelahiran.verifikasiSaksi1 ? 'Sudah' : 'Belum')}}
+                                                        </td>
+                                                        <td class="{{kelahiran.verifikasiSaksi2 ? 'text-success' : 'text-danger'}}">
+                                                            {{(kelahiran.verifikasiSaksi2 ? 'Sudah' : 'Belum')}}
+                                                        </td>
+                                                        <td class="{{kelahiran.verifikasiInstansiKesehatan ? 'text-success' : 'text-danger'}}">
+                                                            {{(kelahiran.verifikasiInstansiKesehatan ? 'Sudah' : 'Belum')}}
+                                                        </td>
+                                                        <td class="{{kelahiran.verifikasiKelurahan ? 'text-success' : 'text-danger'}}">
+                                                            {{(kelahiran.verifikasiKelurahan ? 'Sudah' : 'Belum')}}
+                                                        </td>
+                                                        <td class="{{kelahiran.verifikasiAdmin ? 'text-success' : 'text-danger'}}">
+                                                            {{(kelahiran.verifikasiAdmin ? 'Sudah' : 'Belum')}}
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-default w100" ng-click="goToEditKelahiran(kelahiran)"><i class="fa fa-info"></i> Lihat Detail</button>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="9" class="text-gray"><i>* Saksi 1, Saksi 2, InKes (Instansi Kesehatan), Kelurahan, dan Admin (Pegawai Disdukcapil) harus melakukan verifikasi sebelum Akta Kelahiran dapat dipublikasikan.</i></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -189,7 +243,7 @@
     <!-- footer -->
     <footer id="footer" class="app-footer" role="footer">
         <div class="wrapper-md padder-lg b-t bg-light">
-            <span class="pull-right">&copy; Copyright Bandung <a href ui-scroll="app" class="m-l-sm text-muted"><i class="icon-bdg_arrow11"></i></a></span> Made with <i class="text-danger fa fa-heart"></i> in Bandung
+            <span class="pull-right">&copy; Copyright Bandung <a ng-click="scrollToTop()" class="m-l-sm text-muted"><i class="icon-bdg_arrow11"></i></a></span> Made with <i class="text-danger fa fa-heart"></i> in Bandung
         </div>
     </footer>
     <!-- / footer -->
