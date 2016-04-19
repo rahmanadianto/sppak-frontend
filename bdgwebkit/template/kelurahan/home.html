@@ -141,13 +141,15 @@
                                                     <td>{{kelahiran.ibu.id}}</td>
                                                     <td>{{kelahiran.anak.nama}}</td>
                                                     <td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</td>
-                                                    <td ng-show="!kelahiran.verifikasiLurah">
-                                                        <button ng-click="verifikasi(kelahiran.id)" class="btn btn-primary">
+
+                                                    <td>
+                                                        <button ng-click="verifikasi(kelahiran.id)" class="btn btn-primary" ng-show="!kelahiran.verifikasiLurah">
                                                             <i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;Verifikasi
                                                         </button>
-                                                    </td>
-                                                    <td ng-show="kelahiran.verifikasiLurah">
-                                                        <button ng-click="verifikasi(kelahiran.id)" class="btn btn-success" disabled>Terverifikasi</button>
+                                                        <button ng-click="verifikasi(kelahiran.id)" class="btn btn-success" disabled ng-show="kelahiran.verifikasiLurah">
+                                                            Terverifikasi
+                                                        </button>
+                                                        <button class="btn btn-default" ng-click="viewDetail(kelahiran)"><i class="fa fa-info"></i> Lihat Detail</button>
                                                     </td>
                                                 </tr>
                                             </tbody>
