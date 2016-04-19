@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="id" class="{{html_class}}">
-<head>
-  <meta charset="utf-8" />
-  <title>SPPAK | Daftar</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <!-- Library -->
-  <link rel="stylesheet" href="libs/assets/animate.css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="libs/assets/font-awesome/css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="libs/jquery/bootstrap/dist/css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" />
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/style.css" type="text/css" />
-</head>
-
-<body>
-  <div class="app app-header-fixed bg-bandung">
+<div class="app app-header-fixed bg-bandung">
 
     <!-- Register modal -->
     <div class="wrapper-lg modal-right animated fadeInUp text-center r-sm"
@@ -28,7 +12,7 @@
           </div>
         </div>
 
-        <div ng-app="sppak" ng-controller="registrasiCtrl" class="wrapper-lg bg-white r-b-sm">
+        <div ng-app="sppak" ng-controller="RegistrasiCtrl" class="wrapper-lg bg-white r-b-sm">
           <div class="text-center">
             <h4 class="font-bold no-padder m-b-md">Pendaftaran Akun</h4>
           </div>
@@ -60,35 +44,12 @@
             <div class="line line-dashed"></div>
 
             <div class="text-left m-t">
-              <a href="forgot-password-page.html" class="b-r padder-md padder-left-none ">Sudah memiliki akun?</a>
-              <a href="login-page.html" class="padder-md text-info-sppak">Masuk</a>
+              Sudah memiliki akun?
+              <a ui-sref="login" class="padder-md padder-left-none text-info-sppak">Masuk</a>
             </div>
           </form> <!-- Form close-->
 
         </div>
       </div>
     </div> <!-- Register modal close-->
-  </div>
-
-  <!-- Javascript library -->
-  <script src="libs/angular.js"></script>
-  <script src="libs/jquery/jquery/dist/jquery.js"></script>
-  <script src="libs/jquery/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="js/ui-load.js"></script>
-  <script src="js/ui-jp.config.js"></script>
-  <script src="js/ui-jp.js"></script>
-  <script src="js/ui-nav.js"></script>
-  <script src="js/ui-toggle.js"></script>
-  <script src="js/ui-client.js"></script>
-  <!-- Javascript -->
-  <script src="js/app.min.js"></script>
-  <script src="js/app.js"></script>
-  <script src="libs/angular-basicauth-lib/angular-basicauth.js"></script>
-  <script src="libs/angular-base64-lib/angular-base64.js"></script>
-  <script src="libs/angular-local-storage-lib/dist/angular-local-storage.js"></script>
-  
-  <script src="js/services/penduduk-service.js"></script>
-  <script src="js/controllers/registrasi-controller.js"></script>
-
-</body>
-</html>
+</div>>

@@ -1,4 +1,4 @@
-app.controller('registrasiCtrl', function($scope, $rootScope, PendudukService) {
+app.controller('RegistrasiCtrl', function($scope, $rootScope, PendudukService) {
 
 	$scope.pengguna = {
 		"email": null,

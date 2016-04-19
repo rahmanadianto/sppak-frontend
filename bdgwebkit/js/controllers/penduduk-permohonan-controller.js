@@ -1,8 +1,11 @@
-app.controller('PendudukPermohonanCtrl', function($http, $rootScope, $scope, $state, $stateParams, KotaService, KelahiranService, InstansiKesehatanService) {
+app.controller('PendudukPermohonanCtrl', function($http, $rootScope, $scope, $state, $stateParams,
+PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
     $rootScope.$broadcast('pageTitle', 'Pengajuan Permohonan');
 
     $scope.daftarInstansiKesehatan = [];
     $scope.daftarKota = [];
+    $scope.ayah = {};
+    $scope.ibu = {};
 
     $scope.permohonan = {
         "id": null,
@@ -48,23 +51,38 @@ app.controller('PendudukPermohonanCtrl', function($http, $rootScope, $scope, $st
 
     var getKelahiran = function(id) {
         KelahiranService.getKelahiran(id).then(function(res) {
+            res.data.saksiSatu = {
+                pendudukId: (res.data.saksi_satu ? res.data.saksi_satu.pendudukId : null),
+                email: res.data.saksi_satu ? res.data.saksi_satu.email : null
+            };
+            res.data.saksiDua = {
+                pendudukId: res.data.saksi_dua ? res.data.saksi_dua.pendudukId : null,
+                email: res.data.saksi_dua ? res.data.saksi_dua.email : null
+            };
+
+            if (res.data.ayahId) getAyah(res.data.ayahId);
+            if (res.data.ibuId) getIbu(res.data.ibuId);
+
             $scope.permohonan = res.data;
-            console.log($scope.permohonan);
         });
     }
 
-    var addKelahiran = function(permohonan) {
+    var addKelahiran = function(permohonan, isSubmit) {
+        if (isSubmit) permohonan.status = 1;
+
         KelahiranService.addKelahiran(permohonan).then(
             function(res) {
-                $state.go('penduduk');
+                $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
             }
         );
     }
 
-    var editKelahiran = function(permohonan) {
+    var editKelahiran = function(permohonan, isSubmit) {
+        if (isSubmit) permohonan.status = 1;
+
         KelahiranService.editKelahiran(permohonan.id, permohonan).then(
             function(res) {
-                $state.go('penduduk');
+                $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
             }
         );
     }
@@ -77,10 +95,28 @@ app.controller('PendudukPermohonanCtrl', function($http, $rootScope, $scope, $st
         }
     }
 
+    var getAyah = function(id) {
+        if (id.length < 16) $scope.ayah = null;
+        PendudukService.getPenduduk(id).then(function(res) {
+              $scope.ayah = res.data;
+        });
+    }
+
+    var getIbu = function(id) {
+        if (id.length < 16) $scope.ibu = null;
+        PendudukService.getPenduduk(id).then(function(res) {
+              $scope.ibu = res.data;
+        });
+    }
+
     getAllInstansiKesehatan();
     getAllKota();
 
+    $scope.getKelahiran = getKelahiran;
     $scope.addKelahiran = addKelahiran;
     $scope.editKelahiran = editKelahiran;
     $scope.deleteKelahiran = deleteKelahiran;
+
+    $scope.getAyah = getAyah;
+    $scope.getIbu = getIbu;
 });

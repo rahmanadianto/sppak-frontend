@@ -1,4 +1,4 @@
-<div class="app app-header-fixed app-aside-folded">
+<div class="app app-header-fixed app-aside-hidden">
     <!-- header -->
     <header id="header" class="app-header navbar" role="menu">
         <!-- navbar header -->
@@ -19,7 +19,7 @@
         <!-- / navbar header -->
 
         <!-- navbar collapse -->
-        <div class="collapse pos-rlt navbar-collapse bg-info">
+        <div class="collapse pos-rlt navbar-collapse bg-info text-uppercase">
             <!-- buttons -->
             <div class="nav navbar-nav hidden-xs"></div>
             <!-- / buttons -->
@@ -27,50 +27,14 @@
             <!-- link and dropdown -->
             <ul class="nav navbar-nav hidden-sm">
                 <li>
-                    <a ui-sref="pegawai">Beranda</a>
+                    <a class="{{pageTitle === 'Daftar Permohonan' ? 'bg-blue' : ''}}" ui-sref="pegawai">Daftar Permohonan</a>
                 </li>
             </ul>
             <!-- / link and dropdown -->
 
             <!-- nabar right -->
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-                        <i class="icon-bdg_alert text14"></i>
-                        <span class="visible-xs-inline">Notifikasi</span>
-                        <span class="badge badge-sm up bg-danger pull-right-xs">2</span>
-                    </a>
-                    <!-- dropdown -->
-                    <div class="dropdown-menu w-xl animated fadeIn">
-                        <div class="panel bg-white">
-                            <div class="panel-heading b-light bg-light">
-                                <strong>Kamu Punya <span>2</span> Notifikasi</strong>
-                            </div>
-                            <div class="list-group">
-                                <a href class="list-group-item">
-                                    <span class="pull-left m-r thumb-sm">
-                  <img src="img/01.jpg" alt="..." class="img-circle">
-                </span>
-                                    <span class="clear block m-b-none">
-                  Pembangunan Taman daerah Bandung Barat<br>
-                  <small class="text-muted">10 minutes ago</small>
-                </span>
-                                </a>
-                                <a href class="list-group-item">
-                                    <span class="clear block m-b-none">
-                  Revitalisasi Sungai Cikapundung<br>
-                  <small class="text-muted">1 hour ago</small>
-                </span>
-                                </a>
-                            </div>
-                            <div class="panel-footer text-sm">
-                                <a href class="pull-right"><i class="icon-bdg_setting3"></i></a>
-                                <a href="#notes" data-toggle="class:show animated fadeInRight">Lihat Semua Notifikasi</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- / dropdown -->
-                </li>
+                <li><a class="btn-dark" ng-click="logout()">Log Out</a></li>
             </ul>
             <!-- / navbar right -->
         </div>
@@ -105,149 +69,199 @@
     <!-- / aside -->
 
     <!-- content -->
-    <div id="content" class="app-content" role="main">
-        <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
-            <!-- div.col -->
-            <div class="col">
-                <!-- div app content body-->
-                <div class="app-content-body ">
-                    <div class="bg-light lter">
-                        <ul class="breadcrumb bg-grey-breadcrumb m-b-none">
-                            <li>
-                                <a ui-sref="pegawai" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app">
-                                    <i class="icon-bdg_expand1 text"></i>
-                                    <i class="icon-bdg_expand2 text-active"></i>
-                                </a>
-                            </li>
-                            <li><a ui-sref="pegawai">Beranda</a></li>
-                            <li><i class="fa fa-angle-right"></i><a href>Permohonan</a></li>
-                        </ul>
-                    </div>
+    <div ui-view>
+        <div id="content" class="app-content" role="main">
+            <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
+                <!-- div.col -->
+                <div class="col">
+                    <!-- div app content body-->
+                    <div class="app-content-body ">
+                        <div class="bg-light lter">
+                            <ul class="breadcrumb bg-grey-breadcrumb m-b-none">
+                                <li>
+                                    <span class="btn no-shadow">
+                                    <!-- <a ui-sref="pegawai" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app"> -->
+                                        <i class="icon-bdg_expand1 text"></i>
+                                        <i class="icon-bdg_expand2 text-active"></i>
+                                    <!-- </a> -->
+                                    </span>
+                                </li>
+                                <li><a ui-sref="pegawai">Daftar Permohonan</a></li>
+                            </ul>
+                        </div>
 
-                    <div class="bg-light lter b-b wrapper-md padder-md">
-                        <h1 class="m-n font-semibold h4 text-grey padder">Daftar Permohonan</h1>
-                    </div>
+                        <!-- <div class="bg-light lter b-b wrapper-md padder-md">
+                            <h1 class="m-n font-semibold h4 text-grey padder">Daftar Permohonan</h1>
+                        </div> -->
 
-                    <div class="wrapper-lg">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading font-semibold">
-                                        Tabel Daftar Permohonan
-                                    </div>
-                                    <div class="panel-body">
-                                        <div class="table-responsive">
-                                            <table id="tabel-permohonan" class="table table-striped b-t b-light">
-                                                <thead>
-                                                    <tr>
-                                                        <th rowspan="2">Nama Pemohon</th>
-                                                        <th rowspan="2">Nama Anak</th>
-                                                        <th colspan="4">Verifikasi</th>
-                                                        <th rowspan="2">Status</th>
-                                                        <th rowspan="2">Aksi</th>
-                                                        <th rowspan="2">Detail</th>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Saksi 1</th>
-                                                        <th>Saksi 2</th>
-                                                        <th>InKes</th>
-                                                        <th>Kelurahan</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr ng-repeat="kelahiran in daftarKelahiran">
-                                                        <td>{{kelahiran.pemohon.nama}}</td>
-                                                        <td>{{kelahiran.anak.nama}}</td>
-                                                        <td class="{{kelahiran.verifikasiSaksi1 ? 'text-success' : 'text-danger'}}">
-                                                            {{(kelahiran.verifikasiSaksi1 ? 'Sudah' : 'Belum')}}
-                                                        </td>
-                                                        <td class="{{kelahiran.verifikasiSaksi2 ? 'text-success' : 'text-danger'}}">
-                                                            {{(kelahiran.verifikasiSaksi2 ? 'Sudah' : 'Belum')}}
-                                                        </td>
-                                                        <td class="{{kelahiran.verifikasiInstansiKesehatan ? 'text-success' : 'text-danger'}}">
-                                                            {{(kelahiran.verifikasiInstansiKesehatan ? 'Sudah' : 'Belum')}}
-                                                        </td>
-                                                        <td class="{{kelahiran.verifikasiKelurahan ? 'text-success' : 'text-danger'}}">
-                                                            {{(kelahiran.verifikasiKelurahan ? 'Sudah' : 'Belum')}}
-                                                        </td>
-                                                        <td>{{kelahiran.status}}</td>
-                                                        <td ng-show="!kelahiran.verifikasiAdmin">
-                                                            <button ng-click="verifikasi(kelahiran.id)" class="btn btn-primary">
-                                                                <i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;Verifikasi
-                                                            </button>
-                                                        </td>
-                                                        <td ng-show="kelahiran.verifikasiAdmin">
-                                                            <button ng-click="verifikasi(kelahiran.id)" class="btn btn-success" disabled>Terverifikasi</button>
-                                                        </td>
-                                                        <td><button class="btn btn-default" ng-click="viewDetail(kelahiran)">Lihat</button></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                        <div class="wrapper-lg">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading font-semibold">
+                                            <h1 class="m-n font-bold h3 padder">Tabel Daftar Permohonan</h1>
                                         </div>
-                                    </div>
-                                    <footer class="panel-footer">
-                                        <div class="row">
-                                            <div class="col-sm-4 col-sm-push-4 text-right text-center-xs">
-                                                <ul class="pagination pagination-sm m-t-none m-b-none">
-                                                </ul>
+                                        <div class="panel-body no-padder">
+                                            <div class="table-responsive">
+                                                <table id="tabel-permohonan" class="table b-t b-light">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama Pemohon</th>
+                                                            <th>Nama Anak</th>
+                                                            <th>Saksi 1</th>
+                                                            <th>Saksi 2</th>
+                                                            <th>InKes</th>
+                                                            <th>Kelurahan</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'info' : ''}}" ng-repeat="kelahiran in daftarKelahiran | filter:({status:'!0'})">
+                                                            <td>{{kelahiran.pemohon.nama}}</td>
+                                                            <td>{{kelahiran.anak.nama}}</td>
+                                                            <td class="{{kelahiran.verifikasiSaksi1 ? 'text-success' : 'text-danger'}}">
+                                                                {{(kelahiran.verifikasiSaksi1 ? 'Sudah' : 'Belum')}}
+                                                            </td>
+                                                            <td class="{{kelahiran.verifikasiSaksi2 ? 'text-success' : 'text-danger'}}">
+                                                                {{(kelahiran.verifikasiSaksi2 ? 'Sudah' : 'Belum')}}
+                                                            </td>
+                                                            <td class="{{kelahiran.verifikasiInstansiKesehatan ? 'text-success' : 'text-danger'}}">
+                                                                {{(kelahiran.verifikasiInstansiKesehatan ? 'Sudah' : 'Belum')}}
+                                                            </td>
+                                                            <td class="{{kelahiran.verifikasiKelurahan ? 'text-success' : 'text-danger'}}">
+                                                                {{(kelahiran.verifikasiKelurahan ? 'Sudah' : 'Belum')}}
+                                                            </td>
+                                                            <td ng-show="!kelahiran.verifikasiAdmin">
+                                                                <button ng-show="!kelahiran.verifikasiAdmin"
+                                                                    ng-click="verifikasi(kelahiran.id)"
+                                                                    ng-disabled="!(kelahiran.verifikasiSaksi1 && kelahiran.verifikasiSaksi2 && kelahiran.verifikasiInstansiKesehatan && kelahiran.verifikasiKelurahan)"
+                                                                    class="btn btn-primary">
+
+                                                                    <i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;Verifikasi
+                                                                </button>
+                                                                <button ng-show="kelahiran.verifikasiAdmin"
+                                                                    ng-click="verifikasi(kelahiran.id)"
+                                                                    class="btn btn-success"
+                                                                    disabled>
+
+                                                                        Terverifikasi
+                                                                </button>
+                                                                <button class="btn btn-default w100" ng-click="viewDetail(kelahiran)"><i class="fa fa-info"></i> Lihat Detail</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    </footer>
+                                        <footer class="panel-footer">
+                                            <div class="row">
+                                                <div class="col-sm-4 col-sm-push-4 text-right text-center-xs">
+                                                    <ul class="pagination pagination-sm m-t-none m-b-none">
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </footer>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- div app content body -->
                 </div>
-                <!-- div app content body -->
-            </div>
-            <!-- div.col -->
-            <div class="col w-ml bg-white-only bg-auto no-border-xs" ng-show="showDetailedPermohonan">
-                <div class="nav-tabs-alt">
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="active">
-                            <a data-target="#tab-1" role="tab" data-toggle="tab">
-                                <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Detail
-                            </a>
-                        </li>
-                        <li class="pull-right">
-                            <a href="#/pegawai" ng-click="viewDetail()"><i class="glyphicon glyphicon-remove text-md text-muted wrapper-xs"></i></a>
-                        </li>
-                    </ul>
-                </div>
+                <!-- div.col -->
+                <div class="col w-ml bg-white-only bg-auto no-border-xs" ng-show="showDetailedPermohonan">
+                    <div class="nav-tabs-alt">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="active">
+                                <a data-target="#tab-1" role="tab" data-toggle="tab">
+                                    <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Anak
+                                </a>
+                            </li>
+                            <li>
+                                <a data-target="#tab-2" role="tab" data-toggle="tab">
+                                    <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Keluarga
+                                </a>
+                            </li>
+                            <li>
+                                <a data-target="#tab-3" role="tab" data-toggle="tab">
+                                    <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Saksi
+                                </a>
+                            </li>
+                            <!-- <li class="pull-right">
+                                <a ng-click="viewDetail()"><i class="glyphicon glyphicon-remove text-md text-muted wrapper-xs"></i></a>
+                            </li> -->
+                        </ul>
+                    </div>
 
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="tab-1">
-                        <div class="wrapper-none">
-                            <li class="list-group-item">
-                                <span class="text-grey l-h-s">Tanggal Lahir Anak</span>
-                                <span class="block text12 text-dark font-bold">{{viewedDetail.anak.waktuLahir}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="text-grey l-h-s">Nama Ayah</span>
-                                <span class="block text12 text-dark font-bold">{{viewedDetail.ayah.nama}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="text-grey l-h-s">Nama Ibu</span>
-                                <span class="block text12 text-dark font-bold">{{viewedDetail.ibu.nama}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="text-grey l-h-s">Status</span>
-                                <span class="block text12 text-dark font-bold">{{viewedDetail.status}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="text-grey l-h-s">ID Kartu Keluarga</span>
-                                <span class="block text12 text-dark font-bold">{{viewedDetail.kartuKeluargaId}}</span>
-                            </li>
-                            <li class="list-group-item">
-                                <span class="text-grey l-h-s">ID Akta Nikah</span>
-                                <span class="block text12 text-dark font-bold">{{viewedDetail.aktaNikahId}}</span>
-                            </li>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="tab-1">
+                            <div class="wrapper-none">
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Nama</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.nama}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Waktu Lahir</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Jenis Lahir</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.jenisLahir}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Instansi Kesehatan</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.instansi_kesehatan.nama}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Penolong Kelahiran</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.penolongKelahiran}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Anak Ke</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.anakKe}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Berat</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.berat}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Panjang</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.panjang}}</span>
+                                </li>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab-2">
+                            <div class="wrapper-none">
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Ayah</span>
+                                    <div>
+                                        <span class="text12 text-grey font-semibold">Nama: </span>
+                                        <span class="text12 text-dark font-bold">{{viewedDetail.ayah.nama}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="text12 text-grey font-semibold">NIK: </span>
+                                        <span class="text12 text-dark font-bold">{{viewedDetail.ayah.id}}</span>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Nama Ibu</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.ibu.nama}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">ID Kartu Keluarga</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.kartuKeluargaId}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">ID Akta Nikah</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.aktaNikahId}}</span>
+                                </li>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- end hbox hbox-auto-xs -->
         </div>
-        <!-- end hbox hbox-auto-xs -->
     </div>
     <!-- /content -->
 

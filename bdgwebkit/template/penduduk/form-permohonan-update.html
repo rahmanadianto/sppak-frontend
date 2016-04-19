@@ -1,2 +1,5 @@
-<button class="btn btn-default" ng-click="updateKelahiran(permohonan)">Simpan</button>
-<button type="submit" class="btn btn-info" ng-click="updateKelahiran(permohonan, true)">Simpan dan Ajukan</button>
+<button class="btn btn-danger" ng-click="deleteKelahiran(permohonan.id, permohonan.anak.nama)"><i class="fa fa-trash"></i> Hapus</button>
+<span class="pull-right">
+    <button class="btn btn-default" ng-click="editKelahiran(permohonan)">Simpan</button>
+    <button type="submit" class="btn btn-info" ng-click="editKelahiran(permohonan, true)">Simpan dan Ajukan</button>
+</span>

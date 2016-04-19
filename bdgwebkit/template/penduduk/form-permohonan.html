@@ -26,230 +26,254 @@
                         </div>
 
                         <form class="form-horizontal" method="post">
-                            <div class="panel-heading font-bold">
-                                Data Anak
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Nama Anak</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.anak.nama" type="text" class="form-control" required>
-                                            <span class="help-block m-b-none">Isikan nama anak anda.</span>
-                                        </div>
-                                    </div>
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Jenis Kelamin</label>
-                                        <div class="col-sm-7" style="height:56px">
-                                            <label class="radio-inline">
-                                                <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="laki-laki"> Laki-Laki
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="perempuan"> Perempuan
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Kota Lahir</label>
-                                        <div class="col-sm-7">
-                                            <select ng-model="permohonan.anak.kotaLahirId" ng-options="kota.id as kota.nama group by kota.provinsi.nama for kota in daftarKota"
-                                                class="w-full" chosen required>
-                                            </select>
-                                            <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
-                                        </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Waktu Lahir</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.anak.waktuLahir" type="datetime-local" class="form-control" required>
-                                            <span class="help-block m-b-none">Isikan waktu kelahiran anak.</span>
-                                        </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Jenis Lahir</label>
-                                        <div class="col-sm-7">
-                                            <select chosen required
-                                                class="w-full"
-                                                data-placeholder-text-single="'pilih jenis kelahiran..'"
-                                                ng-model="permohonan.anak.jenisLahir">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Kembar Dua">Kembar dua</option>
-                                                <span class="help-block m-b-none"></span>
-                                            </select>
-                                        </div>
-                                    </div>
+                            <fieldset ng-disabled="permohonan.status > 0">
+                                <div class="panel-heading font-bold">
+                                    Data Anak
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Rumah Sakit / Klinik</label>
-                                        <div class="col-sm-7">
-                                            <select chosen required
-                                                class="w-full"
-                                                data-placeholder-text-single="'pilih instansi kesehatan...'"
-                                                ng-model="permohonan.instansiKesehatanId"
-                                                ng-options="inkes.nama group by inkes.kota.nama for inkes in daftarInstansiKesehatan">
-                                            </select>
-                                            <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
-                                        </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">Penolong Kelahiran</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.anak.penolongKelahiran" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Contoh : Dokter.</span>
-                                        </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Anak ke</label>
-                                        <div class="col-sm-7">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <input class="col-xs-2 form-control" ng-model="permohonan.anak.anakKe" type="number" ng-required min="1", max="200">
-                                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Nama Anak</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.anak.nama" type="text" class="form-control" required>
+                                                <span class="help-block m-b-none">Isikan nama anak anda.</span>
                                             </div>
-                                            <span class="help-block m-b-none">Isikan nomor urutan anak.</span>
                                         </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Berat</label>
-                                        <div class="col-sm-7">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <input class="col-xs-2 form-control" ng-model="permohonan.anak.berat" type="number" ng-required min="0" step="any">
-                                                </div>
-                                                <span class="help-block m-b-none">kg</span>
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Jenis Kelamin</label>
+                                            <div class="col-sm-7" style="height:56px">
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="laki-laki"> Laki-Laki
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="perempuan"> Perempuan
+                                                </label>
                                             </div>
-                                            <span class="help-block m-b-none">Isikan berat badan anak.</span>
                                         </div>
-                                    </div>
 
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label">Panjang</label>
-                                        <div class="col-sm-7">
-                                            <div class="row">
-                                                <div class="col-xs-4">
-                                                    <input class="col-xs-2 form-control" ng-model="permohonan.anak.panjang" type="number" ng-required min="0">
-                                                </div>
-                                                <span class="help-block m-b-none">cm</span>
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Kota Lahir</label>
+                                            <div class="col-sm-7">
+                                                <select ng-model="permohonan.anak.kotaLahirId" ng-options="kota.id as kota.nama group by kota.provinsi.nama for kota in daftarKota"
+                                                    ng-disabled="permohonan.status > 0"
+                                                    class="w-full" chosen required>
+                                                </select>
+                                                <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
                                             </div>
-                                            <span class="help-block m-b-none">Isikan panjang badan anak.</span>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Waktu Lahir</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.anak.waktuLahir" type="datetime-local" class="form-control">
+                                                <span class="help-block m-b-none">Isikan waktu kelahiran anak.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Jenis Lahir</label>
+                                            <div class="col-sm-7">
+                                                <select chosen
+                                                    class="w-full"
+                                                    data-placeholder-text-single="'pilih jenis kelahiran..'"
+                                                    ng-disabled="permohonan.status > 0"
+                                                    ng-model="permohonan.anak.jenisLahir">
+                                                    <option value="Normal">Normal</option>
+                                                    <option value="Kembar Dua">Kembar dua</option>
+                                                    <span class="help-block m-b-none"></span>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Rumah Sakit / Klinik</label>
+                                            <div class="col-sm-7">
+                                                <select chosen
+                                                    class="w-full"
+                                                    data-placeholder-text-single="'pilih instansi kesehatan...'"
+                                                    ng-disabled="permohonan.status > 0"
+                                                    ng-model="permohonan.instansiKesehatanId"
+                                                    ng-options="inkes.id as inkes.nama group by inkes.kota.nama for inkes in daftarInstansiKesehatan">
+                                                </select>
+                                                <span class="help-block m-b-none">Isikan tempat kelahiran anak.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">Penolong Kelahiran</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.anak.penolongKelahiran" type="text" class="form-control" id="input-id-1">
+                                                <span class="help-block m-b-none">Contoh : Dokter.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Anak ke</label>
+                                            <div class="col-sm-7">
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <input class="col-xs-2 form-control" ng-model="permohonan.anak.anakKe" type="number" min="1", max="200">
+                                                    </div>
+                                                </div>
+                                                <span class="help-block m-b-none">Isikan nomor urutan anak.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Berat</label>
+                                            <div class="col-sm-7">
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <input class="col-xs-2 form-control" ng-model="permohonan.anak.berat" type="number" min="0" step="any">
+                                                    </div>
+                                                    <span class="help-block m-b-none">kg</span>
+                                                </div>
+                                                <span class="help-block m-b-none">Isikan berat badan anak.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Panjang</label>
+                                            <div class="col-sm-7">
+                                                <div class="row">
+                                                    <div class="col-xs-4">
+                                                        <input class="col-xs-2 form-control" ng-model="permohonan.anak.panjang" type="number" min="0">
+                                                    </div>
+                                                    <span class="help-block m-b-none">cm</span>
+                                                </div>
+                                                <span class="help-block m-b-none">Isikan panjang badan anak.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="panel-heading font-bold b-t">
+                                    Data Keluarga
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-6">
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">NIK Ayah</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.ayahId" type="text" class="form-control" ng-change="getAyah(permohonan.ayahId)">
+                                                <span class="help-block m-b-none text-info" ng-show="permohonan.ayahId !== null">
+                                                    <i class="fa fa-male" ng-show="ayah.jenis_kelamin === 'l'"></i>
+                                                    <i class="fa fa-female" ng-show="ayah.jenis_kelamin === 'p'"></i>
+                                                    {{ayah.nama}}
+                                                    <span class="text-danger" ng-show="!ayah">
+                                                        <i class="fa fa-exclamation-triangle"></i>
+                                                        Tidak ditemukan.
+                                                    </span>
+                                                </span>
+                                                <span class="help-block m-b-none" ng-show="!permohonan.ayahId">Isikan nomor induk kependudukan sesuai KTP ayah.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">NIK Ibu</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.ibuId" type="text" class="form-control" ng-change="getIbu(permohonan.ibuId)">
+                                                <span class="help-block m-b-none text-info" ng-show="permohonan.ibuId !== null">
+                                                    <i class="fa fa-male" ng-show="ibu.jenis_kelamin === 'l'"></i>
+                                                    <i class="fa fa-female" ng-show="ibu.jenis_kelamin === 'p'"></i>
+                                                    {{ibu.nama}}
+
+                                                    <span class="text-danger" ng-show="!ibu">
+                                                        <i class="fa fa-exclamation-triangle"></i>
+                                                        Tidak ditemukan.
+                                                    </span>
+                                                </span>
+                                                <span class="help-block m-b-none" ng-show="!permohonan.ibuId">Isikan nomor induk kependudukan sesuai KTP ibu.</span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">Nomor KK</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.kartuKeluargaId" type="text" class="form-control" id="input-id-1">
+                                                <span class="help-block m-b-none">Isikan nomor kartu keluarga pemohon.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">Nomor Akta Nikah</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.aktaNikahId" type="text" class="form-control" id="input-id-1">
+                                                <span class="help-block m-b-none">Isikan nomor akta nikah pemohon.</span>
+                                            </div>
                                         </div>
                                     </div>
 
                                 </div>
-                            </div>
 
-                            <div class="panel-heading font-bold b-t">
-                                Data Keluarga
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-md-6">
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">NIK Ibu</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.ibuId" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ibu.</span>
+                                <div class="panel-heading font-bold b-t">
+                                    Data Saksi
+                                </div>
+                                <div class="panel-body">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">NIK Saksi 1</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.saksiSatu.pendudukId" type="text" class="form-control" id="input-id-1">
+                                                <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 1.</span>
+                                            </div>
+                                        </div>
+
+                                        <!--div class="line line-dashed b-b line-lg pull-in"></div-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">Email Saksi 1</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.saksiSatu.email" type="text" class="form-control" id="input-id-1">
+                                                <span class="help-block m-b-none">Isikan email saksi 1 yang dapat dihubungi.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line line-dashed b-b line-lg pull-in visible-xs-block visible-sm-block"></div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">NIK Saksi 2</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.saksiDua.pendudukId" type="text" class="form-control" id="input-id-1">
+                                                <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 2.</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="input-id-1">Email Saksi 2</label>
+                                            <div class="col-sm-7">
+                                                <input ng-model="permohonan.saksiDua.email" type="text" class="form-control" id="input-id-1">
+                                                <span class="help-block m-b-none">Isikan email saksi 2 yang dapat dihubungi.</span>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">NIK Ayah</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.ayahId" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP ayah.</span>
+
+                                    <div class="line line-dashed b-b line-lg pull-in"></div>
+                                    <div class="form-group" ng-hide="permohonan.status > 0">
+                                        <div class="col-sm-12" ui-view>
+                                            <span class="pull-right">
+                                                <button class="btn btn-default" ng-click="addKelahiran(permohonan)">Simpan</button>
+                                                <button type="submit" class="btn btn-info" ng-click="addKelahiran(permohonan, true)">Simpan dan Ajukan</button>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">Nomor KK</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.kartuKeluargaId" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan nomor kartu keluarga pemohon.</span>
-                                        </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">Nomor Akta Nikah</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.aktaNikahId" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan nomor akta nikah pemohon.</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="panel-heading font-bold b-t">
-                                Data Saksi
-                            </div>
-                            <div class="panel-body">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">NIK Saksi 1</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.saksiSatu.pendudukId" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 1.</span>
-                                        </div>
-                                    </div>
-
-                                    <!--div class="line line-dashed b-b line-lg pull-in"></div-->
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">Email Saksi 1</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.saksiSatu.email" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan email saksi 1 yang dapat dihubungi.</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="line line-dashed b-b line-lg pull-in visible-xs-block visible-sm-block"></div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">NIK Saksi 2</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.saksiDua.pendudukId" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan nomor induk kependudukan sesuai KTP saksi 2.</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-sm-3 control-label" for="input-id-1">Email Saksi 2</label>
-                                        <div class="col-sm-7">
-                                            <input ng-model="permohonan.saksiDua.email" type="text" class="form-control" id="input-id-1" required>
-                                            <span class="help-block m-b-none">Isikan email saksi 2 yang dapat dihubungi.</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="line line-dashed b-b line-lg pull-in"></div>
-                                <div class="form-group">
-                                    <div class="col-sm-12">
-                                        <button class="btn btn-danger" ng-clic="eleteKelahiran(permohonan.id, permohonan.anak.nama)"><i class="fa fa-trash"></i> Hapus</button>
-                                        <span class="pull-right" ui-view>
-                                            <button class="btn btn-default" ng-click="addKelahiran(permohonan)">Simpan</button>
-                                            <button type="submit" class="btn btn-info" ng-click="addKelahiran(permohonan, true)">Simpan dan Ajukan</button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            </fieldset>
                         </form>
                     </div>
                 </div>

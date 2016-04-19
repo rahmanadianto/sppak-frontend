@@ -1,5 +1,5 @@
 app.controller('PegawaiCtrl', function($http, $rootScope, $scope, $state, KelahiranService, PegawaiService) {
-	$rootScope.$broadcast('pageTitle', 'Beranda');
+	$rootScope.$broadcast('pageTitle', 'Daftar Permohonan');
 
 	$scope.daftarKelahiran = [];
 	$scope.viewedDetail = {};
@@ -25,9 +25,6 @@ app.controller('PegawaiCtrl', function($http, $rootScope, $scope, $state, Kelahi
 	var getAllKelahiran = function(start, limit) {
 		KelahiranService.getAllKelahiran(start, limit).then(function(response) {
 			$scope.daftarKelahiran = response.data;
-			$scope.daftarKelahiran.map(function(d) {
-				d.anak.waktuLahir = (new Date(d.anak.waktuLahir)).toLocaleString();
-			});
 		});
 	}
 
