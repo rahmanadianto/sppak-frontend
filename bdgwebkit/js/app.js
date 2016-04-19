@@ -1,1 +1,1 @@
-var app = angular.module('sppak', ['ui.router', 'localytics.directives', 'angularUtils.directives.dirPagination']);
+var app = angular.module('sppak', ['ui.router', 'chart.js', 'localytics.directives', 'angularUtils.directives.dirPagination']);

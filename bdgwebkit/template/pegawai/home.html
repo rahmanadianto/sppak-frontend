@@ -27,7 +27,10 @@
             <!-- link and dropdown -->
             <ul class="nav navbar-nav hidden-sm">
                 <li>
-                    <a class="{{pageTitle === 'Daftar Permohonan' ? 'bg-blue' : ''}}" ui-sref="pegawai">Daftar Permohonan</a>
+                    <a class="{{pageTitle === 'Daftar Permohonan' ? 'bg-blue' : ''}}" ui-sref="pegawai" ui-sref-opts="{reload: true}">Daftar Permohonan</a>
+                </li>
+                <li>
+                    <a class="{{pageTitle === 'Statistik' ? 'bg-blue' : ''}}" ui-sref="pegawai.statistik" ui-sref-opts="{reload: true}">Statistik</a>
                 </li>
             </ul>
             <!-- / link and dropdown -->

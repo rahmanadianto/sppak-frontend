@@ -17,6 +17,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: '/template/pegawai/home.html',
         controller: 'PegawaiCtrl'
     })
+    .state('pegawai.statistik', {
+        url: '/statistik',
+        templateUrl: '/template/pegawai/statistik.html',
+        controller: 'StatistikCtrl'
+    })
     .state('instansiKesehatan', {
         url: '/instansi-kesehatan',
         templateUrl: '/template/instansi-kesehatan/home.html',

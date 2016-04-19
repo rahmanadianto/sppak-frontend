@@ -1,0 +1,114 @@
+<div id="content" class="app-content" role="main">
+	<div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
+		<!-- div.col -->
+		<div class="col">
+			<!-- div app content body-->
+			<div class="app-content-body ">
+				<div class="bg-light lter">
+					<ul class="breadcrumb bg-grey-breadcrumb m-b-none">
+						<li>
+							<span class="btn no-shadow">
+							<!-- <a ui-sref="pegawai" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app"> -->
+								<i class="icon-bdg_expand1 text"></i>
+								<i class="icon-bdg_expand2 text-active"></i>
+							<!-- </a> -->
+							</span>
+						</li>
+						<li><a ui-sref="pegawai.statistik">Statistik</a></li>
+					</ul>
+				</div>
+
+				<!-- <div class="bg-light lter b-b wrapper-md padder-md">
+					<h1 class="m-n font-semibold h4 text-grey padder">Daftar Permohonan</h1>
+				</div> -->
+
+				<div class="wrapper-lg">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-heading font-semibold">
+									<h1 class="m-n font-bold h3 padder">Statistik</h1>
+								</div>
+								<div class="panel-body no-padder">
+									<div class="container">
+										<div class="row">
+											<div class="col-sm-12 text-center" style="margin-top: 20px">
+												<select id="jenisStatistik"
+												class="form-control w-md inline"
+												ng-model="statistikOptions.filter.selected"
+												ng-options="option.value as option.name for option in statistikOptions.filter.availableOptions"
+												ng-change="getStatistik(statistikOptions.filter.selected)">
+												</select>
+											</div>
+										</div>
+										<div class="row" ng-show="statistikOptions.filter.selected == 'frekuensiKelahiran'">
+											<div class="col-sm-12 text-center">
+												<h4>Statistik Frekuensi Kelahiran</h4>
+												<canvas class="chart chart-bar"
+													chart-data="statistik.data" chart-labels="statistik.labels">
+												</canvas>
+											</div>
+										</div>
+										
+										<div class="row" ng-show="statistikOptions.filter.selected == 'crudeBirthRate'">
+											<div class="col-sm-12 text-center">
+												<h4>Statistik Crude Birth Rate</h4>
+												<canvas class="chart chart-bar"
+													chart-data="statistik.data" chart-labels="statistik.labels">
+												</canvas>
+											</div>
+										</div>
+										
+										<div class="row" ng-show="statistikOptions.filter.selected == 'statusPermohonan'">
+											<div class="col-sm-12 text-center">
+												<h4>Statistik Status Permohonan</h4>
+												<canvas class="chart chart-bar"
+													chart-data="statistik.data" chart-labels="statistik.labels">
+												</canvas>
+											</div>
+										</div>
+									</div>
+								</div>
+								<footer class="panel-footer">
+									<div class="row">
+										<div class="col-sm-4 col-sm-push-4 text-right text-center-xs">
+											<ul class="pagination pagination-sm m-t-none m-b-none">
+											</ul>
+										</div>
+									</div>
+								</footer>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- div app content body -->
+		</div>
+		<!-- div.col -->
+		<div class="col w-ml bg-white-only bg-auto no-border-xs" ng-show="showDetailedPermohonan">
+			<div class="nav-tabs-alt">
+				<ul class="nav nav-tabs" role="tablist">
+					<li class="active">
+						<a data-target="#tab-1" role="tab" data-toggle="tab">
+							<i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Anak
+						</a>
+					</li>
+					<li>
+						<a data-target="#tab-2" role="tab" data-toggle="tab">
+							<i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Keluarga
+						</a>
+					</li>
+					<li>
+						<a data-target="#tab-3" role="tab" data-toggle="tab">
+							<i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Saksi
+						</a>
+					</li>
+					<!-- <li class="pull-right">
+						<a ng-click="viewDetail()"><i class="glyphicon glyphicon-remove text-md text-muted wrapper-xs"></i></a>
+					</li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end hbox hbox-auto-xs -->
+</div>
