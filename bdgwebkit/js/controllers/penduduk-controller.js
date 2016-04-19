@@ -1,38 +1,9 @@
-app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, KelahiranService) {
+app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, KotaService, KelahiranService, InstansiKesehatanService) {
     $rootScope.$broadcast('pageTitle', 'Beranda');
 
     $scope.daftarKelahiran = [];
     $scope.viewedDetail = {};
     $scope.showDetailedPermohonan = false;
-
-    $scope.permohonan = {
-        "anak": {
-            "nama": null,
-            "jenisKelamin": null,
-            "kotaLahirId": null,
-            "waktuLahir": null,
-            "jenisLahir": null,
-            "anakKe": null,
-            "penolongKelahiran": null,
-            "berat": null,
-            "panjang": null
-        },
-        "kartuKeluargaId": null,
-        "aktaNikahId": null,
-        "ibuId": null,
-        "ayahId": null,
-        "instansiKesehatanId": null,
-        "saksiSatu": {
-            "pendudukId": null,
-            "email": null
-        },
-        "saksiDua": {
-            "pendudukId": null,
-            "email": null
-        },
-        "pemohonId": null,
-        "waktuCetakTerakhir": null
-    };
 
     var viewDetail = function(permohonan) {
         if (permohonan) {
@@ -47,18 +18,11 @@ app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, Kelah
     var getAllKelahiran = function(start, limit) {
         KelahiranService.getAllKelahiran(start, limit).then(function(response) {
             $scope.daftarKelahiran = response.data;
-            $scope.daftarKelahiran.map(function(d) {
-                d.anak.waktuLahir = (new Date(d.anak.waktuLahir)).toLocaleString();
-            });
         });
     }
 
-    var addKelahiran = function(permohonan) {
-		KelahiranService.addKelahiran(permohonan).then(
-			function(res) {
-				$state.go('penduduk');
-			}
-		);
+    var goToEditKelahiran = function(permohonan) {
+        $state.go('penduduk.permohonan.update', {id: permohonan.id});
     }
 
     var deleteKelahiran = function(id, nama) {
@@ -69,8 +33,16 @@ app.controller('PendudukCtrl', function($http, $rootScope, $scope, $state, Kelah
         }
     }
 
+    var logout = function() {
+        localStorage.clear();
+        $http.defaults.headers.common.Authorization = undefined;
+        $state.go('login');
+    }
+
     $scope.viewDetail = viewDetail;
     $scope.deleteKelahiran = deleteKelahiran;
+    $scope.goToEditKelahiran = goToEditKelahiran;
+    $scope.logout = logout;
 
     getAllKelahiran();
 });
