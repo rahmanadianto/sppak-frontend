@@ -116,7 +116,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'info' : ''}}" ng-repeat="kelahiran in daftarKelahiran | filter:({status:'!0'})">
+                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" ng-repeat="kelahiran in daftarKelahiran | filter:({status:'!0'})">
                                                             <td>{{kelahiran.pemohon.nama}}</td>
                                                             <td>{{kelahiran.anak.nama}}</td>
                                                             <td class="{{kelahiran.verifikasiSaksi1 ? 'text-success' : 'text-danger'}}">
@@ -128,25 +128,41 @@
                                                             <td class="{{kelahiran.verifikasiInstansiKesehatan ? 'text-success' : 'text-danger'}}">
                                                                 {{(kelahiran.verifikasiInstansiKesehatan ? 'Sudah' : 'Belum')}}
                                                             </td>
-                                                            <td class="{{kelahiran.verifikasiKelurahan ? 'text-success' : 'text-danger'}}">
-                                                                {{(kelahiran.verifikasiKelurahan ? 'Sudah' : 'Belum')}}
+                                                            <td class="{{kelahiran.verifikasiLurah ? 'text-success' : 'text-danger'}}">
+                                                                {{(kelahiran.verifikasiLurah ? 'Sudah' : 'Belum')}}
                                                             </td>
-                                                            <td ng-show="!kelahiran.verifikasiAdmin">
-                                                                <button ng-show="!kelahiran.verifikasiAdmin"
-                                                                    ng-click="verifikasi(kelahiran.id)"
-                                                                    ng-disabled="!(kelahiran.verifikasiSaksi1 && kelahiran.verifikasiSaksi2 && kelahiran.verifikasiInstansiKesehatan && kelahiran.verifikasiKelurahan)"
-                                                                    class="btn btn-primary">
+                                                            <td>
+                                                                <div class="btn-group" ng-show="!kelahiran.verifikasiAdmin && kelahiran.status !== 3" role="group">
+                                                                    <button type="button"
+                                                                        ng-click="verifikasi(kelahiran.id)"
+                                                                        ng-disabled="!(kelahiran.verifikasiSaksi1 && kelahiran.verifikasiSaksi2 && kelahiran.verifikasiInstansiKesehatan && kelahiran.verifikasiLurah)"
+                                                                        class="btn btn-info w100"
+                                                                        style="width:130px">
 
-                                                                    <i class="glyphicon glyphicon-ok"></i>&nbsp;&nbsp;Verifikasi
-                                                                </button>
-                                                                <button ng-show="kelahiran.verifikasiAdmin"
-                                                                    ng-click="verifikasi(kelahiran.id)"
-                                                                    class="btn btn-success"
+                                                                        <i class="fa fa-check-square-o"></i> Verifikasi
+                                                                    </button>
+                                                                    <button type="button"
+                                                                        ng-click="tolak(kelahiran.id)"
+                                                                        class="btn btn-danger w100">
+
+                                                                        <i class="fa fa-times"></i> Tolak
+                                                                    </button>
+                                                                </div>
+                                                                <button ng-show="kelahiran.status === 3"
+                                                                    class="btn btn-danger"
+                                                                    style="width:230px"
                                                                     disabled>
 
-                                                                        Terverifikasi
+                                                                    <i class="fa fa-ban"></i> Ditolak
                                                                 </button>
-                                                                <button class="btn btn-default w100" ng-click="viewDetail(kelahiran)"><i class="fa fa-info"></i> Lihat Detail</button>
+                                                                <button ng-show="kelahiran.verifikasiAdmin"
+                                                                    ng-click="cetak(kelahiran)"
+                                                                    class="btn btn-success"
+                                                                    style="width:230px">
+
+                                                                    <i class="fa fa-floppy-o"></i> Cetak Akta
+                                                                </button>
+                                                                <button class="btn btn-default" ng-click="viewDetail(kelahiran)"><i class="fa fa-info"></i> Lihat Detail</button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -164,6 +180,9 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-12 padder-v"></div>
+                            </div>
                         </div>
                     </div>
                     <!-- div app content body -->
@@ -174,17 +193,17 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="active">
                                 <a data-target="#tab-1" role="tab" data-toggle="tab">
-                                    <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Anak
+                                    <i class="fa fa-user text-md text-muted wrapper-xs"></i>Anak
                                 </a>
                             </li>
                             <li>
                                 <a data-target="#tab-2" role="tab" data-toggle="tab">
-                                    <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Keluarga
+                                    <i class="fa fa-users text-md text-muted wrapper-xs"></i>Keluarga
                                 </a>
                             </li>
                             <li>
                                 <a data-target="#tab-3" role="tab" data-toggle="tab">
-                                    <i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Saksi
+                                    <i class="fa fa-eye text-md text-muted wrapper-xs"></i>Saksi
                                 </a>
                             </li>
                             <!-- <li class="pull-right">
@@ -197,8 +216,8 @@
                         <div role="tabpanel" class="tab-pane active" id="tab-1">
                             <div class="wrapper-none">
                                 <li class="list-group-item">
-                                    <span class="text-grey l-h-s">Nama</span>
-                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.nama}}</span>
+                                    <span class="block text-grey l-h-s">Nama</span>
+                                    <span class="text12 text-dark font-bold">{{viewedDetail.anak.nama}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     <span class="text-grey l-h-s">Waktu Lahir</span>
@@ -217,16 +236,12 @@
                                     <span class="block text12 text-dark font-bold">{{viewedDetail.anak.penolongKelahiran}}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <span class="text-grey l-h-s">Anak Ke</span>
-                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.anakKe}}</span>
-                                </li>
-                                <li class="list-group-item">
                                     <span class="text-grey l-h-s">Berat</span>
-                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.berat}}</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.berat}} kg</span>
                                 </li>
                                 <li class="list-group-item">
                                     <span class="text-grey l-h-s">Panjang</span>
-                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.panjang}}</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.anak.panjang}} cm</span>
                                 </li>
                             </div>
                         </div>
@@ -234,18 +249,13 @@
                             <div class="wrapper-none">
                                 <li class="list-group-item">
                                     <span class="text-grey l-h-s">Ayah</span>
-                                    <div>
-                                        <span class="text12 text-grey font-semibold">Nama: </span>
-                                        <span class="text12 text-dark font-bold">{{viewedDetail.ayah.nama}}</span>
-                                    </div>
-                                    <div>
-                                        <span class="text12 text-grey font-semibold">NIK: </span>
-                                        <span class="text12 text-dark font-bold">{{viewedDetail.ayah.id}}</span>
-                                    </div>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.ayah.nama}}</span>
+                                    <span class="text12 text-grey">NIK {{viewedDetail.ayah.id}}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <span class="text-grey l-h-s">Nama Ibu</span>
+                                    <span class="text-grey l-h-s">Ibu</span>
                                     <span class="block text12 text-dark font-bold">{{viewedDetail.ibu.nama}}</span>
+                                    <span class="text12 text-grey">NIK {{viewedDetail.ibu.id}}</span>
                                 </li>
                                 <li class="list-group-item">
                                     <span class="text-grey l-h-s">ID Kartu Keluarga</span>
@@ -254,6 +264,37 @@
                                 <li class="list-group-item">
                                     <span class="text-grey l-h-s">ID Akta Nikah</span>
                                     <span class="block text12 text-dark font-bold">{{viewedDetail.aktaNikahId}}</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Kelurahan</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.kelurahan.nama}}</span>
+                                </li>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab-3">
+                            <div class="wrapper-none">
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Saksi 1</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.saksi_satu.pendudukId}}</span>
+                                    <span class="text12">
+                                        <a href="mailto:{{viewedDetail.saksi_satu.email}}">
+                                            {{viewedDetail.saksi_satu.email}}
+                                        </a>
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Saksi 2</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.saksi_dua.pendudukId}}</span>
+                                    <span class="text12">
+                                        <a href="mailto:{{viewedDetail.saksi_dua.email}}">
+                                            {{viewedDetail.saksi_dua.email}}
+                                        </a>
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="text-grey l-h-s">Pemohon</span>
+                                    <span class="block text12 text-dark font-bold">{{viewedDetail.pemohon.nama}}</span>
+                                    <span class="text12 text-grey">NIK {{viewedDetail.pemohon.id}}</span>
                                 </li>
                             </div>
                         </div>

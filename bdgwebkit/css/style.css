@@ -6012,9 +6012,9 @@ table.dataTable thead > tr > th{
 .btn-group.dropdown .btn-default i{
   border-left: 1px solid #e5e6ec;
 }
-.btn-group > .btn{
+/*.btn-group > .btn{
   border-radius: 5px !important;
-}
+}*/
 .btn-group-nav > .btn,.btn-group-vertical > .btn{
   background-color: #fbfbfb;
   color: #b8bcce !important;
