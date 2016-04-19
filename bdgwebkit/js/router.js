@@ -34,7 +34,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
     .state('penduduk.permohonan', {
         url: '/permohonan',
-        templateUrl: '/template/penduduk/form-permohonan.html'
+        templateUrl: '/template/penduduk/form-permohonan.html',
+        controller: 'PendudukPermohonanCtrl'
+    })
+    .state('penduduk.permohonan.update', {
+        url: '/:id',
+        templateUrl: '/template/penduduk/form-permohonan-update.html',
+        controller: 'PendudukPermohonanUpdateCtrl'
     })
 });
 

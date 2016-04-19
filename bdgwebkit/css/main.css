@@ -1,0 +1,27 @@
+body {
+    background-color: #f4f5f5;
+}
+
+.navbar-nav > li {
+    background-color: #e91e63;
+}
+
+.navbar-header {
+    max-height: 73px;
+}
+
+.navbar-collapse {
+    max-height: 73px;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    vertical-align: middle;
+}
+
+.app-aside-hidden .app-content, .app-aside-hidden .app-footer {
+    margin-left: 0;
+}
+
+.w100 {
+    width: 100px;
+}
