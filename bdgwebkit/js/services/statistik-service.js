@@ -6,14 +6,14 @@ app.factory('StatistikService', function($http, $q) {
         return kelahiranEndpoint + jenis;
     }
 
-    factory.getStatistik = function(jenis) {
+    factory.getStatistik = function(jenis, params) {
         var deferred = $q.defer();
 
         $http({
             method: 'GET',
+            params: params,
             url: getEndpoint(jenis)
         }).success(function(data) {
-            data.data = [data.data];
             if (data.labels.length === 0) data.labels.push('NO DATA');
             deferred.resolve(data);
         }).error(function(data) {

@@ -35,48 +35,43 @@
 											<div class="col-sm-12 text-center" style="margin-top: 20px">
 												<select id="jenisStatistik"
 												class="form-control w-md inline"
-												ng-model="statistikOptions.filter.selected"
-												ng-options="option.value as option.name for option in statistikOptions.filter.availableOptions"
-												ng-change="getStatistik(statistikOptions.filter.selected)">
+												ng-model="settings.filter.selected"
+												ng-options="option.value as option.name for option in settings.filter.options"
+												ng-change="getStatistik()">
 												</select>
 											</div>
 										</div>
-										<div class="row" ng-show="statistikOptions.filter.selected == 'frekuensiKelahiran'">
-											<div class="col-sm-12 text-center">
-												<h4>Statistik Frekuensi Kelahiran</h4>
-												<canvas class="chart chart-bar"
-													chart-data="statistik.data" chart-labels="statistik.labels">
-												</canvas>
+
+										<div class="form-inline text-center" ng-show="settings.filter.selected === 'crudeBirthRate'" style="margin-top: 20px">
+											<div class="row">
+												<div class="col-sm-3"></div>
+												<div class="form-group col-sm-6" ng-hide="settings.filter.selected === 'hari'">
+													<label for="tahunAwal" class="control-label">Tahun</label>
+													<input id="tahunAwal" type="number" class="form-control" style="width: 75px" required
+														ng-model="settings.crudeBirthRate.startYear"
+														ng-change="getStatistik()"
+													/>
+													<label for="tahunAkhir" class="control-label">-</label>
+													<input id="tahunAkhir" type="number" class="form-control" style="width: 75px" required
+														ng-model="settings.crudeBirthRate.endYear"
+														ng-change="getStatistik()"
+													/>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-offset-2 col-sm-8 text-center">
+													<h4>Statistik {{settings.filter.selectedTitle}}</h4>
+													<canvas class="chart chart-bar"
+														chart-data="statistik.data" chart-labels="statistik.labels">
+													</canvas>
+												</div>
 											</div>
 										</div>
-										
-										<div class="row" ng-show="statistikOptions.filter.selected == 'crudeBirthRate'">
-											<div class="col-sm-12 text-center">
-												<h4>Statistik Crude Birth Rate</h4>
-												<canvas class="chart chart-bar"
-													chart-data="statistik.data" chart-labels="statistik.labels">
-												</canvas>
-											</div>
-										</div>
-										
-										<div class="row" ng-show="statistikOptions.filter.selected == 'statusPermohonan'">
-											<div class="col-sm-12 text-center">
-												<h4>Statistik Status Permohonan</h4>
-												<canvas class="chart chart-bar"
-													chart-data="statistik.data" chart-labels="statistik.labels">
-												</canvas>
-											</div>
+
+										<div class="row" style="margin: 20px">
 										</div>
 									</div>
 								</div>
-								<footer class="panel-footer">
-									<div class="row">
-										<div class="col-sm-4 col-sm-push-4 text-right text-center-xs">
-											<ul class="pagination pagination-sm m-t-none m-b-none">
-											</ul>
-										</div>
-									</div>
-								</footer>
 							</div>
 						</div>
 					</div>
@@ -84,31 +79,5 @@
 			</div>
 			<!-- div app content body -->
 		</div>
-		<!-- div.col -->
-		<div class="col w-ml bg-white-only bg-auto no-border-xs" ng-show="showDetailedPermohonan">
-			<div class="nav-tabs-alt">
-				<ul class="nav nav-tabs" role="tablist">
-					<li class="active">
-						<a data-target="#tab-1" role="tab" data-toggle="tab">
-							<i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Anak
-						</a>
-					</li>
-					<li>
-						<a data-target="#tab-2" role="tab" data-toggle="tab">
-							<i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Keluarga
-						</a>
-					</li>
-					<li>
-						<a data-target="#tab-3" role="tab" data-toggle="tab">
-							<i class="glyphicon glyphicon-user text-md text-muted wrapper-xs"></i>Saksi
-						</a>
-					</li>
-					<!-- <li class="pull-right">
-						<a ng-click="viewDetail()"><i class="glyphicon glyphicon-remove text-md text-muted wrapper-xs"></i></a>
-					</li> -->
-				</ul>
-			</div>
-		</div>
-	</div>
 	<!-- end hbox hbox-auto-xs -->
 </div>
