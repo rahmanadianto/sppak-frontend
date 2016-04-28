@@ -80,11 +80,14 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
     var editKelahiran = function(permohonan, isSubmit) {
         if (isSubmit) permohonan.status = 1;
 
-        KelahiranService.editKelahiran(permohonan.id, permohonan).then(
-            function(res) {
-                $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
-            }
-        );
+        KelahiranService.editKelahiran(permohonan.id, permohonan)
+        .then(function(res) {
+            $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
+        }).catch(function(err) {
+            if (isSubmit) permohonan.status = 0;
+            console.log(err.message);
+            $scope.error = err.message;
+        });
     }
 
     var deleteKelahiran = function(id, nama) {

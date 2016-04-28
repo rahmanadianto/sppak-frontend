@@ -2,6 +2,11 @@ body {
     background-color: #f4f5f5;
 }
 
+.bg-bandung {
+    background-image: url('/img/bg-login.jpg');
+    background-size: cover;
+}
+
 .text-gray {
     color: #999;
 }
