@@ -46,6 +46,10 @@ body {
     min-width: 100px;
 }
 
+.mh-400 {
+    max-height: 400px;
+}
+
 .btn-dark {
     background-color: #444;
 }

@@ -1,7 +1,12 @@
-app.controller('StatistikCtrl', function($http, $rootScope, $scope, $state, KelahiranService, StatistikService) {
+app.controller('StatistikCtrl', function($http, $rootScope, $interval, $scope, $state, KelahiranService, StatistikService) {
 	$rootScope.$broadcast('pageTitle', 'Statistik');
 
 	var d = new Date();
+	var d2 = new Date();
+	d2.setMonth(d2.getMonth() - 12);
+
+	var d3 = new Date();
+	d3.setDate(d3.getDate() - 31);
 	$scope.settings = {
 		filter: {
 			selected: 'crudeBirthRate',
@@ -12,17 +17,40 @@ app.controller('StatistikCtrl', function($http, $rootScope, $scope, $state, Kela
 				{ name: 'Status Permohonan', value: 'statusPermohonan' }
 			]
 		},
+		frekuensiKelahiran: {
+			startDate: d2,
+			endDate: d,
+			unitWaktu: 'month'
+		},
 		crudeBirthRate: {
 			startYear: d.getFullYear() - 25,
 			endYear: d.getFullYear()
-		}
+		},
+		statusPermohonan: {
+			startDate: d3,
+			endDate: d,
+			unitWaktu: 'day'
+			// startDate: d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(),
+			// endDate: d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(),
+		},
+		unitWaktu: [
+			{ name: 'Hari', value: 'day' },
+			{ name: 'Bulan', value: 'month' },
+			{ name: 'Tahun', value: 'year' }
+		]
 	};
+
+	$interval(function() {console.log($scope.settings.filter.selected);}, 1000);
 
 	$scope.statistik = {
 		labels: [],
 		series: [],
 		data: [[]]
 	};
+
+	var formatDate = function(dateString) {
+		return dateString.getFullYear() + '-' + (dateString.getMonth() + 1) + '-' + dateString.getDate();
+	}
 
 	var getStatistikCBR = function(settings) {
 		if (!settings) settings = $scope.settings.crudeBirthRate;
@@ -31,6 +59,31 @@ app.controller('StatistikCtrl', function($http, $rootScope, $scope, $state, Kela
 		.then(function(res) {
 			$scope.statistik.data = res.data;
 			$scope.statistik.labels = res.labels;
+			$scope.statistik.series = res.series;
+		}) ;
+	}
+
+	var getStatistikFrekuensiKelahiran = function(settings) {
+		if (!settings) settings = $scope.settings.frekuensiKelahiran;
+
+		var params = {startDate: formatDate(settings.startDate), endDate: formatDate(settings.endDate), timeUnit: settings.unitWaktu};
+		StatistikService.getStatistik('frekuensiKelahiran', params)
+		.then(function(res) {
+			$scope.statistik.data = res.data;
+			$scope.statistik.labels = res.labels;
+			$scope.statistik.series = res.series;
+		}) ;
+	}
+
+	var getStatistikStatusPermohonan = function(settings) {
+		if (!settings) settings = $scope.settings.statusPermohonan;
+
+		var params = {startDate: formatDate(settings.startDate), endDate: formatDate(settings.endDate), timeUnit: settings.unitWaktu};
+		StatistikService.getStatistik('statusPermohonan', params)
+		.then(function(res) {
+			$scope.statistik.data = res.data;
+			$scope.statistik.labels = res.labels;
+			$scope.statistik.series = res.series;
 		}) ;
 	}
 
@@ -39,6 +92,8 @@ app.controller('StatistikCtrl', function($http, $rootScope, $scope, $state, Kela
 
 		switch (jenis) {
 			case 'crudeBirthRate': getStatistikCBR(); break;
+			case 'frekuensiKelahiran': getStatistikFrekuensiKelahiran(); break;
+			case 'statusPermohonan': getStatistikStatusPermohonan(); break;
 		}
 	}
 
