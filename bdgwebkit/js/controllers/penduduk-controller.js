@@ -18,7 +18,14 @@ app.controller('PendudukCtrl', function($anchorScroll, $location, $http, $rootSc
     var getAllKelahiran = function(start, limit) {
         KelahiranService.getAllKelahiran(start, limit).then(function(response) {
             $scope.daftarKelahiran = response.data;
-        });
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
     }
 
     var goToEditKelahiran = function(permohonan) {
@@ -29,7 +36,14 @@ app.controller('PendudukCtrl', function($anchorScroll, $location, $http, $rootSc
         if (confirm('Apakah Anda yakin menghapus permohonan kelahiran ' + nama + '?')) {
             KelahiranService.deleteKelahiran(id).then(function(response) {
                 getAllKelahiran();
-            });
+            })
+    		.catch(function(err) {
+    			if (err) {
+    				alert(err.message);
+    			} else {
+    				alert("Terjadi error pada server. Mohon maaf.");
+    			}
+    		});
         }
     }
 

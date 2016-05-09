@@ -31,12 +31,27 @@ app.controller('KelurahanCtrl', function($scope, $rootScope, KelurahanService, K
 		KelurahanService.verifikasi(idKelahiran)
 		.then(function(res) {
 			getAllKelahiran();
+		})
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
 		});
 	};
 
 	var getAllKelahiran = function(start, limit) {
-		KelahiranService.getAllKelahiran(start, limit).then(function(response) {
+		KelahiranService.getAllKelahiran(start, limit)
+		.then(function(response) {
 			$scope.daftarKelahiran = response.data;
+		})
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
 		});
 	}
 

@@ -8,7 +8,6 @@ app.factory('StatistikService', function($http, $q) {
 
     factory.getStatistik = function(jenis, params) {
         var deferred = $q.defer();
-        console.log(params);
         $http({
             method: 'GET',
             params: params,

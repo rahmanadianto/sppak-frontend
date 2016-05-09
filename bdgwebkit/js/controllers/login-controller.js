@@ -13,7 +13,14 @@ var controller = app.controller('LoginCtrl', function(PenggunaService, $rootScop
             } else if (userType === 'Pegawai') {
                 $state.go('pegawai');
             }
-        });
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Email atau password salah.");
+			}
+		});
     };
 
     $scope.email = '';

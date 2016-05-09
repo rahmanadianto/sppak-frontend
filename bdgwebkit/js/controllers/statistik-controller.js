@@ -40,8 +40,6 @@ app.controller('StatistikCtrl', function($http, $rootScope, $interval, $scope, $
 		]
 	};
 
-	$interval(function() {console.log($scope.settings.filter.selected);}, 1000);
-
 	$scope.statistik = {
 		labels: [],
 		series: [],
@@ -60,7 +58,14 @@ app.controller('StatistikCtrl', function($http, $rootScope, $interval, $scope, $
 			$scope.statistik.data = res.data;
 			$scope.statistik.labels = res.labels;
 			$scope.statistik.series = res.series;
-		}) ;
+		})
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
 	}
 
 	var getStatistikFrekuensiKelahiran = function(settings) {
@@ -72,7 +77,14 @@ app.controller('StatistikCtrl', function($http, $rootScope, $interval, $scope, $
 			$scope.statistik.data = res.data;
 			$scope.statistik.labels = res.labels;
 			$scope.statistik.series = res.series;
-		}) ;
+		})
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
 	}
 
 	var getStatistikStatusPermohonan = function(settings) {
@@ -84,7 +96,14 @@ app.controller('StatistikCtrl', function($http, $rootScope, $interval, $scope, $
 			$scope.statistik.data = res.data;
 			$scope.statistik.labels = res.labels;
 			$scope.statistik.series = res.series;
-		}) ;
+		})
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
 	}
 
 	var getStatistik = function(jenis, settings){

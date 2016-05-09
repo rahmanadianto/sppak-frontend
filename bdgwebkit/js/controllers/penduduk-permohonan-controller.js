@@ -40,13 +40,27 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
     var getAllInstansiKesehatan = function() {
         InstansiKesehatanService.getAllInstansiKesehatan().then(function(response) {
             $scope.daftarInstansiKesehatan = response.data;
-        });
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
     }
 
     var getAllKota = function() {
         KotaService.getAllKota().then(function(response) {
             $scope.daftarKota = response.data;
-        });
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
     }
 
     var getKelahiran = function(id) {
@@ -64,17 +78,30 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
             if (res.data.ibuId) getIbu(res.data.ibuId);
 
             $scope.permohonan = res.data;
-        });
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
     }
 
     var addKelahiran = function(permohonan, isSubmit) {
         if (isSubmit) permohonan.status = 1;
 
-        KelahiranService.addKelahiran(permohonan).then(
-            function(res) {
-                $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
-            }
-        );
+        KelahiranService.addKelahiran(permohonan)
+        .then(function(res) {
+            $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
     }
 
     var editKelahiran = function(permohonan, isSubmit) {
@@ -85,31 +112,58 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
             $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
         }).catch(function(err) {
             if (isSubmit) permohonan.status = 0;
-            console.log(err.message);
-            $scope.error = err.message;
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
         });
     }
 
     var deleteKelahiran = function(id, nama) {
         if (confirm('Apakah Anda yakin menghapus permohonan kelahiran ' + nama + '?')) {
-            KelahiranService.deleteKelahiran(id).then(function(response) {
+            KelahiranService.deleteKelahiran(id)
+            .then(function(response) {
                 getAllKelahiran();
-            });
+            })
+    		.catch(function(err) {
+    			if (err) {
+    				alert(err.message);
+    			} else {
+    				alert("Terjadi error pada server. Mohon maaf.");
+    			}
+    		});
         }
     }
 
     var getAyah = function(id) {
         if (id.length < 16) $scope.ayah = null;
-        PendudukService.getPenduduk(id).then(function(res) {
+        PendudukService.getPenduduk(id)
+        .then(function(res) {
               $scope.ayah = res.data;
-        });
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
     }
 
     var getIbu = function(id) {
         if (id.length < 16) $scope.ibu = null;
-        PendudukService.getPenduduk(id).then(function(res) {
+        PendudukService.getPenduduk(id)
+        .then(function(res) {
               $scope.ibu = res.data;
-        });
+        })
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
     }
 
     getAllInstansiKesehatan();

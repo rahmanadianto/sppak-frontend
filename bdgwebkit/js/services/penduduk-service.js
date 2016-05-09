@@ -41,7 +41,8 @@ app.factory('PendudukService', function($http, $q) {
             email: dat.email,
             password: dat.password,
             userable_id: dat.userable_id,
-            userable_type: dat.userable_type
+            userable_type: dat.userable_type,
+            name: dat.name
         };
 
         $http({
