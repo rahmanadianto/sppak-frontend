@@ -1,0 +1,188 @@
+<div class="app app-header-fixed app-aside-hidden">
+    <!-- header -->
+    <header id="header" class="app-header navbar" role="menu">
+        <!-- navbar header -->
+        <div class="navbar-header bg-info">
+            <!-- brand -->
+            <a ui-sref="saksi" class="navbar-brand text-lt">
+                <img src="img/logo-small.png" alt="." class="small-logo hide">
+                <img src="img/logo.png" alt="." class="large-logo">
+            </a>
+            <!-- / brand -->
+        </div>
+        <!-- / navbar header -->
+
+        <!-- navbar collapse -->
+        <div class="collapse pos-rlt navbar-collapse bg-info text-uppercase">
+        </div>
+        <!-- / navbar collapse -->
+    </header>
+    <!-- / header -->
+
+    <div ui-view>
+        <!-- content -->
+        <div id="content" class="app-content" role="main">
+            <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope" ng-hide="success">
+                <div class="col">
+                    <div class="app-content-body ">
+                        <div class="bg-light lter">
+                            <ul class="breadcrumb bg-grey-breadcrumb m-b-none">
+                                <li>
+                                    <span class="btn no-shadow">
+                                        <!-- - <a href="#" class="btn no-shadow" ui-toggle-class="app-aside-folded" target=".app"> - -->
+                                        <i class="icon-bdg_expand1 text"></i>
+                                        <i class="icon-bdg_expand2 text-active"></i>
+                                    </span>
+                                </li>
+                                <li><a ui-sref="saksi">Permintaan Verifikasi</a></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="wrapper-lg">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="lter b-b wrapper-md padder-md">
+                                            <p class="m-n font-bold h3 padder">Detail Kelahiran</p>
+                                        </div>
+                                        <div class="table-responsive">
+											<div class="col-md-6">
+												<div class="lter b-b wrapper-md padder-md text-center">
+													<p class="m-n font-bold h5 padder">Anak</p>
+												</div>
+												<table id="tabel-histori" class="table table-striped b-t b-light">
+													<tr>
+														<th>Nama</th>
+														<td>{{kelahiran.anak.nama}}</td>
+													</tr>
+													<tr>
+														<th>Waktu Lahir</th>
+														<td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</td>
+													</tr>
+													<tr>
+														<th>Jenis Lahir</th>
+														<td>{{kelahiran.anak.jenisLahir}}</td>
+													</tr>
+													<tr>
+														<th>Instansi Kesehatan</th>
+														<td>{{kelahiran.instansi_kesehatan.nama}}</td>
+													</tr>
+													<tr>
+														<th>Penolong Kelahiran</th>
+														<td>{{kelahiran.anak.penolongKelahiran}}</td>
+													</tr>
+													<tr>
+														<th>Berat</th>
+														<td>{{kelahiran.anak.berat}}</td>
+													</tr>
+													<tr>
+														<th>Panjang</th>
+														<td>{{kelahiran.anak.panjang}}</td>
+													</tr>
+												</table>
+											</div>
+											<div class="col-md-6">
+												<div class="lter b-b wrapper-md padder-md text-center">
+													<h5 class="m-n font-bold h5 padder">Keluarga</h5>
+												</div>
+												<table id="tabel-histori" class="table table-striped b-t b-light">
+													<tr>
+														<th>Nama Ayah</th>
+														<td>{{kelahiran.ayah.nama}}</td>
+													</tr>
+													<tr>
+														<th>NIK Ayah</th>
+														<td>{{kelahiran.ayah.id}}</td>
+													</tr>
+													<tr>
+														<th>Nama Ibu</th>
+														<td>{{kelahiran.ibu.nama}}</td>
+													</tr>
+													<tr>
+														<th>NIK Ibu</th>
+														<td>{{kelahiran.ibu.nama}}</td>
+													</tr>
+													<tr>
+														<th>Kelurahan</th>
+														<td>{{kelahiran.kelurahan.nama}}</td>
+													</tr>
+												</table>
+											</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- row -->
+                            
+                            <div class="row text-center">
+								<div class="col-md-12">
+									<button class="btn btn-danger" style="width:35%">Batalkan</button>
+									<div style="width: 3%; display: inline-block;"></div>
+									<button type="button" class="btn btn-success" style="width:35%" data-toggle="modal" data-target="#confirmModal">Verifikasi</button>
+								</div>
+                            </div>
+                            <!-- row -->
+                        </div>
+                    </div>
+                    <!-- div app content body -->
+                </div>
+            </div>
+            <!-- end hbox hbox-auto-xs -->
+            
+			<div id="confirmModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Verifikasi</h4>
+						</div>
+						<div class="modal-body">
+							<p>Apakah anda yakin data kelahiran <span class="font-bold">{{kelahiran.anak.nama}}</span> sudah benar?</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal" ng-click="success = true">Ya</button>
+						</div>
+					</div>
+					<!-- Modal content-->
+				</div>
+			</div>
+			<!-- Modal -->
+			
+            <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope" ng-show="success">
+                <div class="col">
+                    <div class="app-content-body ">
+						<div class="wrapper-lg">
+							<div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-success">
+										<div class="panel-heading">
+                                            <p class="m-n font-bold h3 padder">Sukses</p>
+										</div>
+										<div class="panel-body">
+                                            <p class="m-n h4 padder">
+												Kelahiran <span class="font-bold">{{kelahiran.anak.nama}}</span> 
+												telah <span class="text-success">diverifikasi.</span>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end hbox hbox-auto-xs -->
+			
+        </div>
+        <!-- /content -->
+    </div>
+
+    <!-- footer -->
+    <footer id="footer" class="app-footer" role="footer">
+        <div class="wrapper-md padder-lg b-t bg-light">
+            <span class="pull-right">&copy; Copyright Bandung <a ng-click="scrollToTop()" class="m-l-sm text-muted"><i class="icon-bdg_arrow11"></i></a></span> Made with <i class="text-danger fa fa-heart"></i> in Bandung
+        </div>
+    </footer>
+    <!-- / footer -->
+</div>

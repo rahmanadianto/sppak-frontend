@@ -47,6 +47,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl: '/template/penduduk/form-permohonan-update.html',
         controller: 'PendudukPermohonanUpdateCtrl'
     })
+    .state('saksi', {
+        url: '/saksi',
+        templateUrl: '/template/saksi/home.html',
+        controller: 'SaksiCtrl'
+    })
 });
 
 //admin_detail.html
