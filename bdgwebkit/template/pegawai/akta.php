@@ -17,22 +17,22 @@ $namaibu = "Natan";
 
 if (isset($_POST["nik"]))
 	$nik = $_POST["nik"];
-	
+
 if (isset($_POST["nomorakta"]))
-	$nik = $_POST["nomorakta"];
+	$nomorakta = $_POST["nomorakta"];
 
 if (isset($_POST["tempatlahir"]))
 	$tempatlahir = $_POST["tempatlahir"];
-	
+
 if (isset($_POST["tanggallahir"]))
 	$tanggallahir = $_POST["tanggallahir"];
-	
+
 if (isset($_POST["bulanlahir"]))
 	$bulanlahir = $_POST["bulanlahir"];
-	
+
 if (isset($_POST["tahunlahir"]))
 	$tahunlahir = $_POST["tahunlahir"];
-	
+
 if (isset($_POST["namaanak"]))
 	$namaanak = $_POST["namaanak"];
 
@@ -46,14 +46,14 @@ if (isset($_POST["namaayah"]))
 	$namaayah = $_POST["namaayah"];
 
 if (isset($_POST["namaibu"]))
-	$namaibu = $_POST["namaibu"]; 
-	
+	$namaibu = $_POST["namaibu"];
+
 $tempatlahir = strtoupper($tempatlahir);
 $namaanak = strtoupper($namaanak);
 $jeniskelamin = strtoupper($jeniskelamin);
 $namaayah = strtoupper($namaayah);
 $namaibu = strtoupper($namaibu);
-	
+
 $map_kelamin = array(
 	"L" => "LAKI-LAKI",
 	"P" => "PEREMPUAN"
@@ -63,7 +63,7 @@ $map_sex = array(
 	"L" => "MALE",
 	"P" => "FEMALE"
 );
-  
+
 ob_start();
 ?>
 
@@ -73,31 +73,31 @@ ob_start();
 	<style type="text/css">
 		body {
 			padding: 50px 30px;
-			font-size: 12px; 
+			font-size: 12px;
 		}
-	
+
 		.text-right {
 			text-align: right;
 		}
-		
+
 		.text-left {
 			text-align: left;
 		}
-		
+
 		.text-center {
 			text-align: center;
 		}
-		
+
 		.inline {
 			display: inline;
 			margin: 3px;
 		}
-		
+
 		#nomor-dok {
 			font-weight: bold;
 			font-size: 16px;
 		}
-		
+
 		#nik {
 			position: fixed;
 			left: 195px;
@@ -105,17 +105,17 @@ ob_start();
 			font-size: 14px;
 			font-weight: bold;
 		}
-		
+
 	 	#content {
-			margin-top: 80px;	 
+			margin-top: 80px;
 		}
-		
+
 		#signature {
 			margin-top: 40px;
 			float: right;
 			width: 50%;
 		}
-		
+
 		hr {
 			border: none;
 			height: 1px;
@@ -124,31 +124,31 @@ ob_start();
 			color: #333; /* old IE */
 			background-color: #333; /* Modern Browsers */
 		}
-		
+
 		.dot{
 			border: 0 none;
 			border-top: 2px dotted #333;
 			background: none;
 			height:0;
-		} 
-		
+		}
+
 		h3 {
 			font-size: 14px;
 			margin: 0px;
 			font-weight: normal;
 		}
-		
+
 		h2 {
 			font-size: 16px;
 			margin: 0px;
-			font-weight: bold;	
+			font-weight: bold;
 		}
-		
+
 	</style>
 </head>
 
 <body>
-	
+
 	<!-- Nomor Dokumen -->
 	<div class="text-right">
 		<div class="inline">
@@ -158,7 +158,7 @@ ob_start();
 			6060016769
 		</div>
 	</div>
-	
+
 	<!-- NIK -->
 	<div class="text-left">
 		<div>
@@ -168,16 +168,16 @@ ob_start();
 		<div>
 			<em>Personnel Registration Number</em>
 		</div>
-		
+
 		<div id="nik">
 			: <span style="margin-left: 30px"><?php echo $nik; ?></span>
-		</div> 
-	</div> 
-	
+		</div>
+	</div>
+
 	<!-- LOGO -->
 	<div style="width: 150px; height: 150px;">
 	</div>
-	
+
 	<!-- Judul Dokumen -->
 	<div class="text-center">
 		<h2>PENCATATAN SIPIL</h2>
@@ -197,7 +197,7 @@ ob_start();
 				<em>N A T I O N A L I T Y </em>
 			</div>
 		</div>
-		
+
 		<div style="display: inline-block; width: 50%">
 			<div class="text-left">
 				<h2>I N D O N E S I A</h2>
@@ -208,7 +208,7 @@ ob_start();
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="text-center">
 		<h2>KUTIPAN AKTA KELAHIRAN</h2>
 	</div>
@@ -219,7 +219,7 @@ ob_start();
 		<em> B I R T H </em>
 		<em> C E R T I F I C A T E </em>
 	</div>
-	
+
 	<!-- Content -->
 	<div id="content">
 		<!-- Row 1 -->
@@ -241,7 +241,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 1 -->
-		
+
 		<!-- Row 2 -->
 		<div style="margin-top: -15px">
 			<div style="display: inline-block; width: 25%">
@@ -261,7 +261,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 2 -->
-		
+
 		<!-- Row 3 -->
 		<div style="margin-top: -15px">
 			<div style="display: inline-block; width: 8%">
@@ -299,7 +299,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 3 -->
-		
+
 		<!-- Row 4 -->
 		<div style="margin-top: -30px">
 			<div style="display: inline-block; width: 15%">
@@ -340,7 +340,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 4 -->
-		
+
 		<!-- Row 5 -->
 		<div style="margin-top: -30px">
 			<div class="text-center">
@@ -351,7 +351,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 5 -->
-		
+
 		<!-- Row 6 -->
 		<div>
 			<div style="display: inline-block; width: 8%">
@@ -367,26 +367,26 @@ ob_start();
 				<div>
 					<h3 style="font-weight: bold">
 						<?php
-							echo konversi_int_ke_kata_kata($anakke) . ', ' . $map_kelamin[$jeniskelamin] . ' DARI AYAH ' . 
+							echo konversi_int_ke_kata_kata($anakke) . ', ' . $map_kelamin[$jeniskelamin] . ' DARI AYAH ' .
 							$namaayah . ' DAN IBU ' . $namaibu;
-						?>	
+						?>
 					</h3>
 				</div>
 				<hr class="dot"/>
 				<div>
 					<em>
 						<?php
-							echo convert_int_to_words($anakke) . ', ' . $map_sex[$jeniskelamin] . ' FROM FATHER ' . 
+							echo convert_int_to_words($anakke) . ', ' . $map_sex[$jeniskelamin] . ' FROM FATHER ' .
 							$namaayah . ' AND MOTHER ' . $namaibu;
-						?>		
+						?>
 					</em>
 				</div>
 			</div>
 		</div>
 		<!-- End Row 6 -->
-		
+
 	</div>
-	
+
 	<!-- Signature -->
 	<div id="signature">
 		<!-- Row 1 -->
@@ -408,7 +408,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 1 -->
-		
+
 		<!-- Row 2 -->
 		<div style="margin-top: -20px">
 			<div style="display: inline-block; width: 23%">
@@ -439,7 +439,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 2 -->
-		
+
 		<!-- Row 3 -->
 		<div style="margin-top: -30px">
 			<div>
@@ -459,7 +459,7 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 3 -->
-		
+
 		<!-- Row 4 -->
 		<div>
 			<div style="display: inline-block; width: 15%">
@@ -482,13 +482,13 @@ ob_start();
 			</div>
 		</div>
 		<!-- End Row 4 -->
-		
+
 		<!-- Row 5 -->
 		<div style="margin-top: 10px">
 			<hr class="dot"/>
 		</div>
 		<!-- End Row 5 -->
-		
+
 		<!-- Row 6 -->
 		<div style="margin-top: 70px">
 			<div>
@@ -501,7 +501,7 @@ ob_start();
 		</div>
 		<!-- End Row 6>
 	</div>
-	
+
 </body>
 
 </html>

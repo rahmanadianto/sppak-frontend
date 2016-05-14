@@ -1,6 +1,6 @@
 app.factory('KelahiranService', function($http, $q) {
     var factory = {};
-    var kelahiranEndpoint = 'http://localhost:8000/api/v1/kelahiran/';
+    var kelahiranEndpoint = 'http://sppak.nitho.me/api/v1/kelahiran/';
 
     var getEndpoint = function(kelahiranId) {
         return kelahiranEndpoint + kelahiranId;
@@ -129,11 +129,11 @@ app.factory('KelahiranService', function($http, $q) {
             instansiKesehatanId :dat.instansiKesehatanId
         };
 
-        if (dat.saksiSatu.pendudukId !== null) {
+        if (dat.saksiSatu && dat.saksiSatu.pendudukId !== null) {
             req.saksiSatu = dat.saksiSatu;
         }
 
-        if (dat.saksiDua.pendudukId !== null) {
+        if (dat.saksiDua && dat.saksiDua.pendudukId !== null) {
             req.saksiDua = dat.saksiDua;
         }
 
@@ -159,6 +159,43 @@ app.factory('KelahiranService', function($http, $q) {
             url: getEndpoint(kelahiranId)
         }).success(function(data) {
             deferred.resolve(data);
+        }).error(function(data) {
+            deferred.reject(data);
+        });
+
+        return deferred.promise;
+    }
+
+    factory.cetak = function(kelahiran) {
+        var deferred = $q.defer();
+
+        var tahunLahir = kelahiran.anak.waktuLahir.getFullYear();
+        var bulanLahir = kelahiran.anak.waktuLahir.getMonth() + 1;
+        var hariLahir = kelahiran.anak.waktuLahir.getDate();
+        var req = {
+            nik: (kelahiran.penduduk_id) ? kelahiran.penduduk_id.pendudukId : '',
+            nomorakta: kelahiran.id,
+            tempatlahir: kelahiran.anak.kota_lahir.nama,
+            tanggallahir: hariLahir,
+            bulanlahir: bulanLahir,
+            tahunlahir: tahunLahir,
+            namaanak: kelahiran.anak.nama,
+            anakke: kelahiran.anak.anakKe,
+            jeniskelamin: kelahiran.anak.jenisKelamin.substr(0,1).toUpperCase(),
+            namaayah: kelahiran.ayah.nama,
+            namaibu: kelahiran.ibu.nama
+        };
+
+        $http({
+            method: 'POST',
+            data: $.param(req),
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            url: '/template/pegawai/akta.php'
+        }).success(function(data) {
+            var blob = new Blob([data], {type: "application/pdf"});
+            var objectUrl = URL.createObjectURL(blob);
+            window.open(objectUrl);
+            deferred.resolve();
         }).error(function(data) {
             deferred.reject(data);
         });

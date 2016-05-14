@@ -1,4 +1,4 @@
-app.controller('PegawaiCtrl', function($http, $interval, $rootScope, $scope, $state, KelahiranService, PegawaiService) {
+app.controller('PegawaiCtrl', function($http, $interval, $rootScope, $scope, $state, KelahiranService, PendudukService, PegawaiService) {
 	$rootScope.$broadcast('pageTitle', 'Daftar Permohonan');
 
 	$scope.filter = {
@@ -64,9 +64,22 @@ app.controller('PegawaiCtrl', function($http, $interval, $rootScope, $scope, $st
 		});
 	}
 
+	var cetak = function(kelahiran) {
+		KelahiranService.editKelahiran(kelahiran.id, {waktuCetakTerakhir: new Date()});
+		KelahiranService.cetak(kelahiran)
+		.catch(function(err) {
+			if (err) {
+				alert(err.message);
+			} else {
+				alert("Terjadi error pada server. Mohon maaf.");
+			}
+		});
+	}
+
 	$scope.viewDetail = viewDetail;
 	$scope.verifikasi = verifikasi;
 	$scope.tolak = tolak;
+	$scope.cetak = cetak;
 
 	getAllKelahiran();
 });
