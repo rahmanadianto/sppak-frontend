@@ -45,6 +45,7 @@
                                         <div class="lter b-b wrapper-md padder-md">
                                             <p class="m-n font-bold h3 padder">Detail Kelahiran</p>
                                         </div>
+                                        <!-- table responsive -->
                                         <div class="table-responsive">
 											<div class="col-md-6">
 												<div class="lter b-b wrapper-md padder-md text-center">
@@ -109,6 +110,7 @@
 												</table>
 											</div>
                                         </div>
+                                        <!-- end table responsive -->
                                     </div>
                                 </div>
                             </div> 
@@ -129,8 +131,10 @@
             </div>
             <!-- end hbox hbox-auto-xs -->
             
+            <!-- modal -->
 			<div id="confirmModal" class="modal fade" role="dialog">
 				<div class="modal-dialog">
+					<!-- modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -141,13 +145,13 @@
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
-							<button type="button" class="btn btn-success" data-dismiss="modal" ng-click="success = true">Ya</button>
+							<button type="button" class="btn btn-success" data-dismiss="modal" ng-click="verifikasi()">Ya</button>
 						</div>
 					</div>
-					<!-- Modal content-->
+					<!-- end modal content-->
 				</div>
 			</div>
-			<!-- Modal -->
+			<!-- end modal -->
 			
             <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope" ng-show="success">
                 <div class="col">
