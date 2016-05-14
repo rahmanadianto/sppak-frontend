@@ -3,15 +3,11 @@
     <header id="header" class="app-header navbar" role="menu">
         <!-- navbar header -->
         <div class="navbar-header bg-info">
-            <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
-                <i class="glyphicon glyphicon-cog"></i>
-            </button>
             <button class="pull-right visible-xs" ui-toggle-class="off-screen" target=".app-aside" ui-scroll="app">
                 <i class="glyphicon glyphicon-align-justify"></i>
             </button>
             <!-- brand -->
             <a ui-sref="instansiKesehatan" class="navbar-brand text-lt">
-                <img src="img/logo-small.png" alt="." class="small-logo hide">
                 <img src="img/logo.png" alt="." class="large-logo">
             </a>
             <!-- / brand -->
@@ -25,10 +21,8 @@
             <!-- / buttons -->
 
             <!-- link and dropdown -->
-            <ul class="nav navbar-nav hidden-sm">
-                <li>
-                    <a class="{{pageTitle === 'Daftar Permintaan Verifikasi' ? 'bg-blue' : ''}}" ui-sref="instansiKesehatan">Daftar Permintaan Verifikasi</a>
-                </li>
+            <ul class="nav navbar-nav hidden-xs">
+                <li><a class="{{pageTitle === 'Daftar Permintaan Verifikasi' ? 'bg-blue' : ''}}" ui-sref="instansiKesehatan">Daftar Permintaan Verifikasi</a></li>
             </ul>
             <!-- / link and dropdown -->
 
@@ -50,15 +44,22 @@
                 <nav ui-nav class="navi clearfix">
                     <ul class="nav">
                         <li class="hidden-folded m-t text-dark-grey text-xs padder-md padder-v-sm">
-                            <span>Navigasi</span>
+                            <h4 class="font-bold">Navigasi</h4>
                         </li>
+                        <li class="line1 dg"></li>
                         <li>
                             <a ui-sref="instansiKesehatan" class="text-dark-grey">
-                                <i class="icon-bdg_dashboard icon-grey"></i>
-                                <span class="font-bold">Permohonan</span>
+                                <i class="fa fa-home icon-grey"></i>
+                                <span class="font-bold">Daftar Permintaan Permohonan</span>
                             </a>
                         </li>
-
+                        <li class="line1 dg"></li>
+                        <li>
+                            <a class="text-dark-grey" ng-click="logout()">
+                                <i class="icon-bdg_dashboard icon-grey"></i>
+                                <span class="font-bold">Log Out</span>
+                            </a>
+                        </li>
                         <li class="line1 dg"></li>
                     </ul>
                 </nav>
@@ -70,7 +71,6 @@
 
     <!-- content -->
     <div id="content" class="app-content" role="main">
-
         <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope">
             <!-- div.col -->
             <div class="col">
@@ -292,7 +292,7 @@
     <!-- footer -->
     <footer id="footer" class="app-footer" role="footer">
         <div class="wrapper-md padder-lg b-t bg-light">
-            <span class="pull-right">&copy; Copyright Bandung <a href ui-scroll="app" class="m-l-sm text-muted"><i class="icon-bdg_arrow11"></i></a></span> Made with <i class="text-danger fa fa-heart"></i> in Bandung
+            <span class="pull-right">&copy; Copyright Bandung <a ng-click="scrollToTop()" class="m-l-sm text-muted"><i class="icon-bdg_arrow11"></i></a></span> Made with <i class="text-danger fa fa-heart"></i> in Bandung
         </div>
     </footer>
     <!-- / footer -->

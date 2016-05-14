@@ -1,4 +1,4 @@
-app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope, $scope, $state, SaksiService, KelahiranService) {
+app.controller('SaksiCtrl', function($http, $rootScope, $scope, SaksiService, KelahiranService) {
     $rootScope.$broadcast('pageTitle', 'Verifikasi Saksi');
     $scope.kelahiran = {};
     $scope.success = null;
@@ -36,11 +36,6 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
 			}
 		}
 	}
-	
-    var scrollToTop = function() {
-        $location.hash('content');
-        $anchorScroll();
-    }
     
     var verifikasi = function(){
 		var token = getUrlParameter('token');
@@ -60,7 +55,6 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
 	}
 	
 	$scope.getKelahiran = getKelahiran(getId());
-	$scope.scrollToTop = scrollToTop;
 	$scope.verifikasi = verifikasi;
 });
 
