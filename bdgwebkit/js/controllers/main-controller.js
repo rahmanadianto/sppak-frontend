@@ -1,4 +1,4 @@
-app.controller('MainCtrl', function($http, $rootScope, $scope, $state, KelahiranService, PegawaiService) {
+app.controller('MainCtrl', function($http, $location, $anchorScroll, $rootScope, $scope, $state, KelahiranService, PegawaiService) {
 	if (localStorage.getItem('auth')) {
 		$http.defaults.headers.common.Authorization = localStorage.getItem('auth');
 	} else {
@@ -25,7 +25,13 @@ app.controller('MainCtrl', function($http, $rootScope, $scope, $state, Kelahiran
 		}
 	  });
 	};
+		
+    var scrollToTop = function() {
+        $location.hash('content');
+        $anchorScroll();
+    }
 
+    $scope.scrollToTop = scrollToTop;
 	$scope.init();
 	$scope.logout = logout;
 });
