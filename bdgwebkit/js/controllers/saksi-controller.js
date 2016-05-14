@@ -1,7 +1,7 @@
 app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope, $scope, $state, SaksiService, KelahiranService) {
     $rootScope.$broadcast('pageTitle', 'Verifikasi Saksi');
     $scope.kelahiran = {};
-    $scope.success = false;
+    $scope.success = null;
     
     var getKelahiran = function(id) {
         KelahiranService.getKelahiran(id).then(function(response) {
@@ -43,8 +43,6 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
     }
     
     var verifikasi = function(){
-		var sPageURL = window.location.href;
-		console.log(sPageURL);
 		var token = getUrlParameter('token');
 		var saksiId = getUrlParameter('id');
 		SaksiService.verifikasi(saksiId, token)
@@ -52,6 +50,7 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
 			$scope.success = true;
 		})
 		.catch(function(err) {
+			$scope.success = false;
 			if (err) {
 				alert(err.message);
 			} else {

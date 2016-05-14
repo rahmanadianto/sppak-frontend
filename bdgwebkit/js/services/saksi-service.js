@@ -8,12 +8,11 @@ app.factory('SaksiService', function($http, $q) {
 	
     factory.verifikasi = function(saksiId, token){
 		var deferred = $q.defer();
-		var endpoint = getEndpoint(saksiId, token);
-		console.log(endpoint);
+		
 		
         $http({
             method: 'GET',
-            url: endpoint,
+            url: getEndpoint(saksiId, token),
         }).success(function(data) {
             deferred.resolve(data);
         }).error(function(data) {
