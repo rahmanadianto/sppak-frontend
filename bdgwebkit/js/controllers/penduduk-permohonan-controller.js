@@ -138,32 +138,36 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
 
     var getAyah = function(id) {
         if (id.length < 16) $scope.ayah = null;
-        PendudukService.getPenduduk(id)
-        .then(function(res) {
-              $scope.ayah = res.data;
-        })
-		.catch(function(err) {
-			if (err) {
-				alert(err.message);
-			} else {
-				alert("Terjadi error pada server. Mohon maaf.");
-			}
-		});
+        else {
+			PendudukService.getPenduduk(id)
+			.then(function(res) {
+				  $scope.ayah = res.data;
+			})
+			.catch(function(err) {
+				if (err) {
+					alert(err.message);
+				} else {
+					alert("Terjadi error pada server. Mohon maaf.");
+				}
+			});
+		}
     }
 
     var getIbu = function(id) {
         if (id.length < 16) $scope.ibu = null;
-        PendudukService.getPenduduk(id)
-        .then(function(res) {
-              $scope.ibu = res.data;
-        })
-		.catch(function(err) {
-			if (err) {
-				alert(err.message);
-			} else {
-				alert("Terjadi error pada server. Mohon maaf.");
-			}
-		});
+        else {
+			PendudukService.getPenduduk(id)
+			.then(function(res) {
+				  $scope.ibu = res.data;
+			})
+			.catch(function(err) {
+				if (err) {
+					alert(err.message);
+				} else {
+					alert("Terjadi error pada server. Mohon maaf.");
+				}
+			});
+		}
     }
 
     getAllInstansiKesehatan();
