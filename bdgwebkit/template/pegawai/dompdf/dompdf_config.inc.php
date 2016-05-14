@@ -300,7 +300,7 @@ def("DOMPDF_FONT_HEIGHT_RATIO", 1.1);
  * Allows people to disabled CSS float support
  * @var bool
  */
-def("DOMPDF_ENABLE_CSS_FLOAT", false);
+def("DOMPDF_ENABLE_CSS_FLOAT", true);
 
 /**
  * Enable the built in DOMPDF autoloader
@@ -319,7 +319,7 @@ def("DOMPDF_AUTOLOAD_PREPEND", false);
 /**
  * Use the more-than-experimental HTML5 Lib parser
  */
-def("DOMPDF_ENABLE_HTML5PARSER", false);
+def("DOMPDF_ENABLE_HTML5PARSER", true);
 require_once(DOMPDF_LIB_DIR . "/html5lib/Parser.php");
 
 // ### End of user-configurable options ###

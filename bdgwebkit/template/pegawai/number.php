@@ -172,3 +172,43 @@
 
         return $string;
     }
+    
+    function bulan($number) {
+        $kamus  = array(
+            0                   => ' ',
+            1                   => 'JANUARI',
+            2                   => 'FEBRUARI',
+            3                   => 'MARET',
+            4                   => 'APRIL',
+            5                   => 'MEI',
+            6                   => 'JUNI',
+            7                   => 'JULI',
+            8                   => 'AGUSTUS',
+            9                   => 'SEPTEMBER',
+            10                  => 'OKTOBER',
+            11                  => 'NOVEMBER',
+            12                  => 'DESEMBER'
+        );
+        
+        return $kamus[$number];
+    }
+    
+     function month($number) {
+        $dic = array(
+            0                   => ' ',
+            1                   => 'JANUARY',
+            2                   => 'FEBRUARY',
+            3                   => 'MARCH',
+            4                   => 'APRIL',
+            5                   => 'MAY',
+            6                   => 'JUNE',
+            7                   => 'JULY',
+            8                   => 'AUGUST',
+            9                   => 'SEPTEMBER',
+            10                  => 'OCTOBER',
+            11                  => 'NOVEMBER',
+            12                  => 'DECEMBER'
+        );
+        
+        return $dic[$number];
+    }

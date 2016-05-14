@@ -1,283 +1,517 @@
 <?php
+
 require_once("dompdf/dompdf_config.inc.php");
+require_once("number.php");
 
-use Dompdf\Adapter\CPDF;
-use Dompdf\Dompdf;
-use Dompdf\Exception;
+$nik = "11111111111111111";
+$nomorakta = "11111111111";
+$tempatlahir = "Bandung";
+$tahunlahir = 1994;
+$bulanlahir = 1;
+$tanggallahir = 1;
+$namaanak = "Natan";
+$anakke = 1;
+$jeniskelamin = "L";
+$namaayah = "Natan ";
+$namaibu = "Natan";
 
-$dompdf = new DOMPDF();
-$dompdf->set_paper("A4");
+if (isset($_POST["nik"]))
+	$nik = $_POST["nik"];
+	
+if (isset($_POST["nomorakta"]))
+	$nik = $_POST["nomorakta"];
+
+if (isset($_POST["tempatlahir"]))
+	$tempatlahir = $_POST["tempatlahir"];
+	
+if (isset($_POST["tanggallahir"]))
+	$tanggallahir = $_POST["tanggallahir"];
+	
+if (isset($_POST["bulanlahir"]))
+	$bulanlahir = $_POST["bulanlahir"];
+	
+if (isset($_POST["tahunlahir"]))
+	$tahunlahir = $_POST["tahunlahir"];
+	
+if (isset($_POST["namaanak"]))
+	$namaanak = $_POST["namaanak"];
+
+if (isset($_POST["anakke"]))
+	$anakke = $_POST["anakke"];
+
+if (isset($_POST["jeniskelamin"]))
+	$jeniskelamin = $_POST["jeniskelamin"];
+
+if (isset($_POST["namaayah"]))
+	$namaayah = $_POST["namaayah"];
+
+if (isset($_POST["namaibu"]))
+	$namaibu = $_POST["namaibu"]; 
+	
+$tempatlahir = strtoupper($tempatlahir);
+$namaanak = strtoupper($namaanak);
+$jeniskelamin = strtoupper($jeniskelamin);
+$namaayah = strtoupper($namaayah);
+$namaibu = strtoupper($namaibu);
+	
+$map_kelamin = array(
+	"L" => "LAKI-LAKI",
+	"P" => "PEREMPUAN"
+);
+
+$map_sex = array(
+	"L" => "MALE",
+	"P" => "FEMALE"
+);
   
-$html = <<<'ENDHTML'
+ob_start();
+?>
 
 <html>
+
 <head>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
 	<style type="text/css">
-		body{
-			padding: 110px 90px;
-			width: 976px;
+		body {
+			padding: 50px 30px;
+			font-size: 12px; 
 		}
-		.text-underline {
-			text-decoration: underline;
+	
+		.text-right {
+			text-align: right;
 		}
-
-		.h4 {
-			font-size: 16px;
+		
+		.text-left {
+			text-align: left;
 		}
-		.h3{
-			font-size: 20px;
-		}
-		#nik{
-			padding: 5px 40px;
-		}
-		#no{
-			margin-top: -20px;
-		}
-		hr{
-			margin: 0px;
-		}
-		.title {
-			margin-top: 150px;
+		
+		.text-center {
 			text-align: center;
 		}
-		#WN {
-			padding: 0px 3px;
+		
+		.inline {
+			display: inline;
+			margin: 3px;
 		}
-
-		.content {
-			margin-top: 100px;
+		
+		#nomor-dok {
+			font-weight: bold;
+			font-size: 16px;
 		}
-
-		.content-indonesian {
-			font-size: 17px;
+		
+		#nik {
+			position: fixed;
+			left: 195px;
+			top: 78px;
+			font-size: 14px;
+			font-weight: bold;
 		}
-
-		.content-english {
-			font-size: 15px;
+		
+	 	#content {
+			margin-top: 80px;	 
 		}
-
-		.footer {
-			margin-top: 150px;
+		
+		#signature {
+			margin-top: 40px;
+			float: right;
+			width: 50%;
 		}
+		
+		hr {
+			border: none;
+			height: 1px;
+			margin: 0px;
+			/* Set the hr color */
+			color: #333; /* old IE */
+			background-color: #333; /* Modern Browsers */
+		}
+		
+		.dot{
+			border: 0 none;
+			border-top: 2px dotted #333;
+			background: none;
+			height:0;
+		} 
+		
+		h3 {
+			font-size: 14px;
+			margin: 0px;
+			font-weight: normal;
+		}
+		
+		h2 {
+			font-size: 16px;
+			margin: 0px;
+			font-weight: bold;	
+		}
+		
 	</style>
 </head>
+
 <body>
-<div class ="header">
-	<div class = "row">
-
-		<div class = "col-md-4">
-		<span class="text-underline h4">Nomor Induk Kependudukan</span> :</br>
-		<em>Personnel Registration Number</em>
+	
+	<!-- Nomor Dokumen -->
+	<div class="text-right">
+		<div class="inline">
+			No. AL
 		</div>
-		<div class = "col-md-4 col-md-pull-1" id="nik">
-		<strong>123325576723676<strong>
-		</div>
-
-		<div class = "col-md-4" id="no">
-		No. <span class="h3" >AL 60604365360435</span>
+		<div class="inline" id="nomor-dok">
+			6060016769
 		</div>
 	</div>
 	
-</div>
+	<!-- NIK -->
+	<div class="text-left">
+		<div>
+			<h3>Nomor Induk Kependudukan</h3>
+		</div>
+		<hr width="25%" align="left"/>
+		<div>
+			<em>Personnel Registration Number</em>
+		</div>
+		
+		<div id="nik">
+			: <span style="margin-left: 30px"><?php echo $nik; ?></span>
+		</div> 
+	</div> 
+	
+	<!-- LOGO -->
+	<div style="width: 150px; height: 150px;">
+	</div>
+	
+	<!-- Judul Dokumen -->
+	<div class="text-center">
+		<h2>PENCATATAN SIPIL</h2>
+	</div>
+	<hr width="25%" align="center"/>
+	<div class="text-center">
+		<em>R E G I S T R Y </em><em> O F F I C E</em>
+	</div>
 
-<div class ="title" >
-	<div class = "row">
-		<div class = "col-md-6 col-md-push-3">
-			<span class="text-underline">
-				<h4><strong>PENCATATAN SIPIL</strong></h4>
-			</span>
-			<h4><em>REGISTRY OFFICE</em></h4>
-
-
-			<div class = "row">
-				<div id="WN" class = "col-md-5 col-md-push-2" style="text-align: center">
-					<h4>WARGA NEGARA
-					<hr style= " border-top: solid black 1px;">
-					<em>NATIONALITY</em></h4>
+	<div style="width: 50%; margin-left: 160px">
+		<div style="display: inline-block; width: 50%">
+			<div class="text-center">
+				<h2 style="font-weight: normal">WARGA NEGARA</h2>
+			</div>
+			<hr width="80%" align="center" />
+			<div class="text-center">
+				<em>N A T I O N A L I T Y </em>
+			</div>
+		</div>
+		
+		<div style="display: inline-block; width: 50%">
+			<div class="text-left">
+				<h2>I N D O N E S I A</h2>
+			</div>
+			<hr width="85%" class="dot"/>
+			<div class="text-left">
+				<h2 style="font-weight: normal"><em>I N D O N E S I A N </em></h2>
+			</div>
+		</div>
+	</div>
+	
+	<div class="text-center">
+		<h2>KUTIPAN AKTA KELAHIRAN</h2>
+	</div>
+	<hr width="35%" align="center"/>
+	<div class="text-center">
+		<em>E X C E R T </em>
+		<em> O F </em>
+		<em> B I R T H </em>
+		<em> C E R T I F I C A T E </em>
+	</div>
+	
+	<!-- Content -->
+	<div id="content">
+		<!-- Row 1 -->
+		<div>
+			<div style="display: inline-block; width: 32%">
+				<div>
+					<h3>Berdasarkan Akta Kelahiran Nomor</h3>
 				</div>
-				<div id="WN" class = "col-md-3 col-md-push-2" style="text-align: left">
-					<h4><strong>INDONESIA</strong>
-					<hr style= " border-top: dotted 1px;">
-					<em>INDONESIAN</em></h4>
+				<hr/>
+				<div>
+					<em>By virtue of Birth Certificate Number</em>
 				</div>
 			</div>
-			<span class="text-underline">
-				<h4><strong>KUTIPAN AKTA KELAHIRAN</strong></h4>
-			</span>
-			<h5><em>EXCERPT OF BIRTH CERTIFICATE</em></h5>
-			
+			<div style="display: inline-block; width: 68%">
+				<div style="margin-left: 20px">
+					<h3 style="font-weight: bold"><?php echo $nomorakta; ?></h3>
+				</div>
+				<hr class="dot"/>
+			</div>
 		</div>
+		<!-- End Row 1 -->
+		
+		<!-- Row 2 -->
+		<div style="margin-top: -15px">
+			<div style="display: inline-block; width: 25%">
+				<div>
+					<h3>Menurut stbld</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>in accordance with state gazette</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 75%">
+				<div>
+					<h3 style="font-weight: bold">-</h3>
+				</div>
+				<hr class="dot"/>
+			</div>
+		</div>
+		<!-- End Row 2 -->
+		
+		<!-- Row 3 -->
+		<div style="margin-top: -15px">
+			<div style="display: inline-block; width: 8%">
+				<div>
+					<h3>bahwa di</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>that in</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 42%">
+				<div style="margin-left: 20px">
+					<h3 style="font-weight: bold"><?php echo $tempatlahir; ?></h3>
+				</div>
+				<hr class="dot"/>
+			</div>
+			<div style="display: inline-block; width: 12%">
+				<div>
+					<h3>pada tanggal</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>on date</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 38%">
+				<div style="margin-left: 20px">
+					<h3 style="font-weight: bold"><?php echo konversi_int_ke_kata_kata($tanggallahir); ?></h3>
+				</div>
+				<hr class="dot"/>
+				<div style="margin-left: 20px">
+					<em><?php echo convert_int_to_words($tanggallahir); ?></em>
+				</div>
+			</div>
+		</div>
+		<!-- End Row 3 -->
+		
+		<!-- Row 4 -->
+		<div style="margin-top: -30px">
+			<div style="display: inline-block; width: 15%">
+				<div>
+					<h3 style="font-weight: bold"><?php echo bulan($bulanlahir); ?></h3>
+				</div>
+				<hr class="dot"/>
+				<div>
+					<em><?php echo month($bulanlahir); ?></em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 6%">
+				<div>
+					<h3>tahun</h3>
+				</div>
+				<hr align="center"/>
+				<div>
+					<em>on year</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 69%">
+				<div style="margin-left: 20px">
+					<h3 style="font-weight: bold"><?php echo konversi_int_ke_kata_kata($tahunlahir); ?></h3>
+				</div>
+				<hr class="dot"/>
+				<div style="margin-left: 20px">
+					<em><?php echo convert_int_to_words($tahunlahir); ?></em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 10%">
+				<div>
+					<h3>telah lahir :</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>was born</em>
+				</div>
+			</div>
+		</div>
+		<!-- End Row 4 -->
+		
+		<!-- Row 5 -->
+		<div style="margin-top: -30px">
+			<div class="text-center">
+				<div>
+					<h3 style="font-weight: bold"><?php echo $namaanak; ?></h3>
+				</div>
+				<hr class="dot"/>
+			</div>
+		</div>
+		<!-- End Row 5 -->
+		
+		<!-- Row 6 -->
+		<div>
+			<div style="display: inline-block; width: 8%">
+				<div>
+					<h3>anak ke</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>child no</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 92%">
+				<div>
+					<h3 style="font-weight: bold">
+						<?php
+							echo konversi_int_ke_kata_kata($anakke) . ', ' . $map_kelamin[$jeniskelamin] . ' DARI AYAH ' . 
+							$namaayah . ' DAN IBU ' . $namaibu;
+						?>	
+					</h3>
+				</div>
+				<hr class="dot"/>
+				<div>
+					<em>
+						<?php
+							echo convert_int_to_words($anakke) . ', ' . $map_sex[$jeniskelamin] . ' FROM FATHER ' . 
+							$namaayah . ' AND MOTHER ' . $namaibu;
+						?>		
+					</em>
+				</div>
+			</div>
+		</div>
+		<!-- End Row 6 -->
+		
 	</div>
-</div>
-
-<div class = "content">
-	<div class = "row">
-		<div class = "col-md-5 content-indonesian" style="text-align: left">
-			Berdasarkan Akta Kelahiran Nomor
-			<hr style= " border-top: solid black 1px;">
-			<em>By virtue of Birth Certificate Number</em>
+	
+	<!-- Signature -->
+	<div id="signature">
+		<!-- Row 1 -->
+		<div>
+			<div style="display: inline-block; width: 42%">
+				<div>
+					<h3>Kutipan ini dikeluarkan</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>The excerpt is issued</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 58%">
+				<div style="margin-left: 5px">
+					<h3 style="font-weight: bold">DI BANDUNG</h3>
+				</div>
+				<hr class="dot"/>
+			</div>
 		</div>
-		<div class = "col-md-7 content-english" style="text-align: left">
-			<strong>1702-LU-09022012-0014</strong>
-			<hr style= " border-top: dotted 1px;">
+		<!-- End Row 1 -->
+		
+		<!-- Row 2 -->
+		<div style="margin-top: -20px">
+			<div style="display: inline-block; width: 23%">
+				<div>
+					<h3>pada tanggal</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>on date</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 77%">
+				<div style="margin-left: 5px">
+					<h3 style="font-weight: bold">
+						<?php
+							echo konversi_int_ke_kata_kata(date("j")) . ' ' . bulan(date("n")) ;
+						?>
+					</h3>
+				</div>
+				<hr class="dot"/>
+				<div style="margin-left: 5px">
+					<em>
+						<?php
+							echo convert_int_to_words(date("j")) . ' of ' . month(date("n")) ;
+						?>
+					</em>
+				</div>
+			</div>
 		</div>
+		<!-- End Row 2 -->
+		
+		<!-- Row 3 -->
+		<div style="margin-top: -30px">
+			<div>
+				<h3 style="font-weight: bold">
+					<?php
+						echo 'TAHUN ' . konversi_int_ke_kata_kata(date("Y")) ;
+					?>
+				</h3>
+			</div>
+			<hr class="dot"/>
+			<div>
+				<em>
+					<?php
+						echo 'ON YEAR ' . convert_int_to_words(date("Y")) ;
+					?>
+				</em>
+			</div>
+		</div>
+		<!-- End Row 3 -->
+		
+		<!-- Row 4 -->
+		<div>
+			<div style="display: inline-block; width: 15%">
+				<div>
+					<h3>Kepala</h3>
+				</div>
+				<hr/>
+				<div>
+					<em>Head of</em>
+				</div>
+			</div>
+			<div style="display: inline-block; width: 75%">
+				<div>
+					<h3 style="font-weight: bold">DINAS KEPENDUDUKAN DAN</h3>
+				</div>
+				<hr class="dot"/>
+				<div>
+					<h3 style="font-weight: bold">CATATAN SIPIL</h3>
+				</div>
+			</div>
+		</div>
+		<!-- End Row 4 -->
+		
+		<!-- Row 5 -->
+		<div style="margin-top: 10px">
+			<hr class="dot"/>
+		</div>
+		<!-- End Row 5 -->
+		
+		<!-- Row 6 -->
+		<div style="margin-top: 70px">
+			<div>
+				<h3 style="font-weight: bold">FIQIE, SH, M.Si</h3>
+			</div>
+			<hr/>
+			<div>
+				<h3 style="font-weight: bold">NIP 13514602201511023</h3>
+			</div>
+		</div>
+		<!-- End Row 6>
 	</div>
-
-	<div class = "row">
-		<div class = "col-md-5 content-indonesian" style="text-align: left">
-			menurut stbld
-			<hr style= " border-top: solid black 1px;">
-			<em>in accordance with state gazette</em>
-		</div>
-		<div class = "col-md-7 content-english" style="text-align: left">
-			<strong>-</strong>
-			<hr style= " border-top: dotted 1px;">
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-2 content-indonesian" style="text-align: left">
-			bahwa di
-			<hr style= " border-top: solid black 1px;">
-			<em>that in</em>
-		</div>
-		<div class = "col-md-4 content-english" style="text-align: left">
-			<strong>REJANG REMBONG</strong>
-			<hr style= " border-top: dotted 1px;">
-		</div>
-		<div class = "col-md-3 content-indonesian" style="text-align: left">
-			pada tanggal
-			<hr style= " border-top: solid black 1px;">
-			<em>on date</em>
-		</div>
-		<div class = "col-md-3 content-english" style="text-align: left">
-			<strong>DELAPAN</strong>
-			<hr style= " border-top: dotted 1px;">
-			<em>EIGHT</em>
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-2 content-indonesian" style="text-align: left">
-			OKTOBER
-			<hr style= " border-top: dotted black 1px;">
-			<em>OCTOBER</em>
-		</div>
-		<div class = "col-md-2 content-english" style="text-align: left">
-			<strong>TAHUN</strong>
-			<hr style= " border-top: solid 1px;">
-			<em>on date</em>
-		</div>
-		<div class = "col-md-6 content-indonesian" style="text-align: left">
-			DUA RIBU SEBELAS
-			<hr style= " border-top: dotted black 1px;">
-			<em>TWO THOUSAND ELEVEN</em>
-		</div>
-		<div class = "col-md-2 content-english" style="text-align: left">
-			<strong>telah lahir :</strong>
-			<hr style= " border-top: solid 1px;">
-			<em>was born</em>
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-12 h3" style="text-align: center">
-			<strong>VIONA OCTRIANI</strong>
-			<hr style= " border-top: dotted 1px;">
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-2 content-indonesian" style="text-align: left">
-			anak ke
-			<hr style= " border-top: solid black 1px;">
-			<em>child no</em>
-		</div>
-		<div class = "col-md-10 content-english" style="text-align: left">
-			<strong>SATU, PEREMPUAN DARI AYAH TRIONO SUGIANTO DAN IBU TARI PUJI ASTUTI</strong>
-			<hr style= " border-top: dotted 1px;">
-			<em>FIRST, FEMALE FROM FATHER TRIONO SUGIANTO AND MOTHER TARI PUJI ASTUTI</em>
-		</div>
-	</div>
-</div>
-
-<div class = "footer">
-	<div class = "row">
-		<div class = "col-md-4 col-md-push-4 content-indonesian" style="text-align: left">
-			Kutipan ini dikeluarkan 
-			<hr style= " border-top: solid black 1px;">
-			<em>The excerpt is issued</em>
-		</div>
-		<div class = "col-md-4 col-md-push-4 content-english" style="text-align: left">
-			<strong>DI KAB. REJANG LEBONG</strong>
-			<hr style= " border-top: dotted 1px;">
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-3 col-md-push-4 content-indonesian" style="text-align: left">
-			pada tanggal
-			<hr style= " border-top: solid black 1px;">
-			<em>on date</em>
-		</div>
-		<div class = "col-md-5 col-md-push-4 content-english" style="text-align: left">
-			<strong>SEMBILAN FEBRUARI</strong>
-			<hr style= " border-top: dotted 1px;">
-			<em>NINE of FEBRUARY</em>
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-8 col-md-push-4 content-indonesian" style="text-align: left">
-			<strong>TAHUN DUA RIBU DUA BELAS</strong>
-			<hr style= " border-top: solid black 1px;">
-			<em>ON YEAR TWO THOUSAND TWELVE</em>
-		</div>
-	</div>
-
-	<div class = "row">
-		<div class = "col-md-2 col-md-push-4 content-indonesian" style="text-align: left">
-			Kepala 
-			<hr style= " border-top: solid black 1px;">
-			<em>Head of</em>
-		</div>
-		<div class = "col-md-6 col-md-push-4 content-english" style="text-align: left">
-			<strong>DINAS KEPENDUDUKAN DAN</strong>
-			<hr style= " border-top: dotted 1px;">
-			<strong>CATATAN SIPIL</strong>
-		</div>
-	</div>
-
-	<div class = "row">
-		<br>
-		<div class = "col-md-8 col-md-push-4 content-indonesian" style="text-align: left">
-			<hr style= " border-top: dotted black 1px;">
-		</div>
-	</div>
-
-	<div class = "row">
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<div class = "col-md-8 col-md-push-4 content-indonesian" style="text-align: left">
-			<strong>SANTOSO, SH, M.Si</strong>
-			<hr style= " border-top: solid black 1px;">
-			<strong>NIP 123456789765456789</strong>
-		</div>
-	</div>
-</div>
-
+	
 </body>
-</html>
-ENDHTML;
 
+</html>
+
+<?php
+$html = ob_get_clean();
+
+$dompdf = new Dompdf();
+$dompdf->set_paper("A4");
 $dompdf->load_html($html);
 $dompdf->render();
-  
-$dompdf->stream("akta.pdf");
+$dompdf->stream("akta.pdf", array('Attachment'=>0));
 ?>
