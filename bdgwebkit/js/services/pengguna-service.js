@@ -18,7 +18,7 @@ app.factory('PenggunaService', function($q, $http) {
 
             deferred.resolve(response.data);
         }).error(function(response) {
-            deferred.reject(response.data);
+            deferred.reject(response);
         });
 
         return deferred.promise;

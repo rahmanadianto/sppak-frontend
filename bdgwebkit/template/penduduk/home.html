@@ -184,7 +184,7 @@
                                             <table id="tabel-histori" class="table table-striped b-t b-light">
                                                 <thead>
                                                     <tr>
-                                                        <th class="w100">Anak Ke</th>
+                                                        <th style="width:100px">Anak Ke</th>
                                                         <th style="width:225px">Nama Anak</th>
                                                         <th style="width:200px">Waktu Lahir</th>
                                                         <th class="w100">Saksi 1</th>
@@ -221,6 +221,68 @@
                                                     </tr>
                                                     <tr>
                                                         <td colspan="9" class="text-gray"><i>* Saksi 1, Saksi 2, InKes (Instansi Kesehatan), Kelurahan, dan Admin (Pegawai Disdukcapil) harus melakukan verifikasi sebelum Akta Kelahiran dapat dipublikasikan.</i></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="lter b-b wrapper-md padder-md">
+                                            <h1 class="m-n font-bold h3 padder">Daftar Permohonan yang <span class="text-danger">Ditolak</span></h1>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table id="tabel-histori" class="table table-striped b-t b-light">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:100px">Anak Ke</th>
+                                                        <th style="width:225px">Nama Anak</th>
+                                                        <th style="width:200px">Waktu Lahir</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="kelahiran in daftarKelahiran | orderBy:'anak.anakKe' | filter:{status:3}">
+                                                        <td>{{kelahiran.anak.anakKe}}</td>
+                                                        <td>{{kelahiran.anak.nama}}</td>
+                                                        <td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</td>
+                                                        <td>
+                                                            <button class="btn btn-default w100" ng-click="goToEditKelahiran(kelahiran)"><i class="fa fa-info"></i> Lihat Detail</button>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="panel panel-default">
+                                        <div class="lter b-b wrapper-md padder-md">
+                                            <h1 class="m-n font-bold h3 padder">Daftar Permohonan yang <span class="text-success">Diterima</span></h1>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table id="tabel-histori" class="table table-striped b-t b-light">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width:100px">Anak Ke</th>
+                                                        <th style="width:225px">Nama Anak</th>
+                                                        <th style="width:200px">Waktu Lahir</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="kelahiran in daftarKelahiran | orderBy:'anak.anakKe' | filter:{status:1}">
+                                                        <td>{{kelahiran.anak.anakKe}}</td>
+                                                        <td>{{kelahiran.anak.nama}}</td>
+                                                        <td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</td>
+                                                        <td>
+                                                            <button class="btn btn-default w100" ng-click="goToEditKelahiran(kelahiran)"><i class="fa fa-info"></i> Lihat Detail</button>
+                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>

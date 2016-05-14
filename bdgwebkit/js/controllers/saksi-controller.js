@@ -2,7 +2,7 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
     $rootScope.$broadcast('pageTitle', 'Verifikasi Saksi');
     $scope.kelahiran = {};
     $scope.success = null;
-    
+
     var getKelahiran = function(id) {
         KelahiranService.getKelahiran(id).then(function(response) {
             $scope.kelahiran = response.data;
@@ -15,14 +15,15 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
 			}
 		});
     }
-    
+
     var getId = function() {
 		var id = getUrlParameter('pid');
 		return id;
 	}
-	
+
 	// Taken from http://www.jquerybyexample.net/2012/06/get-url-parameters-using-jquery.html with modification
-	var getUrlParameter = function getUrlParameter(sParam) {
+	var getUrlParameter = function(sParam) {
+        var sPageURL = window.location.href;
 		var sPageURL = window.location.href.split('?')[1];
 		var sURLVariables = sPageURL.split('&');
 		var sParameterName;
@@ -36,12 +37,12 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
 			}
 		}
 	}
-	
+
     var scrollToTop = function() {
         $location.hash('content');
         $anchorScroll();
     }
-    
+
     var verifikasi = function(){
 		var token = getUrlParameter('token');
 		var saksiId = getUrlParameter('id');
@@ -58,9 +59,8 @@ app.controller('SaksiCtrl', function($anchorScroll, $location, $http, $rootScope
 			}
 		});
 	}
-	
+
 	$scope.getKelahiran = getKelahiran(getId());
 	$scope.scrollToTop = scrollToTop;
 	$scope.verifikasi = verifikasi;
 });
-

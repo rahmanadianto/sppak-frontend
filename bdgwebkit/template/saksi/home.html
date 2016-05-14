@@ -37,13 +37,13 @@
                                 <li><a ui-sref="saksi">Permintaan Verifikasi</a></li>
                             </ul>
                         </div>
-                        
+
                         <div class="wrapper-lg">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="panel panel-default">
                                         <div class="lter b-b wrapper-md padder-md">
-                                            <p class="m-n font-bold h3 padder">Detail Kelahiran</p>
+                                            <p class="m-n font-bold h3 padder">Verifikasi Kelahiran</p>
                                         </div>
                                         <!-- table responsive -->
                                         <div class="table-responsive">
@@ -113,14 +113,14 @@
                                         <!-- end table responsive -->
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
                             <!-- row -->
-                            
+
                             <div class="row text-center">
 								<div class="col-md-12">
-									<button class="btn btn-danger" style="width:35%">Batalkan</button>
+									<button class="btn-lg btn-danger" style="width:35%" onclick="window.close()">Batalkan</button>
 									<div style="width: 3%; display: inline-block;"></div>
-									<button type="button" class="btn btn-success" style="width:35%" data-toggle="modal" data-target="#confirmModal">Verifikasi</button>
+									<button class="btn-lg btn-success" style="width:35%" data-toggle="modal" data-target="#confirmModal">Verifikasi</button>
 								</div>
                             </div>
                             <!-- row -->
@@ -130,7 +130,7 @@
                 </div>
             </div>
             <!-- end hbox hbox-auto-xs -->
-            
+
             <!-- modal -->
 			<div id="confirmModal" class="modal fade" role="dialog">
 				<div class="modal-dialog">
@@ -152,7 +152,7 @@
 				</div>
 			</div>
 			<!-- end modal -->
-			
+
             <div class="hbox hbox-auto-xs hbox-auto-sm ng-scope" ng-show="success">
                 <div class="col">
                     <div class="app-content-body ">
@@ -165,7 +165,7 @@
 										</div>
 										<div class="panel-body">
                                             <p class="m-n h4 padder">
-												Kelahiran <span class="font-bold">{{kelahiran.anak.nama}}</span> 
+												Kelahiran <span class="font-bold">{{kelahiran.anak.nama}}</span>
 												telah <span class="text-success">diverifikasi.</span>
 											</p>
 										</div>
@@ -177,7 +177,7 @@
 				</div>
 			</div>
 			<!-- end hbox hbox-auto-xs -->
-			
+
         </div>
         <!-- /content -->
     </div>
