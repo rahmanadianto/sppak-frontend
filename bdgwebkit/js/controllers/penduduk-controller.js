@@ -19,13 +19,13 @@ app.controller('PendudukCtrl', function($anchorScroll, $http, $rootScope, $scope
         KelahiranService.getAllKelahiran(start, limit).then(function(response) {
             $scope.daftarKelahiran = response.data;
         })
-		.catch(function(err) {
-			if (err) {
-				alert(err.message);
-			} else {
-				alert("Terjadi error pada server. Mohon maaf.");
-			}
-		});
+    		.catch(function(err) {
+    			if (err) {
+    				alert(err.message);
+    			} else {
+    				alert("Terjadi error pada server. Mohon maaf.");
+    			}
+    		});
     }
 
     var goToEditKelahiran = function(permohonan) {

@@ -1,6 +1,6 @@
 app.factory('PenggunaService', function($q, $http) {
     var factory = {};
-    var penggunaEndpoint = 'http://sppak.nitho.me/api/v1/pengguna/';
+    var penggunaEndpoint = 'http://localhost:8000/api/v1/pengguna/';
 
     factory.doLogin = function(email, password) {
         var deferred = $q.defer();

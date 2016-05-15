@@ -18,7 +18,8 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
             "anakKe": 1,
             "penolongKelahiran": null,
             "berat": 0,
-            "panjang": 0
+            "panjang": 0,
+            "golonganDarah": "A",
         },
         "kartuKeluargaId": null,
         "aktaNikahId": null,
@@ -95,13 +96,14 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
         .then(function(res) {
             $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
         })
-		.catch(function(err) {
-			if (err) {
-				alert(err.message);
-			} else {
-				alert("Terjadi error pada server. Mohon maaf.");
-			}
-		});
+    		.catch(function(err) {
+          if (isSubmit) permohonan.status = 0;
+    			if (err) {
+    				alert(err.message);
+    			} else {
+    				alert("Terjadi error pada server. Mohon maaf.");
+    			}
+    		});
     }
 
     var editKelahiran = function(permohonan, isSubmit) {
@@ -112,11 +114,11 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
             $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
         }).catch(function(err) {
             if (isSubmit) permohonan.status = 0;
-			if (err) {
-				alert(err.message);
-			} else {
-				alert("Terjadi error pada server. Mohon maaf.");
-			}
+      			if (err) {
+      				alert(err.message);
+      			} else {
+      				alert("Terjadi error pada server. Mohon maaf.");
+      			}
         });
     }
 

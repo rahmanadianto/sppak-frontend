@@ -42,12 +42,29 @@
                                         <!--div class="line line-dashed b-b line-lg pull-in"></div-->
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Jenis Kelamin</label>
-                                            <div class="col-sm-7" style="height:56px">
+                                            <div class="col-sm-7" style="height: 36px">
                                                 <label class="radio-inline">
                                                     <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="laki-laki"> Laki-Laki
                                                 </label>
                                                 <label class="radio-inline">
                                                     <input type="radio" ng-model="permohonan.anak.jenisKelamin" value="perempuan"> Perempuan
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Golongan Darah</label>
+                                            <div class="col-sm-7" style="height:36px">
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-model="permohonan.anak.golonganDarah" value="A"> A
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-model="permohonan.anak.golonganDarah" value="B"> B
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-model="permohonan.anak.golonganDarah" value="AB"> AB
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" ng-model="permohonan.anak.golonganDarah" value="O"> O
                                                 </label>
                                             </div>
                                         </div>
@@ -268,7 +285,7 @@
                                         <div class="col-sm-12" ui-view>
                                             <span class="pull-right">
                                                 <button class="btn btn-default" ng-click="addKelahiran(permohonan)">Simpan</button>
-                                                <button type="submit" class="btn btn-info" ng-click="addKelahiran(permohonan, true)">Simpan dan Ajukan</button>
+                                                <button type="submit" class="btn btn-info" ng-click="addKelahiran(permohonan, true)">Ajukan</button>
                                             </span>
                                         </div>
                                     </div>

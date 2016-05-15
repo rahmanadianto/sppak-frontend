@@ -1,6 +1,6 @@
 app.factory('StatistikService', function($http, $q) {
     var factory = {};
-    var kelahiranEndpoint = 'http://sppak.nitho.me/api/v1/statistik/';
+    var kelahiranEndpoint = 'http://localhost:8000/api/v1/statistik/';
 
     var getEndpoint = function(jenis) {
         return kelahiranEndpoint + jenis;

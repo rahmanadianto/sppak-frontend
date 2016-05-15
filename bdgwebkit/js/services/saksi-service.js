@@ -1,6 +1,6 @@
 app.factory('SaksiService', function($http, $q) {
     var factory = {};
-    var saksiEndpoint = 'http://sppak.nitho.me/api/v1/saksi/';
+    var saksiEndpoint = 'http://localhost:8000/api/v1/saksi/';
     
     var getEndpoint = function(saksiId, token){
 		return saksiEndpoint + saksiId + '/verifikasi/' + decodeURIComponent(token);

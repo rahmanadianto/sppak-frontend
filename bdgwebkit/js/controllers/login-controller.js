@@ -16,7 +16,11 @@ var controller = app.controller('LoginCtrl', function(PenggunaService, $rootScop
         })
 		.catch(function(err) {
 			if (err) {
-				alert(err.message);
+				if (err.message) {
+					alert(err.message);
+				} else {
+					alert(err);
+				}
 			} else {
 				alert("Email atau password salah.");
 			}

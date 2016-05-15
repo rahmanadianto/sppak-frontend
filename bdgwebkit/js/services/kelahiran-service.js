@@ -1,6 +1,6 @@
 app.factory('KelahiranService', function($http, $q) {
     var factory = {};
-    var kelahiranEndpoint = 'http://sppak.nitho.me/api/v1/kelahiran/';
+    var kelahiranEndpoint = 'http://localhost:8000/api/v1/kelahiran/';
 
     var getEndpoint = function(kelahiranId) {
         return kelahiranEndpoint + kelahiranId;
@@ -15,6 +15,7 @@ app.factory('KelahiranService', function($http, $q) {
         }).success(function(data) {
             data.data.map(function(d) {
                 d.anak.waktuLahir = (new Date(d.anak.waktuLahir));
+                d.anak.waktuLahir.setHours(d.anak.waktuLahir.getHours() + 7);
                 d.anak.anakKe = Number(d.anak.anakKe);
                 d.anak.berat = Number(d.anak.berat);
                 d.anak.panjang = Number(d.anak.panjang);
@@ -22,8 +23,6 @@ app.factory('KelahiranService', function($http, $q) {
                 d.id = Number(d.id);
                 d.anakId = Number(d.anakId);
                 d.kelurahanId = Number(d.kelurahanId);
-                d.instansiKesehatanId = Number(d.instansiKesehatanId);
-                d.kartuKeluargaId = Number(d.kartuKeluargaId);
                 d.saksiSatuId = Number(d.saksiSatuId);
                 d.saksiDuaId = Number(d.saksiDuaId);
                 d.verifikasiAdmin = !!d.verifikasiAdmin;
@@ -50,6 +49,7 @@ app.factory('KelahiranService', function($http, $q) {
             url: getEndpoint(id)
         }).success(function(response) {
             response.data.anak.waktuLahir = (new Date(response.data.anak.waktuLahir));
+            response.data.anak.waktuLahir.setHours(response.data.anak.waktuLahir.getHours() + 7);
             response.data.anak.anakKe = Number(response.data.anak.anakKe);
             response.data.anak.berat = Number(response.data.anak.berat);
             response.data.anak.panjang = Number(response.data.anak.panjang);
@@ -57,8 +57,6 @@ app.factory('KelahiranService', function($http, $q) {
             response.data.id = Number(response.data.id);
             response.data.anakId = Number(response.data.anakId);
             response.data.kelurahanId = Number(response.data.kelurahanId);
-            response.data.instansiKesehatanId = Number(response.data.instansiKesehatanId);
-            response.data.kartuKeluargaId = Number(response.data.kartuKeluargaId);
             response.data.saksiSatuId = Number(response.data.saksiSatuId);
             response.data.saksiDuaId = Number(response.data.saksiDuaId);
             response.data.verifikasiAdmin = !!response.data.verifikasiAdmin;
@@ -99,6 +97,18 @@ app.factory('KelahiranService', function($http, $q) {
             req.saksiDua = dat.saksiDua;
         }
 
+        for (var k in req) {
+          if (req[k] === null) {
+            delete(req[k]);
+          }
+
+          for (var kk in req.anak) {
+            if (req.anak[kk] === null) {
+              delete(req.anak[kk]);
+            }
+          }
+        }
+
         //kode_ruangan, kapasitas, status_kondisi
         $http({
             method: 'POST',
@@ -135,6 +145,18 @@ app.factory('KelahiranService', function($http, $q) {
 
         if (dat.saksiDua && dat.saksiDua.pendudukId !== null) {
             req.saksiDua = dat.saksiDua;
+        }
+
+        for (var k in req) {
+          if (req[k] === null) {
+            delete(req[k]);
+          }
+
+          for (var kk in req.anak) {
+            if (req.anak[kk] === null) {
+              delete(req.anak[kk]);
+            }
+          }
         }
 
         $http({
