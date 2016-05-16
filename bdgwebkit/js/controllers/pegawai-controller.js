@@ -8,6 +8,18 @@ app.controller('PegawaiCtrl', function($http, $interval, $rootScope, $scope, $st
 		namaKelurahan: ''
 	};
 
+	$scope.options = {
+			selected: undefined,
+			selectedTitle: 'Semua',
+			options: [
+				{ name: 'Semua', value: undefined },
+				{ name: 'Belum Diajukan', value: 0 },
+				{ name: 'Sudah Diajukan', value: 1 },
+				{ name: 'Sudah Diverifikasi', value: 2 },
+				{ name: 'Ditolak', value: 3 },
+			]
+	}
+
 	$scope.daftarKelahiran = [];
 	$scope.viewedDetail = {};
 	$scope.showDetailedPermohonan = false;

@@ -108,7 +108,15 @@
                                 <div class="col-md-12">
                                     <div class="panel panel-default">
                                         <div class="panel-heading font-semibold">
-                                            <h1 class="m-n font-bold h3 padder">Tabel Daftar Permohonan</h1>
+                                            <h1 class="m-n font-bold h3 padder">Tabel Daftar Permohonan
+                                              <select
+                                                  class="pull-right"
+                                                  ng-model="options.selected"
+                                                  ng-options="o.value as o.name for o in options.options"
+                                                  disable-search="true"
+                                                  chosen="{inherit_select_classes:true}">
+                                              </select>
+                                            </h1>
                                         </div>
                                         <div class="panel-body no-padder">
                                             <div class="row wrapper-sm form-inline" style="margin: 0">
@@ -151,7 +159,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" dir-paginate="kelahiran in daftarKelahiran | filter:({status:'!0', anak:{nama:filter.namaAnak}, pemohon:{nama:filter.namaPemohon}, instansi_kesehatan:{nama:filter.namaInKes}, kelurahan:{nama:filter.namaKelurahan}}) | itemsPerPage: 10">
+                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" dir-paginate="kelahiran in daftarKelahiran | filter:({status:options.selected, anak:{nama:filter.namaAnak}, pemohon:{nama:filter.namaPemohon}, instansi_kesehatan:{nama:filter.namaInKes}, kelurahan:{nama:filter.namaKelurahan}}) | orderBy:'verifikasiAdmin':true | itemsPerPage: 10">
                                                             <td>{{kelahiran.pemohon.nama}}</td>
                                                             <td>{{kelahiran.anak.nama}}</td>
                                                             <td class="{{kelahiran.verifikasiSaksi1 ? 'text-success' : 'text-danger'}}">

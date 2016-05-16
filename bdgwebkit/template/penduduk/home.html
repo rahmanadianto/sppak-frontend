@@ -36,7 +36,7 @@
         <!-- / navbar collapse -->
     </header>
     <!-- / header -->
-    
+
     <!-- aside -->
     <aside id="aside" class="app-aside bg-dark hidden">
         <div class="aside-wrap">
@@ -235,7 +235,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr ng-repeat="kelahiran in daftarKelahiran | orderBy:'anak.anakKe' | filter:{status:1}">
+                                                    <tr ng-repeat="kelahiran in daftarKelahiran | orderBy:'anak.anakKe' | filter:{status:2}">
                                                         <td>{{kelahiran.anak.anakKe}}</td>
                                                         <td>{{kelahiran.anak.nama}}</td>
                                                         <td>{{kelahiran.anak.waktuLahir | date : 'd MMM yyyy, pkl. hh:mm'}}</td>

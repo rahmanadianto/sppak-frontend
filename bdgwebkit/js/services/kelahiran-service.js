@@ -97,17 +97,17 @@ app.factory('KelahiranService', function($http, $q) {
             req.saksiDua = dat.saksiDua;
         }
 
-        for (var k in req) {
-          if (req[k] === null) {
-            delete(req[k]);
-          }
-
-          for (var kk in req.anak) {
-            if (req.anak[kk] === null) {
-              delete(req.anak[kk]);
-            }
-          }
-        }
+        // for (var k in req) {
+        //   if (req[k] === null) {
+        //     delete(req[k]);
+        //   }
+        //
+        //   for (var kk in req.anak) {
+        //     if (req.anak[kk] === null) {
+        //       delete(req.anak[kk]);
+        //     }
+        //   }
+        // }
 
         //kode_ruangan, kapasitas, status_kondisi
         $http({
@@ -147,17 +147,17 @@ app.factory('KelahiranService', function($http, $q) {
             req.saksiDua = dat.saksiDua;
         }
 
-        for (var k in req) {
-          if (req[k] === null) {
-            delete(req[k]);
-          }
-
-          for (var kk in req.anak) {
-            if (req.anak[kk] === null) {
-              delete(req.anak[kk]);
-            }
-          }
-        }
+        // for (var k in req) {
+        //   if (req[k] === null) {
+        //     delete(req[k]);
+        //   }
+        //
+        //   for (var kk in req.anak) {
+        //     if (req.anak[kk] === null) {
+        //       delete(req.anak[kk]);
+        //     }
+        //   }
+        // }
 
         $http({
             method: 'PATCH',
