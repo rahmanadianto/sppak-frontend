@@ -1,6 +1,6 @@
 app.factory('ProvinsiService', function($http, $q) {
     var factory = {};
-    var kelahiranEndpoint = 'http://localhost:8000/api/v1/provinsi/';
+    var kelahiranEndpoint = 'http://sppak.beti.ga/api/v1/provinsi/';
 
     factory.getAllProvinsi = function() {
         var deferred = $q.defer();

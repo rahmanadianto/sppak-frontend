@@ -1,6 +1,6 @@
 app.factory('KotaService', function($http, $q) {
     var factory = {};
-    var endpoint = 'http://localhost:8000/api/v1/kota/';
+    var endpoint = 'http://sppak.beti.ga/api/v1/kota/';
 
     factory.getAllKota = function() {
         var deferred = $q.defer();

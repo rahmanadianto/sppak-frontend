@@ -1,7 +1,7 @@
 app.factory('PendudukService', function($http, $q) {
     var factory = {};
-    var pendudukEndpoint = 'http://localhost:8000/api/v1/penduduk/';
-    var penggunaEndpoint = 'http://localhost:8000/api/v1/pengguna/';
+    var pendudukEndpoint = 'http://sppak.beti.ga/api/v1/penduduk/';
+    var penggunaEndpoint = 'http://sppak.beti.ga/api/v1/pengguna/';
 
 
     factory.getAllPenduduk = function() {
