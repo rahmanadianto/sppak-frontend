@@ -281,11 +281,12 @@
 
 
                                     <div class="line line-dashed b-b line-lg pull-in"></div>
-                                    <div class="form-group" ng-hide="permohonan.status > 0">
+                                    <div class="form-group" ng-hide="permohonan.status > 0 && !isLoading">
                                         <div class="col-sm-12" ui-view>
                                             <span class="pull-right">
-                                                <button class="btn btn-default" ng-click="addKelahiran(permohonan)">Simpan</button>
-                                                <button type="submit" class="btn btn-info" ng-click="addKelahiran(permohonan, true)">Ajukan</button>
+                                                <img src="/img/loading.gif" alt="loading..." style="margin-right: 4px" ng-show="isLoading"/>
+                                                <button ng-disabled="isLoading" class="btn btn-default" ng-click="addKelahiran(permohonan)">Simpan</button>
+                                                <button ng-disabled="isLoading" type="submit" class="btn btn-info" ng-click="addKelahiran(permohonan, true)">Ajukan</button>
                                             </span>
                                         </div>
                                     </div>

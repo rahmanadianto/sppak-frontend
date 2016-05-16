@@ -6,6 +6,7 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
     $scope.daftarKota = [];
     $scope.ayah = {};
     $scope.ibu = {};
+    $scope.isLoading = false;
 
     $scope.permohonan = {
         "id": null,
@@ -91,10 +92,12 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
 
     var addKelahiran = function(permohonan, isSubmit) {
         if (isSubmit) permohonan.status = 1;
+        $scope.isLoading = true;
 
         KelahiranService.addKelahiran(permohonan)
         .then(function(res) {
             $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
+            $scope.isLoading = false;
         })
     		.catch(function(err) {
           if (isSubmit) permohonan.status = 0;
@@ -103,15 +106,18 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
     			} else {
     				alert("Terjadi error pada server. Mohon maaf.");
     			}
+          $scope.isLoading = false;
     		});
     }
 
     var editKelahiran = function(permohonan, isSubmit) {
         if (isSubmit) permohonan.status = 1;
+        $scope.isLoading = true;
 
         KelahiranService.editKelahiran(permohonan.id, permohonan)
         .then(function(res) {
             $state.go('penduduk', {}, {reload: true, inherit: true, notify: true});
+            $scope.isLoading = false;
         }).catch(function(err) {
             if (isSubmit) permohonan.status = 0;
       			if (err) {
@@ -119,6 +125,7 @@ PendudukService, KotaService, KelahiranService, InstansiKesehatanService) {
       			} else {
       				alert("Terjadi error pada server. Mohon maaf.");
       			}
+            $scope.isLoading = false;
         });
     }
 

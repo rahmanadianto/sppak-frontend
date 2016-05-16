@@ -1,5 +1,6 @@
-<button class="btn btn-danger" ng-click="deleteKelahiran(permohonan.id, permohonan.anak.nama)"><i class="fa fa-trash"></i> Hapus</button>
+<button ng-disabled="isLoading" class="btn btn-danger" ng-click="deleteKelahiran(permohonan.id, permohonan.anak.nama)"><i class="fa fa-trash"></i> Hapus</button>
 <span class="pull-right">
-    <button class="btn btn-default" ng-click="editKelahiran(permohonan)">Simpan</button>
-    <button type="submit" class="btn btn-info" ng-click="editKelahiran(permohonan, true)">Simpan dan Ajukan</button>
+    <img src="/img/loading.gif" alt="loading..." style="margin-right: 4px" ng-show="isLoading"/>
+    <button ng-disabled="isLoading" class="btn btn-default" ng-click="editKelahiran(permohonan)">Simpan</button>
+    <button ng-disabled="isLoading" type="submit" class="btn btn-info" ng-click="editKelahiran(permohonan, true)">Simpan dan Ajukan</button>
 </span>
