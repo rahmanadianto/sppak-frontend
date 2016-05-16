@@ -159,7 +159,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" dir-paginate="kelahiran in daftarKelahiran | filter:({status:options.selected, anak:{nama:filter.namaAnak}, pemohon:{nama:filter.namaPemohon}, instansi_kesehatan:{nama:filter.namaInKes}, kelurahan:{nama:filter.namaKelurahan}}) | orderBy:'verifikasiAdmin':true | itemsPerPage: 10">
+                                                        <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" dir-paginate="kelahiran in daftarKelahiran | filter:({status:'!3'}) |  filter:({status:options.selected, anak:{nama:filter.namaAnak}, pemohon:{nama:filter.namaPemohon}, instansi_kesehatan:{nama:filter.namaInKes}, kelurahan:{nama:filter.namaKelurahan}}) | orderBy:'verifikasiAdmin':true | itemsPerPage: 10">
                                                             <td>{{kelahiran.pemohon.nama}}</td>
                                                             <td>{{kelahiran.anak.nama}}</td>
                                                             <td class="{{kelahiran.verifikasiSaksi1 ? 'text-success' : 'text-danger'}}">

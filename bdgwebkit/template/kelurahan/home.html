@@ -137,7 +137,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" dir-paginate="kelahiran in daftarKelahiran | filter:({status:'!0', anak:{nama:filter.namaAnak}, ibu:{nama:filter.namaIbu}, ayah:{nama:filter.namaAyah}, instansi_kesehatan:{nama:filter.namaInKes}, verifikasiLurah:filter.verifikasi}) | itemsPerPage: 10">
+                                                <tr class="{{viewedDetail.id === kelahiran.id ? 'active' : ''}}" dir-paginate="kelahiran in daftarKelahiran | filter:({status:'!3'}) |  filter:({status:'!0 && !3', anak:{nama:filter.namaAnak}, ibu:{nama:filter.namaIbu}, ayah:{nama:filter.namaAyah}, instansi_kesehatan:{nama:filter.namaInKes}, verifikasiLurah:filter.verifikasi}) | orderBy: 'verifikasiLurah' | itemsPerPage: 10">
                                                     <td>{{kelahiran.ibu.nama}}</td>
                                                     <td>{{kelahiran.ibu.id}}</td>
                                                     <td>{{kelahiran.anak.nama}}</td>
